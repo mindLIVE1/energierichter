@@ -110,6 +110,21 @@
         el.removeAttribute('data-consent-src');
       }
     });
+
+    // Toggle placeholders: hide when consented, show when not
+    document.querySelectorAll<HTMLElement>('[data-consent-placeholder]').forEach((el) => {
+      const category = el.dataset.consentPlaceholder as keyof ConsentState;
+      el.style.display = state[category] ? 'none' : '';
+    });
+
+    // Toggle embed wrappers: show when consented, hide when not
+    document.querySelectorAll<HTMLElement>('[data-consent-embed]').forEach((el) => {
+      const category = el.dataset.consentEmbed as keyof ConsentState;
+      el.style.display = state[category] ? '' : 'none';
+    });
+
+    // Dispatch event so pages can react
+    window.dispatchEvent(new CustomEvent('consent:changed', { detail: state }));
   }
 
   function showBanner() {
@@ -154,6 +169,16 @@
       analytics: cbAnalytics.checked,
       marketing: cbMarketing.checked,
       embeds: cbEmbeds.checked,
+    });
+  });
+
+  // Inline "accept" buttons on placeholders (e.g. [data-consent-accept="embeds"])
+  document.querySelectorAll<HTMLButtonElement>('[data-consent-accept]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const category = btn.dataset.consentAccept as keyof ConsentState;
+      const current = getStoredConsent() ?? { analytics: false, marketing: false, embeds: false };
+      current[category] = true;
+      saveConsent(current);
     });
   });
 </script>
