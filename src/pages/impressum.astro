@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+---
+
+<BaseLayout
+  title="Impressum | EnergieMakler"
+  description="Impressum der EnergieMakler GmbH gemäß § 5 TMG."
+>
+  <Header slot="header" />
+
+  <section class="section-padding">
+    <div class="container-narrow prose-custom">
+      <h1>Impressum</h1>
+
+      <h2>Angaben gemäß § 5 TMG</h2>
+      <p>
+        EnergieMakler GmbH<br />
+        Musterstraße 42<br />
+        80331 München<br />
+        Deutschland
+      </p>
+
+      <h2>Vertreten durch</h2>
+      <p>Max Mustermann, Geschäftsführer</p>
+
+      <h2>Kontakt</h2>
+      <p>
+        Telefon: +49 123 456789<br />
+        E-Mail: info@energiemakler-beispiel.de
+      </p>
+
+      <h2>Registereintrag</h2>
+      <p>
+        Handelsregister: Amtsgericht München<br />
+        Registernummer: HRB 123456
+      </p>
+
+      <h2>Umsatzsteuer-ID</h2>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:<br />
+        DE 123 456 789
+      </p>
+
+      <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
+      <p>
+        Berufsbezeichnung: Energiemakler / Energieberater<br />
+        Zuständige Aufsichtsbehörde: IHK München und Oberbayern
+      </p>
+
+      <h2>Streitschlichtung</h2>
+      <p>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a><br />
+        Unsere E-Mail-Adresse finden Sie oben im Impressum.
+      </p>
+      <p>
+        Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+        Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
+
+      <h2>Haftung für Inhalte</h2>
+      <p>
+        Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
+        allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+        verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen
+        zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+      </p>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <ConsentBanner slot="consent" />
+</BaseLayout>

@@ -1,0 +1,30 @@
+---
+import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
+---
+
+<ZielgruppeLayout
+  seo={{
+    title: 'Energieberatung für Immobilienverwalter | EnergieMakler',
+    description: 'Optimieren Sie die Energiekosten Ihrer Liegenschaften. Zentraler Ansprechpartner für alle Objekte – transparent und effizient.'
+  }}
+  hero={{
+    badge: 'Für Immobilienverwalter',
+    title: 'Energiekosten Ihrer <span class="text-brand-400">Liegenschaften</span> optimieren',
+    subtitle: 'Ein Ansprechpartner für alle Objekte – wir optimieren Strom & Gas für Ihre gesamte Verwaltung.'
+  }}
+  painPoints={[
+    { icon: '🏢', title: 'Viele Objekte, viele Verträge', desc: 'Jedes Objekt hat eigene Verträge, Laufzeiten und Versorger – der Überblick geht schnell verloren.' },
+    { icon: '📬', title: 'Abrechnungsaufwand', desc: 'Die korrekte Umlage der Energiekosten auf Mieter ist zeitaufwendig.' },
+    { icon: '🔒', title: 'Gesetzliche Pflichten', desc: 'Energieausweis, CO₂-Umlage, neue Regelungen – der Verwaltungsaufwand steigt.' },
+  ]}
+  benefits={[
+    { icon: '📁', title: 'Zentrales Management', desc: 'Alle Verträge und Objekte in einer Übersicht – wir behalten den Überblick für Sie.' },
+    { icon: '💶', title: 'Kostenoptimierung', desc: 'Bündelung von Verbräuchen über mehrere Objekte für bessere Konditionen.' },
+    { icon: '📋', title: 'Compliance-Support', desc: 'Unterstützung bei Energieausweisen, CO₂-Umlage und gesetzlichen Anforderungen.' },
+  ]}
+  faqs={[
+    { question: 'Können Sie alle unsere Objekte betreuen?', answer: 'Ja, wir betreuen Portfolios jeder Größe – von einzelnen Mehrfamilienhäusern bis zu großen Beständen.' },
+    { question: 'Wie funktioniert die Bündelung?', answer: 'Wir fassen die Verbräuche mehrerer Objekte zusammen und verhandeln Rahmenverträge mit besseren Konditionen.' },
+    { question: 'Unterstützen Sie bei der Nebenkostenabrechnung?', answer: 'Wir liefern übersichtliche Abrechnungsunterlagen, die direkt für die Heizkostenabrechnung verwendet werden können.' },
+  ]}
+/>

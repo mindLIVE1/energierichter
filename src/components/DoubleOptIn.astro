@@ -1,0 +1,25 @@
+---
+// DoubleOptIn – UI-only confirmation step after form submission
+---
+
+<div id="double-opt-in" class="hidden animate-fade-in">
+  <div class="bg-white rounded-2xl border border-gray-100 shadow-xl p-8 sm:p-12 text-center max-w-lg mx-auto">
+    <div class="w-16 h-16 rounded-full bg-brand-100 flex items-center justify-center mx-auto mb-6">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#128a50" stroke-width="2" stroke-linecap="round">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+        <path d="M22 4L12 14.01l-3-3"/>
+      </svg>
+    </div>
+    <h2 class="text-2xl font-heading font-bold text-dark-900 mb-3">
+      Fast geschafft!
+    </h2>
+    <p class="text-gray-600 leading-relaxed mb-6">
+      Wir haben Ihnen eine E-Mail an <strong id="doi-email" class="text-dark-900">ihre@email.de</strong> gesendet.
+      Bitte bestätigen Sie Ihre Anfrage über den Link in der E-Mail.
+    </p>
+    <div class="bg-brand-50 rounded-xl p-4 text-sm text-brand-800 leading-relaxed">
+      <strong>Tipp:</strong> Prüfen Sie auch Ihren Spam-Ordner. Die E-Mail kommt von
+      <span class="font-medium">info@energiemakler-beispiel.de</span>.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+---
+
+<BaseLayout
+  title="Termin vereinbaren – Persönliche Beratung | EnergieMakler"
+  description="Buchen Sie einen kostenlosen Beratungstermin mit unseren Energieexperten – online oder telefonisch."
+>
+  <Header slot="header" />
+
+  <section class="section-padding">
+    <div class="container-narrow">
+      <SectionHeading
+        title="Termin vereinbaren"
+        subtitle="Wählen Sie einen passenden Termin für Ihre persönliche Energieberatung."
+      />
+
+      <!-- Calendly Placeholder (blocked until consent) -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-md overflow-hidden">
+        <div id="calendly-placeholder" class="min-h-[600px] flex items-center justify-center p-8">
+          <div class="text-center max-w-md">
+            <div class="w-16 h-16 rounded-2xl bg-brand-100 flex items-center justify-center mx-auto mb-6">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#128a50" stroke-width="2" stroke-linecap="round">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Online-Terminbuchung</h3>
+            <p class="text-gray-600 mb-6">
+              Hier wird die Calendly-Integration eingebunden.
+              Bitte akzeptieren Sie externe Inhalte in den Cookie-Einstellungen, um den Kalender zu laden.
+            </p>
+            <p class="text-sm text-gray-400 mb-6">
+              Alternativ erreichen Sie uns telefonisch:
+            </p>
+            <a href="tel:+49123456789" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white gradient-brand rounded-xl shadow-md hover:shadow-lg transition-all">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.09 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l2.27-2.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              +49 123 456789
+            </a>
+          </div>
+        </div>
+
+        <!-- Calendly embed (activated on consent) -->
+        <!--
+        <iframe
+          data-consent="embeds"
+          data-consent-src="https://calendly.com/YOUR-LINK"
+          width="100%"
+          height="700"
+          frameborder="0"
+          title="Terminbuchung"
+        ></iframe>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <ConsentBanner slot="consent" />
+</BaseLayout>

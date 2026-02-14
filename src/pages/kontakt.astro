@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import ContactForm from '../components/ContactForm.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+---
+
+<BaseLayout
+  title="Kontakt – So erreichen Sie uns | EnergieMakler"
+  description="Kontaktieren Sie uns per Telefon, E-Mail oder Formular. Unser Team ist Mo–Fr von 9–18 Uhr für Sie da."
+>
+  <Header slot="header" />
+
+  <section class="section-padding">
+    <div class="container-wide">
+      <SectionHeading
+        title="Kontakt"
+        subtitle="Wir freuen uns auf Ihre Nachricht. Unser Team ist für Sie da."
+      />
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Form -->
+        <div>
+          <h3 class="text-xl font-heading font-bold text-dark-900 mb-6">Schreiben Sie uns</h3>
+          <ContactForm />
+        </div>
+
+        <!-- Contact Info -->
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-heading font-bold text-dark-900 mb-6">Kontaktdaten</h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
+                <div class="w-10 h-10 rounded-lg gradient-brand flex items-center justify-center shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-dark-900">Adresse</p>
+                  <p class="text-sm text-gray-600">Musterstraße 42, 80331 München</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
+                <div class="w-10 h-10 rounded-lg gradient-brand flex items-center justify-center shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.09 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l2.27-2.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-dark-900">Telefon</p>
+                  <p class="text-sm text-gray-600">+49 123 456789</p>
+                  <p class="text-xs text-gray-400">Mo–Fr, 9:00–18:00 Uhr</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 bg-gray-50 rounded-xl">
+                <div class="w-10 h-10 rounded-lg gradient-brand flex items-center justify-center shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-dark-900">E-Mail</p>
+                  <p class="text-sm text-gray-600">info@energiemakler-beispiel.de</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div class="bg-gray-100 rounded-2xl h-64 flex items-center justify-center">
+            <div class="text-center text-gray-400">
+              <svg class="w-10 h-10 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p class="text-sm">Kartenansicht (nach Cookie-Zustimmung)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <ConsentBanner slot="consent" />
+</BaseLayout>

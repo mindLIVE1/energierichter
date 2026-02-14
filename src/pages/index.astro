@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import Hero from '../components/ui/Hero.astro';
+import Card from '../components/ui/Card.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Testimonial from '../components/ui/Testimonial.astro';
+import FaqAccordion from '../components/ui/FaqAccordion.astro';
+import CtaBanner from '../components/ui/CtaBanner.astro';
+
+const testimonials = [
+  { quote: 'Durch EnergieMakler sparen wir jährlich über 3.000 € bei unseren Energiekosten. Absolute Empfehlung!', name: 'Thomas K.', role: 'Geschäftsführer, KMU', rating: 5 },
+  { quote: 'Endlich ein transparenter Berater, der nicht an einen Anbieter gebunden ist. Super Service!', name: 'Maria S.', role: 'Privatkundin', rating: 5 },
+  { quote: 'Die Umstellung lief reibungslos. Das Team hat sich um alles gekümmert – von A bis Z.', name: 'Andreas W.', role: 'Immobilienverwalter', rating: 5 },
+];
+
+const faqs = [
+  { question: 'Was kostet die Beratung?', answer: 'Unsere Beratung ist für Sie als Kunde komplett kostenlos. Wir werden von den Energieversorgern vergütet – transparent und fair.' },
+  { question: 'Wie lange dauert ein Anbieterwechsel?', answer: 'Der Wechselprozess dauert in der Regel 2–4 Wochen. Wir kümmern uns um die gesamte Abwicklung, inklusive Kündigung beim alten Anbieter.' },
+  { question: 'Bin ich an einen Anbieter gebunden?', answer: 'Nein. Wir sind unabhängig und vergleichen Tarife von über 100 Anbietern, um den besten für Sie zu finden.' },
+  { question: 'Welche Dokumente benötige ich?', answer: 'In der Regel genügen Ihre letzte Jahresabrechnung und Ihr aktueller Zählerstand. Diese können Sie bequem über unser Anfrageformular hochladen.' },
+];
+---
+
+<BaseLayout
+  title="EnergieMakler – Unabhängige Energieberatung | Strom & Gas"
+  description="Ihr unabhängiger Energiemakler: Wir finden den besten Strom- und Gastarif für Privat- und Geschäftskunden. Kostenlos, transparent, unverbindlich."
+>
+  <Header slot="header" />
+
+  <!-- Hero -->
+  <Hero
+    badge="Unabhängig · Transparent · Kostenlos"
+    title="Energiekosten <span class='text-brand-400'>intelligent</span> senken"
+    subtitle="Wir vergleichen über 100 Anbieter und finden den optimalen Strom- & Gastarif für Sie – kostenlos und unverbindlich."
+    ctaText="Kostenlos anfragen"
+    ctaHref="/anfrage"
+    secondaryCtaText="Termin vereinbaren"
+    secondaryCtaHref="/termin"
+  />
+
+  <!-- Trust Badges -->
+  <section class="py-10 bg-gray-50 border-y border-gray-100">
+    <div class="container-wide">
+      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-gray-400">
+        <div class="flex items-center gap-2 text-sm">
+          <svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span class="font-medium text-gray-600">TÜV-geprüft</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span class="font-medium text-gray-600">5.000+ zufriedene Kunden</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <span class="font-medium text-gray-600">Ø 420 € Ersparnis/Jahr</span>
+        </div>
+        <div class="flex items-center gap-2 text-sm">
+          <svg class="w-5 h-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          <span class="font-medium text-gray-600">4.9/5 Bewertung</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <SectionHeading
+        title="Unsere Leistungen"
+        subtitle="Von der Tarifanalyse bis zum reibungslosen Wechsel – wir begleiten Sie durch den gesamten Prozess."
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card title="Tarifvergleich" icon="⚡">
+          Wir vergleichen über 100 Anbieter und finden den günstigsten Tarif mit den besten Konditionen für Ihren Verbrauch.
+        </Card>
+        <Card title="Wechselservice" icon="🔄">
+          Kündigung, Neuanmeldung, Kommunikation mit dem Versorger – wir übernehmen den kompletten Wechsel für Sie.
+        </Card>
+        <Card title="Dauerhafte Betreuung" icon="🛡️">
+          Wir überwachen Ihren Vertrag und informieren Sie automatisch, wenn ein besseres Angebot verfügbar ist.
+        </Card>
+      </div>
+      <div class="text-center mt-10">
+        <a href="/leistungen" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-500 transition-colors">
+          Alle Leistungen ansehen
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-wide">
+      <SectionHeading
+        title="So einfach geht's"
+        subtitle="In nur 3 Schritten zu Ihrem optimalen Energietarif"
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { step: '01', title: 'Anfrage senden', desc: 'Füllen Sie unser kurzes Formular aus oder laden Sie Ihre letzte Rechnung hoch.' },
+          { step: '02', title: 'Wir vergleichen', desc: 'Wir analysieren Ihren Verbrauch und finden den besten Tarif aus über 100 Anbietern.' },
+          { step: '03', title: 'Sie sparen', desc: 'Wir kümmern uns um den Wechsel – Sie lehnen sich zurück und genießen niedrigere Kosten.' },
+        ].map((item) => (
+          <div class="relative text-center p-6">
+            <div class="text-6xl font-heading font-extrabold text-brand-100 mb-4">{item.step}</div>
+            <h3 class="text-xl font-heading font-bold text-dark-900 mb-2">{item.title}</h3>
+            <p class="text-gray-600">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <CtaBanner text="Bereit für niedrigere Energiekosten?" ctaText="Jetzt kostenlos anfragen" ctaHref="/anfrage" />
+
+  <!-- Testimonials -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <SectionHeading
+        title="Das sagen unsere Kunden"
+        subtitle="Überzeugen Sie sich von den Erfahrungen anderer Kunden."
+      />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <Testimonial {...t} />
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a href="/referenzen" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-500 transition-colors">
+          Alle Bewertungen ansehen
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-narrow">
+      <SectionHeading
+        title="Häufig gestellte Fragen"
+        subtitle="Hier finden Sie Antworten auf die wichtigsten Fragen."
+      />
+      <FaqAccordion items={faqs} />
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <ConsentBanner slot="consent" />
+</BaseLayout>

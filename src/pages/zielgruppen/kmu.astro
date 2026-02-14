@@ -1,0 +1,30 @@
+---
+import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
+---
+
+<ZielgruppeLayout
+  seo={{
+    title: 'Energieberatung für KMU & Gewerbe | EnergieMakler',
+    description: 'Senken Sie die Energiekosten Ihres Unternehmens. Maßgeschneiderte Tarife für kleine und mittlere Unternehmen – kostenlos und unabhängig.'
+  }}
+  hero={{
+    badge: 'Für KMU & Gewerbe',
+    title: 'Energiekosten <span class="text-brand-400">senken</span>, Wettbewerbsfähigkeit steigern',
+    subtitle: 'Maßgeschneiderte Energielösungen für kleine und mittlere Unternehmen – mit durchschnittlich 15% Einsparpotenzial.'
+  }}
+  painPoints={[
+    { icon: '📈', title: 'Steigende Energiepreise', desc: 'Energiekosten sind für KMU ein erheblicher Kostenfaktor, der die Marge drückt.' },
+    { icon: '📋', title: 'Komplexe Verträge', desc: 'Gewerbetarife sind oft undurchsichtig – Leistungspreis, Arbeitspreis, Netzentgelte.' },
+    { icon: '🕐', title: 'Zeitaufwand', desc: 'Als Unternehmer fehlt oft die Zeit, sich um Energieverträge zu kümmern.' },
+  ]}
+  benefits={[
+    { icon: '📊', title: 'Gewerbe-Tarifvergleich', desc: 'Spezielle Gewerbe- und Sondervertragstarife mit optimierten Konditionen.' },
+    { icon: '🔧', title: 'Lastgang-Analyse', desc: 'Wir analysieren Ihren Lastgang und optimieren Ihren Leistungsbezug.' },
+    { icon: '📅', title: 'Vertragsmanagement', desc: 'Proaktive Überwachung von Fristen und automatische Optimierung.' },
+  ]}
+  faqs={[
+    { question: 'Ab welcher Unternehmensgröße lohnt sich das?', answer: 'Schon ab einem Jahresverbrauch von 10.000 kWh Strom können wir attraktive Gewerbekonditionen vermitteln.' },
+    { question: 'Können Sie auch Sonderverträge vermitteln?', answer: 'Ja, wir haben Zugang zu RLM-Verträgen und Sonderkonditionen, die nicht öffentlich verfügbar sind.' },
+    { question: 'Wie wirkt sich ein Wechsel auf den Betrieb aus?', answer: 'Gar nicht – die Versorgung ist gesetzlich garantiert. Der Wechsel erfolgt im Hintergrund.' },
+  ]}
+/>

@@ -1,0 +1,111 @@
+---
+const currentYear = new Date().getFullYear();
+
+const links = {
+  leistungen: [
+    { label: 'Strom & Gas', href: '/leistungen' },
+    { label: 'Privatkunden', href: '/zielgruppen/privat' },
+    { label: 'KMU', href: '/zielgruppen/kmu' },
+    { label: 'Industrie', href: '/zielgruppen/industrie' },
+    { label: 'Immobilienverwalter', href: '/zielgruppen/immobilienverwalter' },
+  ],
+  unternehmen: [
+    { label: 'Über uns', href: '/transparenz' },
+    { label: 'Referenzen', href: '/referenzen' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Glossar', href: '/glossar' },
+    { label: 'Kontakt', href: '/kontakt' },
+  ],
+  rechtliches: [
+    { label: 'Impressum', href: '/impressum' },
+    { label: 'Datenschutz', href: '/datenschutz' },
+    { label: 'Cookie-Richtlinie', href: '/cookie-richtlinie' },
+  ],
+};
+---
+
+<!-- Pre-footer CTA -->
+<section class="gradient-brand">
+  <div class="container-wide py-12 sm:py-16 text-center">
+    <h2 class="text-2xl sm:text-3xl font-heading font-bold text-white mb-4">
+      Bereit, Energiekosten zu senken?
+    </h2>
+    <p class="text-brand-100 mb-8 max-w-xl mx-auto">
+      Unverbindliche Anfrage in 2&nbsp;Minuten – wir finden den besten Tarif für Sie.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/anfrage"
+         class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-brand-700 bg-white rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+        Kostenlos anfragen
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="/termin"
+         class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white border-2 border-white/30 rounded-xl hover:bg-white/10 transition-all duration-200">
+        Termin vereinbaren
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="gradient-dark text-gray-300">
+  <div class="container-wide py-12 lg:py-16">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+      <!-- Brand Column -->
+      <div class="col-span-2 md:col-span-1">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg gradient-brand flex items-center justify-center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <span class="font-heading font-bold text-lg text-white">
+            Energie<span class="text-brand-400">Makler</span>
+          </span>
+        </a>
+        <p class="text-sm text-gray-400 leading-relaxed mb-4">
+          Unabhängiger Energiemakler – wir finden den besten Tarif für Strom &amp; Gas.
+        </p>
+        <div class="flex items-center gap-2 text-sm text-gray-400">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.09 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l2.27-2.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +49 123 456789
+        </div>
+      </div>
+
+      <!-- Leistungen -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Leistungen</h3>
+        <ul class="space-y-2.5">
+          {links.leistungen.map((l) => (
+            <li><a href={l.href} class="text-sm hover:text-brand-400 transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Unternehmen -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Unternehmen</h3>
+        <ul class="space-y-2.5">
+          {links.unternehmen.map((l) => (
+            <li><a href={l.href} class="text-sm hover:text-brand-400 transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Rechtliches -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Rechtliches</h3>
+        <ul class="space-y-2.5">
+          {links.rechtliches.map((l) => (
+            <li><a href={l.href} class="text-sm hover:text-brand-400 transition-colors">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+      <p>&copy; {currentYear} EnergieMakler. Alle Rechte vorbehalten.</p>
+      <p>Energieberatung mit 💚 aus München</p>
+    </div>
+  </div>
+</footer>

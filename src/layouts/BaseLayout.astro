@@ -1,0 +1,99 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/og-default.jpg',
+  canonical,
+} = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const canonicalUrl = canonical ?? Astro.url.href;
+
+import '../styles/global.css';
+---
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- SEO -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:locale" content="de_DE" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "EnergieMakler",
+    "description": "Unabhängige Energieberatung und -vermittlung für Privat- und Geschäftskunden",
+    "url": siteUrl,
+    "telephone": "+49 123 456789",
+    "email": "info@energiemakler-beispiel.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Musterstraße 42",
+      "addressLocality": "München",
+      "postalCode": "80331",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.1351,
+      "longitude": 11.582
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "sameAs": [],
+    "priceRange": "€€"
+  })} />
+</head>
+<body class="min-h-screen flex flex-col">
+  <slot name="header">
+    <Fragment>
+      { /* Default header injected from layout */ }
+    </Fragment>
+  </slot>
+
+  <main class="flex-1">
+    <slot />
+  </main>
+
+  <slot name="footer">
+    <Fragment>
+      { /* Default footer injected from layout */ }
+    </Fragment>
+  </slot>
+
+  <!-- Consent Banner mounted here -->
+  <slot name="consent" />
+</body>
+</html>

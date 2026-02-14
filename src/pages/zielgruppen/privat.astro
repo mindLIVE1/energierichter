@@ -1,0 +1,30 @@
+---
+import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
+---
+
+<ZielgruppeLayout
+  seo={{
+    title: 'Energieberatung für Privatkunden | EnergieMakler',
+    description: 'Sparen Sie als Privatkunde bares Geld bei Strom & Gas. Kostenloser Tarifvergleich von über 100 Anbietern – einfach, schnell und unverbindlich.'
+  }}
+  hero={{
+    badge: 'Für Privatkunden',
+    title: 'Weniger zahlen, <span class="text-brand-400">mehr sparen</span>',
+    subtitle: 'Durchschnittlich 420 € Ersparnis pro Jahr – mit unserem kostenlosen Tarifvergleich für Ihren Haushalt.'
+  }}
+  painPoints={[
+    { icon: '💸', title: 'Zu hohe Energiekosten', desc: 'Viele Haushalte zahlen mehr als nötig, weil sie nie den Anbieter gewechselt haben.' },
+    { icon: '😤', title: 'Unübersichtlicher Markt', desc: 'Hunderte Anbieter, komplizierte Tarife – wer blickt da noch durch?' },
+    { icon: '⏰', title: 'Keine Zeit für Vergleiche', desc: 'Wer hat schon Lust, stundenlang Tarifrechner zu bedienen?' },
+  ]}
+  benefits={[
+    { icon: '🎯', title: 'Persönlicher Vergleich', desc: 'Wir analysieren Ihren Verbrauch und finden den optimalen Tarif.' },
+    { icon: '💰', title: 'Garantierte Ersparnis', desc: 'Wir empfehlen nur Tarife, die günstiger sind als Ihr aktueller.' },
+    { icon: '🤝', title: 'Rundum-Service', desc: 'Kündigung, Wechsel, Betreuung – wir machen alles für Sie.' },
+  ]}
+  faqs={[
+    { question: 'Ist der Service wirklich kostenlos?', answer: 'Ja, für Sie als Kunde fallen keine Kosten an. Wir werden von den Energieversorgern vergütet.' },
+    { question: 'Wie viel kann ich sparen?', answer: 'Im Durchschnitt sparen unsere Privatkunden 420 € pro Jahr. Die genaue Ersparnis hängt von Ihrem Verbrauch ab.' },
+    { question: 'Wie lange dauert der Wechsel?', answer: 'In der Regel 2–4 Wochen. Ihre Versorgung ist dabei zu jedem Zeitpunkt sichergestellt.' },
+  ]}
+/>

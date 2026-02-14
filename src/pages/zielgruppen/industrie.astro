@@ -1,0 +1,30 @@
+---
+import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
+---
+
+<ZielgruppeLayout
+  seo={{
+    title: 'Energieberatung für Industrie | EnergieMakler',
+    description: 'Professionelle Energiebeschaffung für Industrieunternehmen. Strukturierte Beschaffung, Lastganganalyse und individuelle Vertragsgestaltung.'
+  }}
+  hero={{
+    badge: 'Für Industrie',
+    title: 'Professionelle <span class="text-brand-400">Energiebeschaffung</span> für die Industrie',
+    subtitle: 'Strukturierte Beschaffungsstrategien, börsenorientierte Einkaufsmodelle und individuelle Vertragsgestaltung für Großverbraucher.'
+  }}
+  painPoints={[
+    { icon: '⚙️', title: 'Komplexe Beschaffung', desc: 'Industrielle Energiebeschaffung erfordert Expertise in Tranchenmodellen und Börsenstrategien.' },
+    { icon: '📉', title: 'Volatile Märkte', desc: 'Schwankende Energiepreise machen die Budgetplanung zur Herausforderung.' },
+    { icon: '🏭', title: 'Hohe Verbräuche', desc: 'Bei Großverbräuchen machen schon kleine Preisunterschiede erhebliche Summen aus.' },
+  ]}
+  benefits={[
+    { icon: '📈', title: 'Strukturierte Beschaffung', desc: 'Tranchenmodelle und Portfoliomanagement für optimale Preisgestaltung.' },
+    { icon: '💡', title: 'Marktexpertise', desc: 'Tägliche Marktbeobachtung und Empfehlungen zum optimalen Einkaufszeitpunkt.' },
+    { icon: '📑', title: 'Individuelle Verträge', desc: 'Maßgeschneiderte Vertragsgestaltung mit flexiblen Laufzeiten und Konditionen.' },
+  ]}
+  faqs={[
+    { question: 'Welche Beschaffungsmodelle bieten Sie an?', answer: 'Wir bieten Festpreise, Tranchenmodelle, Spotmarkt-Beschaffung und hybride Modelle an.' },
+    { question: 'Ab welchem Verbrauch ist die Industrieberatung sinnvoll?', answer: 'Ab einem Jahresverbrauch von ca. 500.000 kWh bieten sich individuelle Beschaffungsstrategien an.' },
+    { question: 'Wie gehen Sie mit Preisrisiken um?', answer: 'Durch diversifizierte Beschaffungszeitpunkte und Hedging-Strategien minimieren wir Preisrisiken.' },
+  ]}
+/>

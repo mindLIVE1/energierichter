@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+---
+
+<BaseLayout
+  title="Cookie-Richtlinie | EnergieMakler"
+  description="Informationen über die Verwendung von Cookies auf der EnergieMakler Website."
+>
+  <Header slot="header" />
+
+  <section class="section-padding">
+    <div class="container-narrow prose-custom">
+      <h1>Cookie-Richtlinie</h1>
+
+      <h2>Was sind Cookies?</h2>
+      <p>
+        Cookies sind kleine Textdateien, die von Websites auf Ihrem Endgerät gespeichert werden.
+        Sie dienen dazu, unser Angebot nutzerfreundlicher und effektiver zu gestalten.
+      </p>
+
+      <h2>Welche Cookies verwenden wir?</h2>
+
+      <h3>Notwendige Cookies</h3>
+      <p>
+        Diese Cookies sind für den Betrieb der Website unbedingt erforderlich. Dazu gehört z.B.
+        die Speicherung Ihrer Cookie-Einstellungen. Diese Cookies können nicht deaktiviert werden.
+      </p>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Zweck</th><th>Speicherdauer</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>energiemakler_consent</td><td>Speichert Ihre Cookie-Einstellungen</td><td>1 Jahr</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Analyse-Cookies</h3>
+      <p>
+        Diese Cookies helfen uns, das Nutzungsverhalten unserer Website zu verstehen und zu verbessern.
+        Sie werden erst nach Ihrer Einwilligung gesetzt.
+      </p>
+
+      <h3>Marketing-Cookies</h3>
+      <p>
+        Marketing-Cookies werden von Drittanbietern verwendet, um Werbung zu personalisieren.
+        Sie werden erst nach Ihrer Einwilligung gesetzt.
+      </p>
+
+      <h3>Cookies für externe Inhalte</h3>
+      <p>
+        Für die Einbindung von externen Inhalten (z.B. Terminbuchung via Calendly, Kartenansichten)
+        werden Cookies von Drittanbietern verwendet. Diese werden erst nach Ihrer Einwilligung geladen.
+      </p>
+
+      <h2>Wie können Sie Ihre Einstellungen ändern?</h2>
+      <p>
+        Sie können Ihre Cookie-Einstellungen jederzeit über den Cookie-Banner ändern, der über den
+        Button unten erreichbar ist. Zusätzlich können Sie Cookies in Ihren Browsereinstellungen
+        verwalten oder löschen.
+      </p>
+
+      <button
+        onclick="document.getElementById('consent-banner')?.classList.remove('translate-y-full'); document.getElementById('consent-banner')?.classList.add('translate-y-0');"
+        class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-brand-700 bg-brand-50 border border-brand-200 rounded-xl hover:bg-brand-100 transition-all"
+      >
+        🍪 Cookie-Einstellungen öffnen
+      </button>
+
+      <p class="text-sm text-gray-500 mt-12">
+        <em>Hinweis: Dies ist eine Platzhalter-Cookie-Richtlinie. Bitte passen Sie diese an Ihre
+        tatsächlich eingesetzten Cookies und Tracking-Tools an.</em>
+      </p>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+  <ConsentBanner slot="consent" />
+</BaseLayout>

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Testimonial from '../components/ui/Testimonial.astro';
+import CtaBanner from '../components/ui/CtaBanner.astro';
+
+const testimonials = [
+  { quote: 'Durch EnergieMakler sparen wir jährlich über 3.000 € bei unseren Energiekosten. Ein absoluter Gamechanger!', name: 'Thomas K.', role: 'Geschäftsführer, Metallbau GmbH', rating: 5 },
+  { quote: 'Endlich ein transparenter Berater, der nicht an einen Anbieter gebunden ist. Können wir nur empfehlen.', name: 'Maria S.', role: 'Privatkundin', rating: 5 },
+  { quote: 'Die Umstellung lief reibungslos. Das Team hat sich um alles gekümmert – von A bis Z.', name: 'Andreas W.', role: 'Immobilienverwalter', rating: 5 },
+  { quote: 'Schnelle Bearbeitung, kompetente Beratung und eine Ersparnis von 800 € im ersten Jahr. Top!', name: 'Sabine L.', role: 'Privatkundin', rating: 5 },
+  { quote: 'Wir betreuen 120 Wohneinheiten – EnergieMakler hat alle Verträge optimiert und uns enormen Verwaltungsaufwand gespart.', name: 'Peter M.', role: 'Hausverwaltung München', rating: 5 },
+  { quote: 'Als KMU haben wir endlich einen Partner, der den Energiemarkt für uns im Blick behält.', name: 'Dr. Claudia F.', role: 'Inhaberin, Zahnarztpraxis', rating: 5 },
+];
+---
+
+<BaseLayout
+  title="Referenzen & Bewertungen | EnergieMakler"
+  description="Lesen Sie, was unsere Kunden über uns sagen. Über 5.000 zufriedene Kunden vertrauen EnergieMakler."
+>
+  <Header slot="header" />
+
+  <section class="section-padding">
+    <div class="container-wide">
+      <SectionHeading
+        title="Referenzen & Bewertungen"
+        subtitle="Über 5.000 zufriedene Kunden vertrauen uns. Lesen Sie ihre Erfahrungen."
+      />
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+        {[
+          { value: '5.000+', label: 'Zufriedene Kunden' },
+          { value: '4.9/5', label: 'Durchschnittsbewertung' },
+          { value: '420 €', label: 'Ø Ersparnis pro Jahr' },
+          { value: '100+', label: 'Partner-Versorger' },
+        ].map((stat) => (
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-md p-6 text-center">
+            <div class="text-3xl font-heading font-bold text-brand-600 mb-1">{stat.value}</div>
+            <div class="text-sm text-gray-500">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Testimonials Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <Testimonial {...t} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner text="Überzeugt? Starten Sie jetzt." ctaText="Kostenlos anfragen" ctaHref="/anfrage" />
+
+  <Footer slot="footer" />
+  <ConsentBanner slot="consent" />
+</BaseLayout>

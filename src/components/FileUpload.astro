@@ -1,0 +1,74 @@
+---
+// FileUpload – Drag & drop file upload UI with preview
+---
+
+<div id="file-upload-zone"
+     class="relative border-2 border-dashed border-gray-300 rounded-xl p-8 text-center transition-all duration-200 hover:border-brand-400 hover:bg-brand-50/30 cursor-pointer group">
+  <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+  <div class="pointer-events-none">
+    <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-200 transition-colors">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#128a50" stroke-width="2" stroke-linecap="round">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+      </svg>
+    </div>
+    <p class="text-sm font-medium text-gray-700 mb-1">
+      Dateien hierher ziehen oder <span class="text-brand-600 underline">auswählen</span>
+    </p>
+    <p class="text-xs text-gray-400">
+      PDF, JPG, PNG, DOC, XLS – max. 10 MB pro Datei
+    </p>
+  </div>
+</div>
+
+<!-- File list preview -->
+<div id="file-list" class="mt-3 space-y-2"></div>
+
+<script>
+  const zone = document.getElementById('file-upload-zone')!;
+  const input = document.getElementById('file-input') as HTMLInputElement;
+  const list = document.getElementById('file-list')!;
+  let selectedFiles: File[] = [];
+
+  function updateList() {
+    list.innerHTML = selectedFiles.map((f, i) => `
+      <div class="flex items-center justify-between bg-gray-50 rounded-lg px-4 py-2.5 text-sm">
+        <div class="flex items-center gap-2 min-w-0">
+          <svg class="w-4 h-4 text-brand-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          <span class="truncate text-gray-700">${f.name}</span>
+          <span class="text-xs text-gray-400 shrink-0">${(f.size / 1024).toFixed(0)} KB</span>
+        </div>
+        <button type="button" data-remove="${i}" class="text-gray-400 hover:text-red-500 transition-colors p-1">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    `).join('');
+
+    list.querySelectorAll('[data-remove]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const idx = parseInt((e.currentTarget as HTMLElement).dataset.remove!);
+        selectedFiles.splice(idx, 1);
+        updateList();
+      });
+    });
+  }
+
+  input.addEventListener('change', () => {
+    if (input.files) {
+      selectedFiles.push(...Array.from(input.files).filter(f => f.size <= 10 * 1024 * 1024));
+      updateList();
+      input.value = '';
+    }
+  });
+
+  // Drag & drop visual feedback
+  zone.addEventListener('dragover', (e) => { e.preventDefault(); zone.classList.add('border-brand-500', 'bg-brand-50'); });
+  zone.addEventListener('dragleave', () => { zone.classList.remove('border-brand-500', 'bg-brand-50'); });
+  zone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    zone.classList.remove('border-brand-500', 'bg-brand-50');
+    if (e.dataTransfer?.files) {
+      selectedFiles.push(...Array.from(e.dataTransfer.files).filter(f => f.size <= 10 * 1024 * 1024));
+      updateList();
+    }
+  });
+</script>

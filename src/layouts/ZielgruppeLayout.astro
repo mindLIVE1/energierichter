@@ -1,0 +1,75 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import Hero from '../components/ui/Hero.astro';
+import Card from '../components/ui/Card.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import CtaBanner from '../components/ui/CtaBanner.astro';
+import FaqAccordion from '../components/ui/FaqAccordion.astro';
+
+// Reusable landing page layout — each target group page uses this structure
+export interface Props {
+  seo: { title: string; description: string };
+  hero: { badge: string; title: string; subtitle: string };
+  painPoints: { icon: string; title: string; desc: string }[];
+  benefits: { icon: string; title: string; desc: string }[];
+  faqs: { question: string; answer: string }[];
+}
+
+const { seo, hero, painPoints, benefits, faqs } = Astro.props;
+---
+
+<BaseLayout title={seo.title} description={seo.description}>
+  <Header slot="header" />
+
+  <Hero
+    badge={hero.badge}
+    title={hero.title}
+    subtitle={hero.subtitle}
+    ctaText="Jetzt kostenlos anfragen"
+    ctaHref="/anfrage"
+    secondaryCtaText="Termin vereinbaren"
+    secondaryCtaHref="/termin"
+  />
+
+  <!-- Pain Points -->
+  <section class="section-padding">
+    <div class="container-wide">
+      <SectionHeading title="Ihre Herausforderungen" subtitle="Wir kennen die typischen Probleme und haben die Lösung." />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {painPoints.map((p) => (
+          <Card title={p.title} icon={p.icon}>{p.desc}</Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="section-padding bg-gray-50">
+    <div class="container-wide">
+      <SectionHeading title="So profitieren Sie" subtitle="Unsere Lösungen sind auf Ihre Bedürfnisse zugeschnitten." />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {benefits.map((b) => (
+          <Card title={b.title} icon={b.icon}>{b.desc}</Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner text="Bereit, Ihre Energiekosten zu optimieren?" />
+
+  <!-- FAQ -->
+  {faqs.length > 0 && (
+    <section class="section-padding">
+      <div class="container-narrow">
+        <SectionHeading title="Häufige Fragen" />
+        <FaqAccordion items={faqs} />
+      </div>
+    </section>
+  )}
+
+  <Footer slot="footer" />
+  <ConsentBanner slot="consent" />
+</BaseLayout>
