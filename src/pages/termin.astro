@@ -51,17 +51,10 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
           </div>
         </div>
 
-        <!-- Calendly embed (hidden until consent, then src is set) -->
+        <!-- Calendly inline widget (hidden until consent) -->
         <div data-consent-embed="embeds" style="display:none;">
-          <iframe
-            data-consent="embeds"
-            data-consent-src="https://calendly.com/samuelstauss-ado"
-            width="100%"
-            height="700"
-            frameborder="0"
-            title="Terminbuchung"
-            loading="lazy"
-          ></iframe>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/samuelstauss-ado?primary_color=20ab65" style="min-width:320px;height:700px;"></div>
+          <script type="text/plain" data-consent="embeds" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
 
       </div>
