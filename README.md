@@ -1,6 +1,6 @@
-# EnergieMakler – Astro + Tailwind Website
+# Energierichter – Astro + Tailwind Website
 
-Moderne, SEO-optimierte Energiemakler-Website. Gebaut mit **Astro 5**, **Tailwind CSS** und **TypeScript**.
+Moderne, SEO-optimierte Energierichter-Website. Gebaut mit **Astro 5**, **Tailwind CSS** und **TypeScript**.
 
 ## Setup
 

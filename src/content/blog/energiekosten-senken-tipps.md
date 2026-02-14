@@ -12,7 +12,7 @@ Die Energiepreise steigen – doch mit den richtigen Maßnahmen können Sie bare
 
 ## 1. Tarif regelmäßig vergleichen
 
-Viele Haushalte bleiben jahrelang beim gleichen Anbieter und zahlen deutlich mehr als nötig. Ein unabhängiger Energiemakler kann für Sie den optimalen Tarif finden – kostenlos und unverbindlich.
+Viele Haushalte bleiben jahrelang beim gleichen Anbieter und zahlen deutlich mehr als nötig. Ein unabhängiger Energierichter kann für Sie den optimalen Tarif finden – kostenlos und unverbindlich.
 
 ## 2. Standby-Verbrauch eliminieren
 
