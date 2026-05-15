@@ -1,5 +1,8 @@
 ---
 import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
+
+if (import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN !== 'true') return Astro.redirect('/');
+
 ---
 
 <ZielgruppeLayout
@@ -27,4 +30,5 @@ import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
     { question: 'Wie viel kann ich sparen?', answer: 'Im Durchschnitt sparen unsere Privatkunden 420 € pro Jahr. Die genaue Ersparnis hängt von Ihrem Verbrauch ab.' },
     { question: 'Wie lange dauert der Wechsel?', answer: 'In der Regel 2–4 Wochen. Ihre Versorgung ist dabei zu jedem Zeitpunkt sichergestellt.' },
   ]}
+  heroImageText="Junge Familie beim gemeinsamen Kochen in moderner Küche"
 />

@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
 import ContactForm from '../components/ContactForm.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
+import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
 ---
 
 <BaseLayout
@@ -29,6 +30,9 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
 
         <!-- Contact Info -->
         <div class="space-y-8">
+          <!-- Team image -->
+          <PlaceholderImage text="Freundliches Team im modernen Büro" aspectRatio="aspect-video" class="shadow-md" />
+
           <div>
             <h3 class="text-xl font-heading font-bold text-dark-900 mb-6">Kontaktdaten</h3>
             <div class="space-y-4">

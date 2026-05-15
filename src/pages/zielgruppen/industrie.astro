@@ -1,5 +1,8 @@
 ---
 import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
+
+if (import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN !== 'true') return Astro.redirect('/');
+
 ---
 
 <ZielgruppeLayout
@@ -27,4 +30,5 @@ import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
     { question: 'Ab welchem Verbrauch ist die Industrieberatung sinnvoll?', answer: 'Ab einem Jahresverbrauch von ca. 500.000 kWh bieten sich individuelle Beschaffungsstrategien an.' },
     { question: 'Wie gehen Sie mit Preisrisiken um?', answer: 'Durch diversifizierte Beschaffungszeitpunkte und Hedging-Strategien minimieren wir Preisrisiken.' },
   ]}
+  heroImageText="Industrieanlage mit Hochspannungsleitungen bei Sonnenuntergang"
 />

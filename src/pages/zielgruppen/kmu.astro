@@ -1,5 +1,8 @@
 ---
 import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
+
+if (import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN !== 'true') return Astro.redirect('/');
+
 ---
 
 <ZielgruppeLayout
@@ -27,4 +30,5 @@ import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
     { question: 'Können Sie auch Sonderverträge vermitteln?', answer: 'Ja, wir haben Zugang zu RLM-Verträgen und Sonderkonditionen, die nicht öffentlich verfügbar sind.' },
     { question: 'Wie wirkt sich ein Wechsel auf den Betrieb aus?', answer: 'Gar nicht – die Versorgung ist gesetzlich garantiert. Der Wechsel erfolgt im Hintergrund.' },
   ]}
+  heroImageText="Modernes Büro mit Mitarbeitern am Arbeitsplatz"
 />

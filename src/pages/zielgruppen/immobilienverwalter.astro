@@ -1,5 +1,8 @@
 ---
 import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
+
+if (import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN !== 'true') return Astro.redirect('/');
+
 ---
 
 <ZielgruppeLayout
@@ -27,4 +30,5 @@ import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
     { question: 'Wie funktioniert die Bündelung?', answer: 'Wir fassen die Verbräuche mehrerer Objekte zusammen und verhandeln Rahmenverträge mit besseren Konditionen.' },
     { question: 'Unterstützen Sie bei der Nebenkostenabrechnung?', answer: 'Wir liefern übersichtliche Abrechnungsunterlagen, die direkt für die Heizkostenabrechnung verwendet werden können.' },
   ]}
+  heroImageText="Moderne Mehrfamilienhaus-Fassade mit Balkonen"
 />

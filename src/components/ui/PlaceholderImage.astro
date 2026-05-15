@@ -1,0 +1,27 @@
+---
+interface Props {
+  text?: string;
+  aspectRatio?: string; // e.g., "aspect-video", "aspect-square", "aspect-[4/3]"
+  class?: string;
+}
+
+const { text = "Bild Platzhalter", aspectRatio = "aspect-video", class: className } = Astro.props;
+---
+
+<div class={`relative overflow-hidden bg-gray-50 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200 group transition-all duration-300 hover:border-brand-200 hover:bg-brand-50/30 ${aspectRatio} ${className}`}>
+  <div class="flex flex-col items-center gap-3 text-center px-6 relative z-10">
+    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-gray-300 group-hover:text-brand-400 group-hover:scale-110 transition-all duration-300">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21 15 16 10 5 21"/>
+      </svg>
+    </div>
+    <p class="text-xs font-semibold tracking-wide uppercase text-gray-400 group-hover:text-brand-600 transition-colors duration-300">
+      {text}
+    </p>
+  </div>
+  
+  <!-- Subtle grid pattern background -->
+  <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 20px 20px;"></div>
+</div>

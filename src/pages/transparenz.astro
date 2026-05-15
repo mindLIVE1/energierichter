@@ -6,6 +6,10 @@ import ConsentBanner from '../components/ConsentBanner.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
 import Card from '../components/ui/Card.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
+import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
+
+if (import.meta.env.PUBLIC_ENABLE_TRANSPARENZ !== 'true') return Astro.redirect('/');
+
 ---
 
 <BaseLayout
@@ -48,31 +52,40 @@ import CtaBanner from '../components/ui/CtaBanner.astro';
         </Card>
       </div>
 
-      <!-- FAQ-style trust section -->
-      <div class="space-y-8">
-        <div>
-          <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Beeinflusst die Provision unsere Empfehlung?</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Nein. Wir empfehlen Ihnen immer den Tarif, der für Sie am günstigsten ist.
-            Unsere Unabhängigkeit ist unser wichtigstes Kapital. Wir vergleichen über 100 Anbieter
-            und verdienen an jedem Wechsel – unabhängig davon, welcher Versorger den Zuschlag bekommt.
-          </p>
+      <!-- Trust section with image -->
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        <!-- Image column -->
+        <div class="lg:col-span-2 hidden lg:block">
+          <div class="sticky top-28">
+            <PlaceholderImage text="Handschlag zwischen Berater und Kunde" aspectRatio="aspect-[3/4]" class="shadow-lg" />
+          </div>
         </div>
-        <div>
-          <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Gibt es versteckte Kosten?</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Nein, niemals. Es gibt keinen Aufschlag auf Ihren Tarif. Sie zahlen exakt denselben Preis,
-            den Sie auch direkt beim Versorger zahlen würden – oft sogar weniger, da wir Sonderkonditionen
-            aushandeln können.
-          </p>
-        </div>
-        <div>
-          <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Was unterscheidet uns von Vergleichsportalen?</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Vergleichsportale zeigen Ihnen Onlinetarife – wir beraten Sie persönlich und haben Zugang
-            zu Sonderverträgen und Gewerbekonditionen, die online nicht verfügbar sind.
-            Außerdem betreuen wir Sie dauerhaft und optimieren Ihren Vertrag proaktiv.
-          </p>
+        <!-- FAQ-style trust section -->
+        <div class="lg:col-span-3 space-y-8">
+          <div>
+            <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Beeinflusst die Provision unsere Empfehlung?</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Nein. Wir empfehlen Ihnen immer den Tarif, der für Sie am günstigsten ist.
+              Unsere Unabhängigkeit ist unser wichtigstes Kapital. Wir vergleichen über 100 Anbieter
+              und verdienen an jedem Wechsel – unabhängig davon, welcher Versorger den Zuschlag bekommt.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Gibt es versteckte Kosten?</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Nein, niemals. Es gibt keinen Aufschlag auf Ihren Tarif. Sie zahlen exakt denselben Preis,
+              den Sie auch direkt beim Versorger zahlen würden – oft sogar weniger, da wir Sonderkonditionen
+              aushandeln können.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Was unterscheidet uns von Vergleichsportalen?</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Vergleichsportale zeigen Ihnen Onlinetarife – wir beraten Sie persönlich und haben Zugang
+              zu Sonderverträgen und Gewerbekonditionen, die online nicht verfügbar sind.
+              Außerdem betreuen wir Sie dauerhaft und optimieren Ihren Vertrag proaktiv.
+            </p>
+          </div>
         </div>
       </div>
     </div>

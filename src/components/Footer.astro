@@ -1,27 +1,35 @@
 ---
+const enableBlog = import.meta.env.PUBLIC_ENABLE_BLOG === 'true';
+const enableReferenzen = import.meta.env.PUBLIC_ENABLE_REFERENZEN === 'true';
+const enableZielgruppen = import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN === 'true';
+const enableLeistungen = import.meta.env.PUBLIC_ENABLE_LEISTUNGEN === 'true';
+const enableTransparenz = import.meta.env.PUBLIC_ENABLE_TRANSPARENZ === 'true';
+const enableGlossar = import.meta.env.PUBLIC_ENABLE_GLOSSAR === 'true';
+
 const currentYear = new Date().getFullYear();
 
 const links = {
   leistungen: [
-    { label: 'Strom & Gas', href: '/leistungen' },
-    { label: 'Privatkunden', href: '/zielgruppen/privat' },
-    { label: 'KMU', href: '/zielgruppen/kmu' },
-    { label: 'Industrie', href: '/zielgruppen/industrie' },
-    { label: 'Immobilienverwalter', href: '/zielgruppen/immobilienverwalter' },
-  ],
+    enableLeistungen && { label: 'Strom & Gas', href: '/leistungen' },
+    enableZielgruppen && { label: 'Privatkunden', href: '/zielgruppen/privat' },
+    enableZielgruppen && { label: 'KMU', href: '/zielgruppen/kmu' },
+    enableZielgruppen && { label: 'Industrie', href: '/zielgruppen/industrie' },
+    enableZielgruppen && { label: 'Immobilienverwalter', href: '/zielgruppen/immobilienverwalter' },
+  ].filter(Boolean),
   unternehmen: [
-    { label: 'Über uns', href: '/transparenz' },
-    { label: 'Referenzen', href: '/referenzen' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'Glossar', href: '/glossar' },
+    enableTransparenz && { label: 'Über uns', href: '/transparenz' },
+    enableReferenzen && { label: 'Referenzen', href: '/referenzen' },
+    enableBlog && { label: 'Blog', href: '/blog' },
+    enableGlossar && { label: 'Glossar', href: '/glossar' },
     { label: 'Kontakt', href: '/kontakt' },
-  ],
+  ].filter(Boolean),
   rechtliches: [
     { label: 'Impressum', href: '/impressum' },
     { label: 'Datenschutz', href: '/datenschutz' },
     { label: 'Cookie-Richtlinie', href: '/cookie-richtlinie' },
   ],
 };
+
 ---
 
 <!-- Pre-footer CTA -->

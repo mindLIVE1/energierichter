@@ -1,18 +1,25 @@
 ---
+const enableBlog = import.meta.env.PUBLIC_ENABLE_BLOG === 'true';
+const enableReferenzen = import.meta.env.PUBLIC_ENABLE_REFERENZEN === 'true';
+const enableZielgruppen = import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN === 'true';
+const enableLeistungen = import.meta.env.PUBLIC_ENABLE_LEISTUNGEN === 'true';
+const enableTransparenz = import.meta.env.PUBLIC_ENABLE_TRANSPARENZ === 'true';
+
 const navLinks = [
   { label: 'Startseite', href: '/' },
-  { label: 'Leistungen', href: '/leistungen' },
-  { label: 'Zielgruppen', href: '#', children: [
+  enableLeistungen && { label: 'Leistungen', href: '/leistungen' },
+  enableZielgruppen && { label: 'Zielgruppen', href: '#', children: [
     { label: 'Privatkunden', href: '/zielgruppen/privat' },
     { label: 'KMU', href: '/zielgruppen/kmu' },
     { label: 'Industrie', href: '/zielgruppen/industrie' },
     { label: 'Immobilienverwalter', href: '/zielgruppen/immobilienverwalter' },
   ]},
-  { label: 'Transparenz', href: '/transparenz' },
-  { label: 'Referenzen', href: '/referenzen' },
-  { label: 'Blog', href: '/blog' },
+  enableTransparenz && { label: 'Transparenz', href: '/transparenz' },
+  enableReferenzen && { label: 'Referenzen', href: '/referenzen' },
+  enableBlog && { label: 'Blog', href: '/blog' },
   { label: 'Kontakt', href: '/kontakt' },
-];
+].filter(Boolean) as { label: string; href: string; children?: { label: string; href: string }[] }[];
+
 
 const currentPath = Astro.url.pathname;
 ---

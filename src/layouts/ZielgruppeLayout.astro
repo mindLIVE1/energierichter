@@ -8,6 +8,7 @@ import Card from '../components/ui/Card.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
 import FaqAccordion from '../components/ui/FaqAccordion.astro';
+import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
 
 // Reusable landing page layout — each target group page uses this structure
 export interface Props {
@@ -16,9 +17,10 @@ export interface Props {
   painPoints: { icon: string; title: string; desc: string }[];
   benefits: { icon: string; title: string; desc: string }[];
   faqs: { question: string; answer: string }[];
+  heroImageText?: string;
 }
 
-const { seo, hero, painPoints, benefits, faqs } = Astro.props;
+const { seo, hero, painPoints, benefits, faqs, heroImageText } = Astro.props;
 ---
 
 <BaseLayout title={seo.title} description={seo.description}>
@@ -45,6 +47,15 @@ const { seo, hero, painPoints, benefits, faqs } = Astro.props;
       </div>
     </div>
   </section>
+
+  <!-- Visual break with image -->
+  {heroImageText && (
+    <section class="py-0">
+      <div class="container-wide py-8">
+        <PlaceholderImage text={heroImageText} aspectRatio="aspect-[21/9]" class="shadow-lg" />
+      </div>
+    </section>
+  )}
 
   <!-- Benefits -->
   <section class="section-padding bg-gray-50">

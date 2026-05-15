@@ -6,6 +6,9 @@ import ConsentBanner from '../../components/ConsentBanner.astro';
 import SectionHeading from '../../components/ui/SectionHeading.astro';
 import { getCollection } from 'astro:content';
 
+if (import.meta.env.PUBLIC_ENABLE_BLOG !== 'true') return Astro.redirect('/');
+
+
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );

@@ -6,6 +6,9 @@ import ConsentBanner from '../../components/ConsentBanner.astro';
 import SectionHeading from '../../components/ui/SectionHeading.astro';
 import { getCollection } from 'astro:content';
 
+if (import.meta.env.PUBLIC_ENABLE_GLOSSAR !== 'true') return Astro.redirect('/');
+
+
 const entries = (await getCollection('glossar')).sort((a, b) =>
   a.data.title.localeCompare(b.data.title, 'de')
 );

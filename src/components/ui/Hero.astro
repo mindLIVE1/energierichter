@@ -18,6 +18,8 @@ const {
   secondaryCtaHref,
   badge,
 } = Astro.props;
+
+const hasHeroImage = Astro.slots.has('hero-image');
 ---
 
 <section class="relative overflow-hidden gradient-dark">
@@ -27,8 +29,8 @@ const {
   <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl"></div>
   <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl"></div>
 
-  <div class="relative container-wide section-padding">
-    <div class="max-w-3xl">
+  <div class={`relative container-wide section-padding ${hasHeroImage ? 'grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center' : ''}`}>
+    <div class={hasHeroImage ? '' : 'max-w-3xl'}>
       {badge && (
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-sm font-medium mb-6 animate-fade-in">
           <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
@@ -60,5 +62,17 @@ const {
         )}
       </div>
     </div>
+
+    {hasHeroImage && (
+      <div class="hidden lg:block animate-slide-up" style="animation-delay: 300ms">
+        <div class="relative">
+          <!-- Decorative glow behind image -->
+          <div class="absolute -inset-4 bg-brand-500/10 rounded-3xl blur-2xl"></div>
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+            <slot name="hero-image" />
+          </div>
+        </div>
+      </div>
+    )}
   </div>
 </section>
