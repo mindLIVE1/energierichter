@@ -1,0 +1,118 @@
+[
+  {
+    "slug": "privat",
+    "navLabel": "Privatkunden",
+    "seo": {
+      "title": "Energieberatung für Privatkunden | Energierichter",
+      "description": "Sparen Sie als Privatkunde bares Geld bei Strom & Gas. Kostenloser Tarifvergleich von über 100 Anbietern – einfach, schnell und unverbindlich."
+    },
+    "hero": {
+      "badge": "Für Privatkunden",
+      "title": "Weniger zahlen, <span class=\"text-brand-400\">mehr sparen</span>",
+      "subtitle": "Durchschnittlich 420 € Ersparnis pro Jahr – mit unserem kostenlosen Tarifvergleich für Ihren Haushalt."
+    },
+    "heroImageText": "Junge Familie beim gemeinsamen Kochen in moderner Küche",
+    "painPoints": [
+      { "icon": "💸", "title": "Zu hohe Energiekosten", "description": "Viele Haushalte zahlen mehr als nötig, weil sie nie den Anbieter gewechselt haben." },
+      { "icon": "😤", "title": "Unübersichtlicher Markt", "description": "Hunderte Anbieter, komplizierte Tarife – wer blickt da noch durch?" },
+      { "icon": "⏰", "title": "Keine Zeit für Vergleiche", "description": "Wer hat schon Lust, stundenlang Tarifrechner zu bedienen?" }
+    ],
+    "benefits": [
+      { "icon": "🎯", "title": "Persönlicher Vergleich", "description": "Wir analysieren Ihren Verbrauch und finden den optimalen Tarif." },
+      { "icon": "💰", "title": "Garantierte Ersparnis", "description": "Wir empfehlen nur Tarife, die günstiger sind als Ihr aktueller." },
+      { "icon": "🤝", "title": "Rundum-Service", "description": "Kündigung, Wechsel, Betreuung – wir machen alles für Sie." }
+    ],
+    "faqs": [
+      { "question": "Ist der Service wirklich kostenlos?", "answer": "Ja, für Sie als Kunde fallen keine Kosten an. Wir werden von den Energieversorgern vergütet." },
+      { "question": "Wie viel kann ich sparen?", "answer": "Im Durchschnitt sparen unsere Privatkunden 420 € pro Jahr. Die genaue Ersparnis hängt von Ihrem Verbrauch ab." },
+      { "question": "Wie lange dauert der Wechsel?", "answer": "In der Regel 2–4 Wochen. Ihre Versorgung ist dabei zu jedem Zeitpunkt sichergestellt." }
+    ]
+  },
+  {
+    "slug": "kmu",
+    "navLabel": "KMU",
+    "seo": {
+      "title": "Energieberatung für KMU & Gewerbe | Energierichter",
+      "description": "Senken Sie die Energiekosten Ihres Unternehmens. Maßgeschneiderte Tarife für kleine und mittlere Unternehmen – kostenlos und unabhängig."
+    },
+    "hero": {
+      "badge": "Für KMU & Gewerbe",
+      "title": "Energiekosten <span class=\"text-brand-400\">senken</span>, Wettbewerbsfähigkeit steigern",
+      "subtitle": "Maßgeschneiderte Energielösungen für kleine und mittlere Unternehmen – mit durchschnittlich 15% Einsparpotenzial."
+    },
+    "heroImageText": "Modernes Büro mit Mitarbeitern am Arbeitsplatz",
+    "painPoints": [
+      { "icon": "📈", "title": "Steigende Energiepreise", "description": "Energiekosten sind für KMU ein erheblicher Kostenfaktor, der die Marge drückt." },
+      { "icon": "📋", "title": "Komplexe Verträge", "description": "Gewerbetarife sind oft undurchsichtig – Leistungspreis, Arbeitspreis, Netzentgelte." },
+      { "icon": "🕐", "title": "Zeitaufwand", "description": "Als Unternehmer fehlt oft die Zeit, sich um Energieverträge zu kümmern." }
+    ],
+    "benefits": [
+      { "icon": "📊", "title": "Gewerbe-Tarifvergleich", "description": "Spezielle Gewerbe- und Sondervertragstarife mit optimierten Konditionen." },
+      { "icon": "🔧", "title": "Lastgang-Analyse", "description": "Wir analysieren Ihren Lastgang und optimieren Ihren Leistungsbezug." },
+      { "icon": "📅", "title": "Vertragsmanagement", "description": "Proaktive Überwachung von Fristen und automatische Optimierung." }
+    ],
+    "faqs": [
+      { "question": "Ab welcher Unternehmensgröße lohnt sich das?", "answer": "Schon ab einem Jahresverbrauch von 10.000 kWh Strom können wir attraktive Gewerbekonditionen vermitteln." },
+      { "question": "Können Sie auch Sonderverträge vermitteln?", "answer": "Ja, wir haben Zugang zu RLM-Verträgen und Sonderkonditionen, die nicht öffentlich verfügbar sind." },
+      { "question": "Wie wirkt sich ein Wechsel auf den Betrieb aus?", "answer": "Gar nicht – die Versorgung ist gesetzlich garantiert. Der Wechsel erfolgt im Hintergrund." }
+    ]
+  },
+  {
+    "slug": "industrie",
+    "navLabel": "Industrie",
+    "seo": {
+      "title": "Energieberatung für Industrie | Energierichter",
+      "description": "Professionelle Energiebeschaffung für Industrieunternehmen. Strukturierte Beschaffung, Lastganganalyse und individuelle Vertragsgestaltung."
+    },
+    "hero": {
+      "badge": "Für Industrie",
+      "title": "Professionelle <span class=\"text-brand-400\">Energiebeschaffung</span> für die Industrie",
+      "subtitle": "Strukturierte Beschaffungsstrategien, börsenorientierte Einkaufsmodelle und individuelle Vertragsgestaltung für Großverbraucher."
+    },
+    "heroImageText": "Industrieanlage mit Hochspannungsleitungen bei Sonnenuntergang",
+    "painPoints": [
+      { "icon": "⚙️", "title": "Komplexe Beschaffung", "description": "Industrielle Energiebeschaffung erfordert Expertise in Tranchenmodellen und Börsenstrategien." },
+      { "icon": "📉", "title": "Volatile Märkte", "description": "Schwankende Energiepreise machen die Budgetplanung zur Herausforderung." },
+      { "icon": "🏭", "title": "Hohe Verbräuche", "description": "Bei Großverbräuchen machen schon kleine Preisunterschiede erhebliche Summen aus." }
+    ],
+    "benefits": [
+      { "icon": "📈", "title": "Strukturierte Beschaffung", "description": "Tranchenmodelle und Portfoliomanagement für optimale Preisgestaltung." },
+      { "icon": "💡", "title": "Marktexpertise", "description": "Tägliche Marktbeobachtung und Empfehlungen zum optimalen Einkaufszeitpunkt." },
+      { "icon": "📑", "title": "Individuelle Verträge", "description": "Maßgeschneiderte Vertragsgestaltung mit flexiblen Laufzeiten und Konditionen." }
+    ],
+    "faqs": [
+      { "question": "Welche Beschaffungsmodelle bieten Sie an?", "answer": "Wir bieten Festpreise, Tranchenmodelle, Spotmarkt-Beschaffung und hybride Modelle an." },
+      { "question": "Ab welchem Verbrauch ist die Industrieberatung sinnvoll?", "answer": "Ab einem Jahresverbrauch von ca. 500.000 kWh bieten sich individuelle Beschaffungsstrategien an." },
+      { "question": "Wie gehen Sie mit Preisrisiken um?", "answer": "Durch diversifizierte Beschaffungszeitpunkte und Hedging-Strategien minimieren wir Preisrisiken." }
+    ]
+  },
+  {
+    "slug": "immobilienverwalter",
+    "navLabel": "Immobilienverwalter",
+    "seo": {
+      "title": "Energieberatung für Immobilienverwalter | Energierichter",
+      "description": "Optimieren Sie die Energiekosten Ihrer Liegenschaften. Zentraler Ansprechpartner für alle Objekte – transparent und effizient."
+    },
+    "hero": {
+      "badge": "Für Immobilienverwalter",
+      "title": "Energiekosten Ihrer <span class=\"text-brand-400\">Liegenschaften</span> optimieren",
+      "subtitle": "Ein Ansprechpartner für alle Objekte – wir optimieren Strom & Gas für Ihre gesamte Verwaltung."
+    },
+    "heroImageText": "Moderne Mehrfamilienhaus-Fassade mit Balkonen",
+    "painPoints": [
+      { "icon": "🏢", "title": "Viele Objekte, viele Verträge", "description": "Jedes Objekt hat eigene Verträge, Laufzeiten und Versorger – der Überblick geht schnell verloren." },
+      { "icon": "📬", "title": "Abrechnungsaufwand", "description": "Die korrekte Umlage der Energiekosten auf Mieter ist zeitaufwendig." },
+      { "icon": "🔒", "title": "Gesetzliche Pflichten", "description": "Energieausweis, CO₂-Umlage, neue Regelungen – der Verwaltungsaufwand steigt." }
+    ],
+    "benefits": [
+      { "icon": "📁", "title": "Zentrales Management", "description": "Alle Verträge und Objekte in einer Übersicht – wir behalten den Überblick für Sie." },
+      { "icon": "💶", "title": "Kostenoptimierung", "description": "Bündelung von Verbräuchen über mehrere Objekte für bessere Konditionen." },
+      { "icon": "📋", "title": "Compliance-Support", "description": "Unterstützung bei Energieausweisen, CO₂-Umlage und gesetzlichen Anforderungen." }
+    ],
+    "faqs": [
+      { "question": "Können Sie alle unsere Objekte betreuen?", "answer": "Ja, wir betreuen Portfolios jeder Größe – von einzelnen Mehrfamilienhäusern bis zu großen Beständen." },
+      { "question": "Wie funktioniert die Bündelung?", "answer": "Wir fassen die Verbräuche mehrerer Objekte zusammen und verhandeln Rahmenverträge mit besseren Konditionen." },
+      { "question": "Unterstützen Sie bei der Nebenkostenabrechnung?", "answer": "Wir liefern übersichtliche Abrechnungsunterlagen, die direkt für die Heizkostenabrechnung verwendet werden können." }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "homepage": [
+    {
+      "step": "01",
+      "title": "Anfrage senden",
+      "description": "Füllen Sie unser kurzes Formular aus oder laden Sie Ihre letzte Rechnung hoch."
+    },
+    {
+      "step": "02",
+      "title": "Wir vergleichen",
+      "description": "Wir analysieren Ihren Verbrauch und finden den besten Tarif aus über 100 Anbietern."
+    },
+    {
+      "step": "03",
+      "title": "Sie sparen",
+      "description": "Wir kümmern uns um den Wechsel – Sie lehnen sich zurück und genießen niedrigere Kosten."
+    }
+  ],
+  "leistungen": [
+    {
+      "step": "1",
+      "title": "Kostenlose Anfrage",
+      "description": "Sie senden uns Ihre Daten über unser Formular oder laden Ihre Rechnung hoch."
+    },
+    {
+      "step": "2",
+      "title": "Analyse & Vergleich",
+      "description": "Wir analysieren Ihren Verbrauch und vergleichen Tarife von über 100 Anbietern."
+    },
+    {
+      "step": "3",
+      "title": "Persönliches Angebot",
+      "description": "Sie erhalten eine transparente Übersicht der besten Tarife mit Einsparpotenzial."
+    },
+    {
+      "step": "4",
+      "title": "Wechsel & Betreuung",
+      "description": "Nach Ihrer Entscheidung übernehmen wir den kompletten Wechselprozess."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "coreMessage": {
+    "title": "Für Sie ist unsere Beratung immer kostenlos.",
+    "description": "Wir werden ausschließlich von den Energieversorgern vergütet – als Provision für die erfolgreiche Vermittlung. Für Sie entstehen <strong>keine Kosten, keine Aufschläge und keine versteckten Gebühren</strong>."
+  },
+  "cards": [
+    {
+      "icon": "📋",
+      "title": "Sie fragen an",
+      "description": "Sie senden uns Ihre Verbrauchsdaten. Wir analysieren Ihre Situation und vergleichen Tarife."
+    },
+    {
+      "icon": "🤝",
+      "title": "Wir vermitteln",
+      "description": "Wir empfehlen den besten Tarif und übernehmen den Wechselprozess für Sie."
+    },
+    {
+      "icon": "💶",
+      "title": "Versorger vergütet uns",
+      "description": "Der neue Energieversorger zahlt uns eine Vermittlungsprovision – transparent und fair."
+    }
+  ],
+  "questions": [
+    {
+      "question": "Beeinflusst die Provision unsere Empfehlung?",
+      "answer": "Nein. Wir empfehlen Ihnen immer den Tarif, der für Sie am günstigsten ist. Unsere Unabhängigkeit ist unser wichtigstes Kapital. Wir vergleichen über 100 Anbieter und verdienen an jedem Wechsel – unabhängig davon, welcher Versorger den Zuschlag bekommt."
+    },
+    {
+      "question": "Gibt es versteckte Kosten?",
+      "answer": "Nein, niemals. Es gibt keinen Aufschlag auf Ihren Tarif. Sie zahlen exakt denselben Preis, den Sie auch direkt beim Versorger zahlen würden – oft sogar weniger, da wir Sonderkonditionen aushandeln können."
+    },
+    {
+      "question": "Was unterscheidet uns von Vergleichsportalen?",
+      "answer": "Vergleichsportale zeigen Ihnen Onlinetarife – wir beraten Sie persönlich und haben Zugang zu Sonderverträgen und Gewerbekonditionen, die online nicht verfügbar sind. Außerdem betreuen wir Sie dauerhaft und optimieren Ihren Vertrag proaktiv."
+    }
+  ]
+}

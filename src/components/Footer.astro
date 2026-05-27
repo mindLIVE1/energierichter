@@ -1,4 +1,7 @@
 ---
+import zielgruppen from '../data/zielgruppen.json';
+import company from '../data/company.json';
+
 const enableBlog = import.meta.env.PUBLIC_ENABLE_BLOG === 'true';
 const enableReferenzen = import.meta.env.PUBLIC_ENABLE_REFERENZEN === 'true';
 const enableZielgruppen = import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN === 'true';
@@ -11,10 +14,7 @@ const currentYear = new Date().getFullYear();
 const links = {
   leistungen: [
     enableLeistungen && { label: 'Strom & Gas', href: '/leistungen' },
-    enableZielgruppen && { label: 'Privatkunden', href: '/zielgruppen/privat' },
-    enableZielgruppen && { label: 'KMU', href: '/zielgruppen/kmu' },
-    enableZielgruppen && { label: 'Industrie', href: '/zielgruppen/industrie' },
-    enableZielgruppen && { label: 'Immobilienverwalter', href: '/zielgruppen/immobilienverwalter' },
+    ...(enableZielgruppen ? zielgruppen.map((z) => ({ label: z.navLabel, href: `/zielgruppen/${z.slug}` })) : []),
   ].filter(Boolean),
   unternehmen: [
     enableTransparenz && { label: 'Über uns', href: '/transparenz' },
@@ -75,7 +75,7 @@ const links = {
         </p>
         <div class="flex items-center gap-2 text-sm text-gray-400">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.09 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l2.27-2.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-          +49 123 456789
+          {company.phone}
         </div>
       </div>
 
@@ -113,7 +113,7 @@ const links = {
     <!-- Bottom bar -->
     <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
       <p>&copy; {currentYear} Energierichter. Alle Rechte vorbehalten.</p>
-      <p>Energieberatung mit 💚 aus München</p>
+      <p>{company.tagline}</p>
     </div>
   </div>
 </footer>

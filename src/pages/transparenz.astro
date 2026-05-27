@@ -8,8 +8,9 @@ import Card from '../components/ui/Card.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
 import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
 
-if (import.meta.env.PUBLIC_ENABLE_TRANSPARENZ !== 'true') return Astro.redirect('/');
+import transparenzData from '../data/transparenz.json';
 
+if (import.meta.env.PUBLIC_ENABLE_TRANSPARENZ !== 'true') return Astro.redirect('/');
 ---
 
 <BaseLayout
@@ -31,25 +32,18 @@ if (import.meta.env.PUBLIC_ENABLE_TRANSPARENZ !== 'true') return Astro.redirect(
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h2 class="text-2xl font-heading font-bold text-dark-900 mb-4">
-          Für Sie ist unsere Beratung immer kostenlos.
+          {transparenzData.coreMessage.title}
         </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          Wir werden ausschließlich von den Energieversorgern vergütet – als Provision für die erfolgreiche Vermittlung.
-          Für Sie entstehen <strong>keine Kosten, keine Aufschläge und keine versteckten Gebühren</strong>.
-        </p>
+        <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed" set:html={transparenzData.coreMessage.description} />
       </div>
 
       <!-- How it Works -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        <Card title="Sie fragen an" icon="📋">
-          Sie senden uns Ihre Verbrauchsdaten. Wir analysieren Ihre Situation und vergleichen Tarife.
-        </Card>
-        <Card title="Wir vermitteln" icon="🤝">
-          Wir empfehlen den besten Tarif und übernehmen den Wechselprozess für Sie.
-        </Card>
-        <Card title="Versorger vergütet uns" icon="💶">
-          Der neue Energieversorger zahlt uns eine Vermittlungsprovision – transparent und fair.
-        </Card>
+        {transparenzData.cards.map((card) => (
+          <Card title={card.title} icon={card.icon}>
+            {card.description}
+          </Card>
+        ))}
       </div>
 
       <!-- Trust section with image -->
@@ -62,30 +56,12 @@ if (import.meta.env.PUBLIC_ENABLE_TRANSPARENZ !== 'true') return Astro.redirect(
         </div>
         <!-- FAQ-style trust section -->
         <div class="lg:col-span-3 space-y-8">
-          <div>
-            <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Beeinflusst die Provision unsere Empfehlung?</h3>
-            <p class="text-gray-600 leading-relaxed">
-              Nein. Wir empfehlen Ihnen immer den Tarif, der für Sie am günstigsten ist.
-              Unsere Unabhängigkeit ist unser wichtigstes Kapital. Wir vergleichen über 100 Anbieter
-              und verdienen an jedem Wechsel – unabhängig davon, welcher Versorger den Zuschlag bekommt.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Gibt es versteckte Kosten?</h3>
-            <p class="text-gray-600 leading-relaxed">
-              Nein, niemals. Es gibt keinen Aufschlag auf Ihren Tarif. Sie zahlen exakt denselben Preis,
-              den Sie auch direkt beim Versorger zahlen würden – oft sogar weniger, da wir Sonderkonditionen
-              aushandeln können.
-            </p>
-          </div>
-          <div>
-            <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Was unterscheidet uns von Vergleichsportalen?</h3>
-            <p class="text-gray-600 leading-relaxed">
-              Vergleichsportale zeigen Ihnen Onlinetarife – wir beraten Sie persönlich und haben Zugang
-              zu Sonderverträgen und Gewerbekonditionen, die online nicht verfügbar sind.
-              Außerdem betreuen wir Sie dauerhaft und optimieren Ihren Vertrag proaktiv.
-            </p>
-          </div>
+          {transparenzData.questions.map((item) => (
+            <div>
+              <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">{item.question}</h3>
+              <p class="text-gray-600 leading-relaxed">{item.answer}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

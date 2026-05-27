@@ -1,0 +1,27 @@
+---
+import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
+import zielgruppen from '../../data/zielgruppen.json';
+
+if (import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN !== 'true') return Astro.redirect('/');
+
+export function getStaticPaths() {
+  // We need to import inside getStaticPaths for static builds
+  const data = import.meta.glob('../../data/zielgruppen.json', { eager: true });
+  const entries = Object.values(data)[0].default || Object.values(data)[0];
+  return entries.map((entry: any) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+
+<ZielgruppeLayout
+  seo={entry.seo}
+  hero={entry.hero}
+  painPoints={entry.painPoints.map((p: any) => ({ icon: p.icon, title: p.title, desc: p.description }))}
+  benefits={entry.benefits.map((b: any) => ({ icon: b.icon, title: b.title, desc: b.description }))}
+  faqs={entry.faqs}
+  heroImageText={entry.heroImageText}
+/>

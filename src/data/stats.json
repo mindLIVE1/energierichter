@@ -1,0 +1,14 @@
+{
+  "trustBadges": [
+    { "label": "TÜV-geprüft" },
+    { "label": "5.000+ zufriedene Kunden" },
+    { "label": "Ø 420 € Ersparnis/Jahr" },
+    { "label": "4.9/5 Bewertung" }
+  ],
+  "referenzenStats": [
+    { "value": "5.000+", "label": "Zufriedene Kunden" },
+    { "value": "4.9/5", "label": "Durchschnittsbewertung" },
+    { "value": "420 €", "label": "Ø Ersparnis pro Jahr" },
+    { "value": "100+", "label": "Partner-Versorger" }
+  ]
+}

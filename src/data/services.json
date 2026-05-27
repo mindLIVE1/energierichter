@@ -1,0 +1,51 @@
+{
+  "highlight": [
+    {
+      "icon": "⚡",
+      "title": "Tarifvergleich",
+      "description": "Wir vergleichen über 100 Anbieter und finden den günstigsten Tarif mit den besten Konditionen für Ihren Verbrauch."
+    },
+    {
+      "icon": "🔄",
+      "title": "Wechselservice",
+      "description": "Kündigung, Neuanmeldung, Kommunikation mit dem Versorger – wir übernehmen den kompletten Wechsel für Sie."
+    },
+    {
+      "icon": "🛡️",
+      "title": "Dauerhafte Betreuung",
+      "description": "Wir überwachen Ihren Vertrag und informieren Sie automatisch, wenn ein besseres Angebot verfügbar ist."
+    }
+  ],
+  "all": [
+    {
+      "icon": "⚡",
+      "title": "Strom-Tarifvergleich",
+      "description": "Vergleich von über 100 Stromanbietern – für Haushalt, Gewerbe und Industrie."
+    },
+    {
+      "icon": "🔥",
+      "title": "Gas-Tarifvergleich",
+      "description": "Optimale Gastarife für Heizung und Gewerbe – regional und überregional."
+    },
+    {
+      "icon": "🔄",
+      "title": "Wechselservice",
+      "description": "Wir übernehmen Kündigung, Neuanmeldung und Kommunikation mit dem Versorger."
+    },
+    {
+      "icon": "📊",
+      "title": "Verbrauchsanalyse",
+      "description": "Detaillierte Analyse Ihres Energieverbrauchs mit Einsparpotenzial-Berechnung."
+    },
+    {
+      "icon": "🛡️",
+      "title": "Vertragsüberwachung",
+      "description": "Automatische Benachrichtigung bei besseren Angeboten oder Vertragsverlängerungen."
+    },
+    {
+      "icon": "📋",
+      "title": "Energieausweis",
+      "description": "Beratung und Vermittlung von Energieausweisen für Ihre Immobilie."
+    }
+  ]
+}

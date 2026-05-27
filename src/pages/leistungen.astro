@@ -9,24 +9,10 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
 import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
 
+import services from '../data/services.json';
+import processSteps from '../data/process-steps.json';
+
 if (import.meta.env.PUBLIC_ENABLE_LEISTUNGEN !== 'true') return Astro.redirect('/');
-
-
-const services = [
-  { icon: '⚡', title: 'Strom-Tarifvergleich', desc: 'Vergleich von über 100 Stromanbietern – für Haushalt, Gewerbe und Industrie.' },
-  { icon: '🔥', title: 'Gas-Tarifvergleich', desc: 'Optimale Gastarife für Heizung und Gewerbe – regional und überregional.' },
-  { icon: '🔄', title: 'Wechselservice', desc: 'Wir übernehmen Kündigung, Neuanmeldung und Kommunikation mit dem Versorger.' },
-  { icon: '📊', title: 'Verbrauchsanalyse', desc: 'Detaillierte Analyse Ihres Energieverbrauchs mit Einsparpotenzial-Berechnung.' },
-  { icon: '🛡️', title: 'Vertragsüberwachung', desc: 'Automatische Benachrichtigung bei besseren Angeboten oder Vertragsverlängerungen.' },
-  { icon: '📋', title: 'Energieausweis', desc: 'Beratung und Vermittlung von Energieausweisen für Ihre Immobilie.' },
-];
-
-const processSteps = [
-  { step: '1', title: 'Kostenlose Anfrage', desc: 'Sie senden uns Ihre Daten über unser Formular oder laden Ihre Rechnung hoch.' },
-  { step: '2', title: 'Analyse & Vergleich', desc: 'Wir analysieren Ihren Verbrauch und vergleichen Tarife von über 100 Anbietern.' },
-  { step: '3', title: 'Persönliches Angebot', desc: 'Sie erhalten eine transparente Übersicht der besten Tarife mit Einsparpotenzial.' },
-  { step: '4', title: 'Wechsel & Betreuung', desc: 'Nach Ihrer Entscheidung übernehmen wir den kompletten Wechselprozess.' },
-];
 ---
 
 <BaseLayout
@@ -51,9 +37,9 @@ const processSteps = [
         subtitle="Unser Leistungsportfolio – maßgeschneidert für jeden Bedarf."
       />
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((s) => (
+        {services.all.map((s) => (
           <Card title={s.title} icon={s.icon}>
-            {s.desc}
+            {s.description}
           </Card>
         ))}
       </div>
@@ -85,19 +71,19 @@ const processSteps = [
         subtitle="Transparent, einfach und effizient – so funktioniert die Zusammenarbeit."
       />
       <div class="relative max-w-3xl mx-auto">
-        {processSteps.map((item, i) => (
+        {processSteps.leistungen.map((item, i) => (
           <div class="flex gap-6 mb-8 last:mb-0">
             <div class="flex flex-col items-center">
               <div class="w-12 h-12 rounded-full gradient-brand flex items-center justify-center text-white font-heading font-bold text-lg shadow-md shrink-0">
                 {item.step}
               </div>
-              {i < processSteps.length - 1 && (
+              {i < processSteps.leistungen.length - 1 && (
                 <div class="w-0.5 flex-1 bg-brand-200 mt-2"></div>
               )}
             </div>
             <div class="pb-8">
               <h3 class="text-xl font-heading font-bold text-dark-900 mb-2">{item.title}</h3>
-              <p class="text-gray-600">{item.desc}</p>
+              <p class="text-gray-600">{item.description}</p>
             </div>
           </div>
         ))}

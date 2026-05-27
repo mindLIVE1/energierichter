@@ -1,4 +1,6 @@
 ---
+import zielgruppen from '../data/zielgruppen.json';
+
 const enableBlog = import.meta.env.PUBLIC_ENABLE_BLOG === 'true';
 const enableReferenzen = import.meta.env.PUBLIC_ENABLE_REFERENZEN === 'true';
 const enableZielgruppen = import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN === 'true';
@@ -8,12 +10,10 @@ const enableTransparenz = import.meta.env.PUBLIC_ENABLE_TRANSPARENZ === 'true';
 const navLinks = [
   { label: 'Startseite', href: '/' },
   enableLeistungen && { label: 'Leistungen', href: '/leistungen' },
-  enableZielgruppen && { label: 'Zielgruppen', href: '#', children: [
-    { label: 'Privatkunden', href: '/zielgruppen/privat' },
-    { label: 'KMU', href: '/zielgruppen/kmu' },
-    { label: 'Industrie', href: '/zielgruppen/industrie' },
-    { label: 'Immobilienverwalter', href: '/zielgruppen/immobilienverwalter' },
-  ]},
+  enableZielgruppen && { label: 'Zielgruppen', href: '#', children: zielgruppen.map((z) => ({
+    label: z.navLabel,
+    href: `/zielgruppen/${z.slug}`,
+  }))},
   enableTransparenz && { label: 'Transparenz', href: '/transparenz' },
   enableReferenzen && { label: 'Referenzen', href: '/referenzen' },
   enableBlog && { label: 'Blog', href: '/blog' },
