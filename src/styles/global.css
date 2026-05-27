@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,11 +12,11 @@
   }
 
   body {
-    @apply font-sans text-gray-800 bg-white leading-relaxed;
+    @apply font-sans text-dark-900 bg-[#f7f4ec] leading-relaxed;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold text-dark-900;
+    @apply font-heading font-bold text-dark-900 tracking-normal;
   }
 
   a {
@@ -24,7 +24,7 @@
   }
 
   ::selection {
-    @apply bg-brand-200 text-brand-950;
+    @apply bg-brand-400 text-dark-950;
   }
 }
 
@@ -42,15 +42,15 @@
   }
 
   .gradient-brand {
-    @apply bg-gradient-to-br from-brand-600 via-brand-500 to-brand-400;
+    @apply bg-brand-400;
   }
 
   .gradient-dark {
-    @apply bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900;
+    @apply bg-dark-900;
   }
 
   .glass {
-    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-lg;
+    @apply bg-white border border-dark-900/10 shadow-lg;
   }
 
   .prose-custom {
