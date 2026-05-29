@@ -39,7 +39,7 @@ export default {
       },
       fontFamily: {
         sans: ['Manrope', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['Cormorant Garamond', 'Georgia', 'serif'],
+        heading: ['DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',

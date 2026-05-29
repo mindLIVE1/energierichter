@@ -22,41 +22,38 @@ const {
 const hasHeroImage = Astro.slots.has('hero-image');
 ---
 
-<section class="relative overflow-hidden gradient-dark">
-  <!-- Decorative grid -->
-  <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;40&quot; height=&quot;40&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cpath d=&quot;M0 0h40v40H0z&quot; fill=&quot;none&quot; stroke=&quot;white&quot; stroke-width=&quot;0.5&quot;/%3E%3C/svg%3E')"></div>
-  <!-- Gradient orbs -->
-  <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl"></div>
-  <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-accent-500/10 rounded-full blur-3xl"></div>
+<section class="relative overflow-hidden bg-dark-900 text-white">
+  <!-- Subtle grid overlay -->
+  <div class="absolute inset-0 opacity-[0.055] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
+  <div class="absolute inset-x-0 bottom-0 h-px bg-brand-400/30"></div>
 
-  <div class={`relative container-wide section-padding ${hasHeroImage ? 'grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center' : ''}`}>
+  <div class={`relative container-wide py-20 sm:py-24 lg:py-28 ${hasHeroImage ? 'grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center' : ''}`}>
     <div class={hasHeroImage ? '' : 'max-w-3xl'}>
       {badge && (
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-sm font-medium mb-6 animate-fade-in">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+        <p class="mb-5 label-editorial text-brand-300/90">
           {badge}
-        </div>
+        </p>
       )}
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold text-white leading-[1.1] mb-6 animate-slide-up">
+      <h1 class="max-w-4xl font-heading text-4xl font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
         <Fragment set:html={title} />
       </h1>
 
       {subtitle && (
-        <p class="text-lg sm:text-xl text-gray-300 leading-relaxed mb-10 max-w-2xl animate-slide-up" style="animation-delay: 100ms">
+        <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-white/66">
           {subtitle}
         </p>
       )}
 
-      <div class="flex flex-col sm:flex-row gap-4 animate-slide-up" style="animation-delay: 200ms">
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
         <a href={ctaHref}
-           class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-dark-900 bg-white rounded-xl shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+           class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 transition-all duration-200 hover:bg-transparent hover:text-brand-300">
           {ctaText}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         {secondaryCtaText && secondaryCtaHref && (
           <a href={secondaryCtaHref}
-             class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white border-2 border-white/20 rounded-xl hover:bg-white/10 transition-all duration-200">
+             class="inline-flex items-center justify-center border border-white/16 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/74 transition-all duration-200 hover:border-brand-400/70 hover:text-brand-300">
             {secondaryCtaText}
           </a>
         )}
@@ -64,11 +61,10 @@ const hasHeroImage = Astro.slots.has('hero-image');
     </div>
 
     {hasHeroImage && (
-      <div class="hidden lg:block animate-slide-up" style="animation-delay: 300ms">
+      <div class="hidden lg:block">
         <div class="relative">
-          <!-- Decorative glow behind image -->
-          <div class="absolute -inset-4 bg-brand-500/10 rounded-3xl blur-2xl"></div>
-          <div class="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+          <div class="absolute -inset-8 bg-brand-400/5 blur-3xl"></div>
+          <div class="relative border border-white/12 bg-[#111820]/92 shadow-[0_32px_90px_rgba(0,0,0,0.42)] overflow-hidden">
             <slot name="hero-image" />
           </div>
         </div>

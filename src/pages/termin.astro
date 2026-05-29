@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
 ---
 
 <BaseLayout
@@ -12,40 +11,51 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
 >
   <Header slot="header" />
 
-  <section class="section-padding">
-    <div class="container-narrow">
-      <SectionHeading
-        title="Termin vereinbaren"
-        subtitle="Wählen Sie einen passenden Termin für Ihre persönliche Energieberatung."
-      />
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-dark-900 text-white">
+    <div class="absolute inset-0 opacity-[0.055] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
+    <div class="absolute inset-x-0 bottom-0 h-px bg-brand-400/30"></div>
 
+    <div class="relative container-wide py-20 sm:py-24 lg:py-28 max-w-3xl">
+      <p class="mb-5 label-editorial text-brand-300/90">Persönliche Beratung</p>
+      <h1 class="max-w-4xl font-heading text-4xl font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+        Termin vereinbaren.
+      </h1>
+      <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-white/66">
+        Wählen Sie einen passenden Termin für Ihre persönliche Energieberatung.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-[#f7f3ea] py-20 sm:py-24 lg:py-32">
+    <div class="container-narrow">
       <!-- Calendly Section (consent-gated) -->
-      <div class="bg-white rounded-2xl border border-gray-100 shadow-md overflow-hidden">
+      <div class="border border-dark-900/12 bg-white overflow-hidden">
 
         <!-- Placeholder (visible until consent) -->
         <div data-consent-placeholder="embeds" class="min-h-[600px] flex items-center justify-center p-8">
           <div class="text-center max-w-md">
-            <div class="w-16 h-16 rounded-2xl bg-brand-100 flex items-center justify-center mx-auto mb-6">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#128a50" stroke-width="2" stroke-linecap="round">
-                <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <div class="w-14 h-14 border border-dark-900/12 flex items-center justify-center mx-auto mb-6">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-600">
+                <rect x="3" y="4" width="18" height="18" rx="0"/>
                 <path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
               </svg>
             </div>
-            <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">Online-Terminbuchung</h3>
-            <p class="text-gray-600 mb-4">
+            <h3 class="text-xl font-heading font-semibold text-dark-900 mb-3">Online-Terminbuchung</h3>
+            <p class="text-dark-700 text-sm leading-7 mb-6">
               Um den Kalender anzuzeigen, müssen externe Inhalte geladen werden.
               Dabei werden Daten an Calendly übermittelt.
             </p>
             <button data-consent-accept="embeds"
-              class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white gradient-brand rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mb-4">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg>
+              class="inline-flex items-center gap-2 border border-brand-400 bg-brand-400 px-6 py-3 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-dark-950 hover:bg-transparent hover:text-brand-700 transition-all duration-200 mb-6">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg>
               Externe Inhalte laden
             </button>
-            <p class="text-sm text-gray-400 mb-4">
+            <p class="text-xs text-dark-700/60 mb-4">
               Alternativ erreichen Sie uns telefonisch:
             </p>
-            <a href="tel:+49123456789" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-gray-600 bg-gray-100 rounded-xl hover:bg-gray-200 transition-all">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.09 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l2.27-2.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+49123456789" class="inline-flex items-center gap-2 border border-dark-900/16 px-6 py-3 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-dark-700 hover:border-brand-500 hover:text-brand-700 transition-all">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.09 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l2.27-2.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               +49 123 456789
             </a>
           </div>

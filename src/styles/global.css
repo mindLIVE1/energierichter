@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -16,7 +16,8 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-semibold text-dark-900 tracking-normal;
+    @apply font-heading font-semibold text-dark-900;
+    letter-spacing: -0.01em;
   }
 
   a {
@@ -38,7 +39,7 @@
   }
 
   .section-padding {
-    @apply py-16 sm:py-20 lg:py-28;
+    @apply py-20 sm:py-24 lg:py-32;
   }
 
   .gradient-brand {
@@ -49,15 +50,26 @@
     @apply bg-dark-900;
   }
 
-  .glass {
-    @apply bg-white border border-dark-900/10 shadow-lg;
+  /* Editorial label — small uppercase tracked text used for section labels */
+  .label-editorial {
+    @apply text-[0.68rem] font-semibold uppercase tracking-[0.24em];
+  }
+
+  /* Editorial card — sharp borders, no rounded corners */
+  .card-editorial {
+    background-color: #fff;
+    border: 1px solid rgba(11, 15, 20, 0.12);
+  }
+
+  .card-editorial-dark {
+    background-color: #111820;
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .prose-custom {
     @apply prose prose-lg max-w-none
       prose-headings:font-heading prose-headings:text-dark-900
       prose-a:text-brand-600 prose-a:no-underline hover:prose-a:text-brand-500
-      prose-strong:text-dark-900
-      prose-img:rounded-xl;
+      prose-strong:text-dark-900;
   }
 }

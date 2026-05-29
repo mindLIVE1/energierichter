@@ -4,7 +4,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
-import Testimonial from '../components/ui/Testimonial.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
 
 import testimonials from '../data/testimonials.json';
@@ -19,29 +18,86 @@ if (import.meta.env.PUBLIC_ENABLE_REFERENZEN !== 'true') return Astro.redirect('
 >
   <Header slot="header" />
 
-  <section class="section-padding">
-    <div class="container-wide">
-      <SectionHeading
-        title="Referenzen & Bewertungen"
-        subtitle="Über 5.000 zufriedene Kunden vertrauen uns. Lesen Sie ihre Erfahrungen."
-      />
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-dark-900 text-white">
+    <div class="absolute inset-0 opacity-[0.055] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
+    <div class="absolute inset-x-0 bottom-0 h-px bg-brand-400/30"></div>
 
-      <!-- Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+    <div class="relative container-wide py-20 sm:py-24 lg:py-28 max-w-3xl">
+      <p class="mb-5 label-editorial text-brand-300/90">Kundenstimmen</p>
+      <h1 class="max-w-4xl font-heading text-4xl font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+        Geprüft in der Praxis.
+      </h1>
+      <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-white/66">
+        Über 5.000 zufriedene Kunden vertrauen uns. Lesen Sie ihre Erfahrungen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats Row -->
+  <section class="bg-[#111820] border-b border-white/10">
+    <div class="container-wide">
+      <div class="grid grid-cols-2 lg:grid-cols-4 divide-x-0 divide-y divide-white/10 lg:divide-x lg:divide-y-0">
         {stats.referenzenStats.map((stat) => (
-          <div class="bg-white rounded-2xl border border-gray-100 shadow-md p-6 text-center">
-            <div class="text-3xl font-heading font-bold text-brand-600 mb-1">{stat.value}</div>
-            <div class="text-sm text-gray-500">{stat.label}</div>
+          <div class="py-7 lg:px-7">
+            <p class="font-heading text-4xl font-semibold leading-none text-brand-300">{stat.value}</p>
+            <p class="mt-3 text-[0.72rem] font-semibold uppercase tracking-[0.17em] text-white/62">{stat.label}</p>
           </div>
         ))}
       </div>
+    </div>
+  </section>
 
-      <!-- Testimonials Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {testimonials.map((t) => (
-          <Testimonial {...t} />
+  <!-- Testimonials -->
+  <section class="bg-[#f7f3ea] py-20 sm:py-24 lg:py-32">
+    <div class="container-wide">
+      <SectionHeading
+        label="Das sagen unsere Kunden"
+        title="Echte Erfahrungen."
+        subtitle="Überzeugen Sie sich von den Ergebnissen unserer Beratung."
+      />
+
+      <!-- Grid of testimonials in editorial border layout -->
+      <div class="grid border-y border-dark-900/12 md:grid-cols-3">
+        {testimonials.slice(0, 3).map((t, i) => (
+          <figure class={`py-10 md:px-8 ${i > 0 ? 'border-t border-dark-900/12 md:border-l md:border-t-0' : ''}`}>
+            <div class="mb-6 flex gap-1 text-brand-500" aria-label={`${t.rating ?? 5} von 5 Sternen`}>
+              {Array.from({ length: 5 }).map((_, star) => (
+                <svg class={`h-3.5 w-3.5 ${star < (t.rating ?? 5) ? 'opacity-100' : 'opacity-20'}`} fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              ))}
+            </div>
+            <blockquote class="text-base leading-8 text-dark-700">&ldquo;{t.quote}&rdquo;</blockquote>
+            <figcaption class="mt-7 border-t border-dark-900/10 pt-5">
+              <p class="font-semibold text-dark-900">{t.name}</p>
+              {t.role && <p class="mt-1 text-xs uppercase tracking-[0.16em] text-dark-700">{t.role}</p>}
+            </figcaption>
+          </figure>
         ))}
       </div>
+
+      <!-- Remaining testimonials in 2-col grid -->
+      {testimonials.length > 3 && (
+        <div class="mt-12 grid gap-px bg-dark-900/12 border border-dark-900/12 md:grid-cols-2">
+          {testimonials.slice(3).map((t) => (
+            <figure class="bg-[#f7f3ea] p-7 sm:p-9">
+              <div class="mb-5 flex gap-1 text-brand-500" aria-label={`${t.rating ?? 5} von 5 Sternen`}>
+                {Array.from({ length: 5 }).map((_, star) => (
+                  <svg class={`h-3.5 w-3.5 ${star < (t.rating ?? 5) ? 'opacity-100' : 'opacity-20'}`} fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+              <blockquote class="text-base leading-8 text-dark-700">&ldquo;{t.quote}&rdquo;</blockquote>
+              <figcaption class="mt-6 border-t border-dark-900/10 pt-4">
+                <p class="font-semibold text-dark-900">{t.name}</p>
+                {t.role && <p class="mt-1 text-xs uppercase tracking-[0.16em] text-dark-700">{t.role}</p>}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
     </div>
   </section>
 
