@@ -3,13 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
-import Hero from '../components/ui/Hero.astro';
-import Card from '../components/ui/Card.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
-import Testimonial from '../components/ui/Testimonial.astro';
-import FaqAccordion from '../components/ui/FaqAccordion.astro';
-import CtaBanner from '../components/ui/CtaBanner.astro';
-import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
 
 import allTestimonials from '../data/testimonials.json';
 import faqs from '../data/faqs.json';
@@ -23,6 +16,12 @@ const enableReferenzen = import.meta.env.PUBLIC_ENABLE_REFERENZEN === 'true';
 const enableFaq = import.meta.env.PUBLIC_ENABLE_FAQ === 'true';
 
 const testimonials = allTestimonials.slice(0, 3);
+
+const benefitChecks = [
+  'Über 100 Anbieter im Vergleich',
+  'Zugang zu Sonderkonditionen',
+  'Persönlicher Ansprechpartner',
+];
 ---
 
 <BaseLayout
@@ -32,35 +31,102 @@ const testimonials = allTestimonials.slice(0, 3);
   <Header slot="header" />
 
   <!-- Hero -->
-  <Hero
-    badge="Unabhängig · Transparent · Kostenlos"
-    title="Energiekosten <span class='text-brand-400'>intelligent</span> senken"
-    subtitle="Wir vergleichen über 100 Anbieter und finden den optimalen Strom- & Gastarif für Sie – kostenlos und unverbindlich."
-    ctaText="Kostenlos anfragen"
-    ctaHref="/anfrage"
-    secondaryCtaText="Termin vereinbaren"
-    secondaryCtaHref="/termin"
-  >
-    <PlaceholderImage slot="hero-image" text="Freundliches Beratungsgespräch am Schreibtisch" aspectRatio="aspect-[4/3]" />
-  </Hero>
+  <section class="relative overflow-hidden bg-dark-900 text-white">
+    <div class="absolute inset-0 opacity-[0.055] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
+    <div class="absolute inset-x-0 bottom-0 h-px bg-brand-400/30"></div>
+
+    <div class="container-wide relative grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-14 lg:gap-20 items-center py-20 sm:py-24 lg:py-28">
+      <div class="max-w-3xl">
+        <img
+          src="/assets/brand/energierichter-wordmark-dark.png"
+          alt="Energierichter"
+          width="1684"
+          height="515"
+          class="mb-12 h-12 w-auto mix-blend-screen sm:h-14 lg:h-16"
+        />
+
+        <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300/90">
+          Unabhängige Energieberatung
+        </p>
+
+        <h1 class="max-w-4xl font-heading text-5xl font-semibold leading-[1.02] text-white sm:text-6xl lg:text-7xl">
+          Energiekosten intelligent senken.
+        </h1>
+
+        <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-white/66">
+          Unabhängige Tarifoptimierung für Unternehmen, Immobilien und Haushalte. Wir vergleichen über 100 Anbieter und finden den optimalen Strom- &amp; Gastarif für Sie – kostenlos und unverbindlich.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <a href="/anfrage" class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 transition-all duration-200 hover:bg-transparent hover:text-brand-300">
+            Kostenlos anfragen
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/termin" class="inline-flex items-center justify-center border border-white/16 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/74 transition-all duration-200 hover:border-brand-400/70 hover:text-brand-300">
+            Termin vereinbaren
+          </a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="absolute -inset-8 bg-brand-400/5 blur-3xl"></div>
+        <div class="relative border border-white/12 bg-[#111820]/92 p-5 shadow-[0_32px_90px_rgba(0,0,0,0.42)] sm:p-7">
+          <div class="flex items-start justify-between gap-6 border-b border-white/10 pb-5">
+            <div>
+              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300/84">Analysebericht</p>
+              <p class="mt-2 text-sm text-white/52">Tarifprüfung Strom &amp; Gas</p>
+            </div>
+            <span class="border border-brand-400/35 px-3 py-1 text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-brand-300">ER-420</span>
+          </div>
+
+          <div class="py-8">
+            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/38">Ersparnis pro Jahr</p>
+            <p class="mt-3 font-heading text-6xl font-semibold leading-none text-brand-300 sm:text-7xl">420 €</p>
+          </div>
+
+          <div class="space-y-4 border-y border-white/10 py-5 text-sm">
+            <div class="flex items-center justify-between gap-5">
+              <span class="text-white/44">Empfehlung</span>
+              <span class="font-semibold text-white">Wechsel prüfen</span>
+            </div>
+            <div class="flex items-center justify-between gap-5">
+              <span class="text-white/44">Status</span>
+              <span class="font-semibold text-brand-300">Unabhängig geprüft</span>
+            </div>
+            <div class="flex items-center justify-between gap-5">
+              <span class="text-white/44">Servicekosten</span>
+              <span class="font-semibold text-white">0 €</span>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-3 gap-3">
+            <div class="border border-white/10 p-4">
+              <p class="font-heading text-3xl font-semibold text-white">100+</p>
+              <p class="mt-1 text-[0.64rem] uppercase tracking-[0.16em] text-white/36">Anbieter</p>
+            </div>
+            <div class="border border-white/10 p-4">
+              <p class="font-heading text-3xl font-semibold text-white">24h</p>
+              <p class="mt-1 text-[0.64rem] uppercase tracking-[0.16em] text-white/36">Prüfung</p>
+            </div>
+            <div class="border border-white/10 p-4">
+              <p class="font-heading text-3xl font-semibold text-white">0%</p>
+              <p class="mt-1 text-[0.64rem] uppercase tracking-[0.16em] text-white/36">Bindung</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Trust Badges -->
   {enableStats && (
-    <section class="py-10 bg-gray-50 border-y border-gray-100">
+    <section class="bg-[#111820] border-b border-white/10">
       <div class="container-wide">
-        <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-gray-400">
+        <div class="grid grid-cols-2 lg:grid-cols-4 divide-x-0 divide-y divide-white/10 lg:divide-x lg:divide-y-0">
           {stats.trustBadges.map((badge, i) => (
-            <div class="flex items-center gap-2 text-sm">
-              {i < 3 ? (
-                <svg class="w-5 h-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  {i === 0 && <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>}
-                  {i === 1 && <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>}
-                  {i === 2 && <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>}
-                </svg>
-              ) : (
-                <svg class="w-5 h-5 text-accent-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-              )}
-              <span class="font-medium text-gray-600">{badge.label}</span>
+            <div class="py-7 lg:px-7">
+              <p class="font-heading text-4xl font-semibold leading-none text-brand-300">{String(i + 1).padStart(2, '0')}</p>
+              <p class="mt-3 text-[0.72rem] font-semibold uppercase tracking-[0.17em] text-white/62">{badge.label}</p>
             </div>
           ))}
         </div>
@@ -68,93 +134,121 @@ const testimonials = allTestimonials.slice(0, 3);
     </section>
   )}
 
-
   <!-- Services -->
   {enableLeistungen && (
-    <section class="section-padding">
+    <section class="bg-[#f7f3ea] py-20 sm:py-24 lg:py-32">
       <div class="container-wide">
-        <SectionHeading
-          title="Unsere Leistungen"
-          subtitle="Von der Tarifanalyse bis zum reibungslosen Wechsel – wir begleiten Sie durch den gesamten Prozess."
-        />
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.highlight.map((s) => (
-            <Card title={s.title} icon={s.icon}>
-              {s.description}
-            </Card>
+        <div class="mb-14 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+          <div>
+            <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-700">Unsere Leistungen</p>
+            <h2 class="max-w-xl font-heading text-5xl font-semibold leading-[1.03] text-dark-900 sm:text-6xl">Tarifanalyse mit ruhiger Hand.</h2>
+          </div>
+          <p class="max-w-2xl text-base leading-8 text-dark-700 lg:justify-self-end">
+            Von der Tarifanalyse bis zum reibungslosen Wechsel – wir begleiten Sie durch den gesamten Prozess.
+          </p>
+        </div>
+
+        <div class="grid border-y border-dark-900/12 md:grid-cols-3">
+          {services.highlight.map((s, i) => (
+            <article class={`group py-10 md:min-h-80 md:px-8 ${i > 0 ? 'border-t border-dark-900/12 md:border-l md:border-t-0' : ''}`}>
+              <p class="font-heading text-5xl font-semibold leading-none text-brand-500/70">0{i + 1}</p>
+              <h3 class="mt-12 font-heading text-3xl font-semibold leading-tight text-dark-900">{s.title}</h3>
+              <p class="mt-5 text-sm leading-7 text-dark-700">{s.description}</p>
+            </article>
           ))}
         </div>
-        <div class="text-center mt-10">
-          <a href="/leistungen" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-500 transition-colors">
+
+        <div class="mt-10">
+          <a href="/leistungen" class="inline-flex items-center gap-2 border-b border-brand-500 pb-1 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:text-brand-700">
             Alle Leistungen ansehen
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
     </section>
   )}
 
-
-  <!-- Why Energierichter — Alternating Split Section -->
-  <section class="section-padding">
+  <!-- Why Energierichter -->
+  <section class="bg-white py-20 sm:py-24 lg:py-32">
     <div class="container-wide">
-      <SectionHeading
-        title="Warum Energierichter?"
-        subtitle="Persönlich, unabhängig und immer auf Ihrer Seite."
-      />
-
-      <!-- Row 1: Text left, Image right -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold mb-4">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            100% unabhängig
-          </div>
-          <h3 class="text-2xl sm:text-3xl font-heading font-bold text-dark-900 mb-4">Kein Anbieter, sondern <span class="text-brand-600">Ihr Berater</span></h3>
-          <p class="text-gray-600 leading-relaxed mb-6">Anders als Vergleichsportale sind wir nicht an bestimmte Energieversorger gebunden. Wir beraten Sie persönlich, analysieren Ihren individuellen Verbrauch und finden den Tarif, der wirklich zu Ihnen passt.</p>
-          <ul class="space-y-3">
-            <li class="flex items-center gap-3 text-sm text-gray-700">
-              <div class="w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center shrink-0"><svg class="w-3.5 h-3.5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
-              Über 100 Anbieter im Vergleich
-            </li>
-            <li class="flex items-center gap-3 text-sm text-gray-700">
-              <div class="w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center shrink-0"><svg class="w-3.5 h-3.5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
-              Zugang zu Sonderkonditionen
-            </li>
-            <li class="flex items-center gap-3 text-sm text-gray-700">
-              <div class="w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center shrink-0"><svg class="w-3.5 h-3.5 text-brand-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
-              Persönlicher Ansprechpartner
-            </li>
-          </ul>
-        </div>
-        <div class="relative">
-          <div class="absolute -inset-4 bg-gradient-to-br from-brand-100/40 to-transparent rounded-3xl blur-xl"></div>
-          <PlaceholderImage text="Berater zeigt Tarifvergleich auf Laptop-Bildschirm" aspectRatio="aspect-[4/3]" class="relative shadow-xl" />
-        </div>
+      <div class="mb-16 max-w-3xl">
+        <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-700">Warum Energierichter?</p>
+        <h2 class="font-heading text-5xl font-semibold leading-[1.03] text-dark-900 sm:text-6xl">Persönlich, unabhängig und immer auf Ihrer Seite.</h2>
       </div>
 
-      <!-- Row 2: Image left, Text right (reversed) -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div class="relative order-2 lg:order-1">
-          <div class="absolute -inset-4 bg-gradient-to-bl from-accent-100/40 to-transparent rounded-3xl blur-xl"></div>
-          <PlaceholderImage text="Zufriedene Familie in hellem Wohnzimmer" aspectRatio="aspect-[4/3]" class="relative shadow-xl" />
-        </div>
-        <div class="order-1 lg:order-2">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-50 text-accent-700 text-xs font-semibold mb-4">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            Echte Ersparnis
+      <div class="grid gap-20 lg:gap-24">
+        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-dark-700">100% unabhängig</p>
+            <h3 class="max-w-xl font-heading text-4xl font-semibold leading-[1.05] text-dark-900 sm:text-5xl">Kein Anbieter, sondern Ihr Berater.</h3>
+            <p class="mt-6 max-w-2xl text-base leading-8 text-dark-700">
+              Anders als Vergleichsportale sind wir nicht an bestimmte Energieversorger gebunden. Wir beraten Sie persönlich, analysieren Ihren individuellen Verbrauch und finden den Tarif, der wirklich zu Ihnen passt.
+            </p>
+            <ul class="mt-8 space-y-4">
+              {benefitChecks.map((item) => (
+                <li class="flex items-center gap-4 text-sm font-medium text-dark-700">
+                  <span class="h-px w-8 bg-brand-500"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-          <h3 class="text-2xl sm:text-3xl font-heading font-bold text-dark-900 mb-4">Weniger zahlen, <span class="text-accent-600">mehr genießen</span></h3>
-          <p class="text-gray-600 leading-relaxed mb-6">Unsere Kunden sparen im Durchschnitt 420 € pro Jahr – ohne Kompromisse bei der Versorgungssicherheit. Und das Beste: Unser Service ist für Sie komplett kostenlos.</p>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-white rounded-xl border border-gray-100 p-4 text-center shadow-sm">
-              <div class="text-2xl font-heading font-bold text-brand-600">420 €</div>
-              <div class="text-xs text-gray-500 mt-1">Ø Ersparnis/Jahr</div>
+
+          <div class="border border-dark-900/12 bg-[#f7f3ea] p-7 shadow-[0_24px_70px_rgba(11,15,20,0.08)] sm:p-9">
+            <div class="flex items-center justify-between border-b border-dark-900/10 pb-5">
+              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-dark-700">Prüfprotokoll</p>
+              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-700">neutral</p>
             </div>
-            <div class="bg-white rounded-xl border border-gray-100 p-4 text-center shadow-sm">
-              <div class="text-2xl font-heading font-bold text-brand-600">100%</div>
-              <div class="text-xs text-gray-500 mt-1">Kostenlos für Sie</div>
+            <div class="grid grid-cols-2 border-b border-dark-900/10">
+              <div class="py-9 pr-7">
+                <p class="font-heading text-6xl font-semibold leading-none text-dark-900">0</p>
+                <p class="mt-3 text-xs uppercase tracking-[0.16em] text-dark-700">Anbieterbindung</p>
+              </div>
+              <div class="border-l border-dark-900/10 py-9 pl-7">
+                <p class="font-heading text-6xl font-semibold leading-none text-brand-600">100+</p>
+                <p class="mt-3 text-xs uppercase tracking-[0.16em] text-dark-700">Tarife im Blick</p>
+              </div>
             </div>
+            <div class="grid gap-4 pt-6 text-sm">
+              <div class="grid grid-cols-[9rem_1fr] gap-4">
+                <span class="text-dark-700">Verbrauch</span>
+                <span class="font-semibold text-dark-900">individuell analysiert</span>
+              </div>
+              <div class="grid grid-cols-[9rem_1fr] gap-4">
+                <span class="text-dark-700">Konditionen</span>
+                <span class="font-semibold text-dark-900">Sondertarife berücksichtigt</span>
+              </div>
+              <div class="grid grid-cols-[9rem_1fr] gap-4">
+                <span class="text-dark-700">Betreuung</span>
+                <span class="font-semibold text-dark-900">persönlicher Ansprechpartner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <div class="order-2 border border-white/12 bg-dark-900 p-7 text-white shadow-[0_24px_70px_rgba(11,15,20,0.18)] sm:p-9 lg:order-1">
+            <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300">Einsparurteil</p>
+            <p class="font-heading text-7xl font-semibold leading-none text-brand-300 sm:text-8xl">420 €</p>
+            <p class="mt-4 text-sm uppercase tracking-[0.16em] text-white/42">Ø Ersparnis pro Jahr</p>
+            <div class="mt-9 grid grid-cols-2 border-t border-white/10">
+              <div class="py-6 pr-6">
+                <p class="font-heading text-4xl font-semibold text-white">100%</p>
+                <p class="mt-2 text-xs uppercase tracking-[0.16em] text-white/40">Kostenlos für Sie</p>
+              </div>
+              <div class="border-l border-white/10 py-6 pl-6">
+                <p class="font-heading text-4xl font-semibold text-white">sicher</p>
+                <p class="mt-2 text-xs uppercase tracking-[0.16em] text-white/40">Versorgung bleibt</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-1 lg:order-2">
+            <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-dark-700">Echte Ersparnis</p>
+            <h3 class="max-w-xl font-heading text-4xl font-semibold leading-[1.05] text-dark-900 sm:text-5xl">Weniger zahlen, ohne Kompromiss.</h3>
+            <p class="mt-6 max-w-2xl text-base leading-8 text-dark-700">
+              Unsere Kunden sparen im Durchschnitt 420 € pro Jahr – ohne Kompromisse bei der Versorgungssicherheit. Und das Beste: Unser Service ist für Sie komplett kostenlos.
+            </p>
           </div>
         </div>
       </div>
@@ -162,71 +256,120 @@ const testimonials = allTestimonials.slice(0, 3);
   </section>
 
   <!-- How it works -->
-  <section class="section-padding bg-gray-50">
-    <div class="container-wide">
-      <SectionHeading
-        title="So einfach geht's"
-        subtitle="In nur 3 Schritten zu Ihrem optimalen Energietarif"
-      />
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-        <!-- Steps -->
-        <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {processSteps.homepage.map((item) => (
-            <div class="relative text-center p-6">
-              <div class="text-6xl font-heading font-extrabold text-brand-100 mb-4">{item.step}</div>
-              <h3 class="text-xl font-heading font-bold text-dark-900 mb-2">{item.title}</h3>
-              <p class="text-gray-600">{item.description}</p>
-            </div>
-          ))}
+  <section class="relative overflow-hidden bg-[#111820] py-20 text-white sm:py-24 lg:py-32">
+    <div class="absolute inset-0 opacity-[0.045] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px); background-size: 112px 112px;"></div>
+    <div class="container-wide relative">
+      <div class="mb-14 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+        <div>
+          <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300">So einfach geht's</p>
+          <h2 class="max-w-xl font-heading text-5xl font-semibold leading-[1.03] text-white sm:text-6xl">In drei Schritten zum besseren Tarif.</h2>
         </div>
-        <!-- Companion image -->
-        <div class="lg:col-span-2 hidden lg:block">
-          <PlaceholderImage text="Person prüft Energierechnung mit Smartphone" aspectRatio="aspect-[3/4]" class="shadow-lg" />
-        </div>
+        <p class="max-w-2xl text-base leading-8 text-white/56 lg:justify-self-end">
+          In nur 3 Schritten zu Ihrem optimalen Energietarif.
+        </p>
+      </div>
+
+      <div class="grid border border-white/12 lg:grid-cols-3">
+        {processSteps.homepage.map((item, i) => (
+          <article class={`p-8 lg:min-h-80 ${i > 0 ? 'border-t border-white/12 lg:border-l lg:border-t-0' : ''}`}>
+            <p class="font-heading text-6xl font-semibold leading-none text-brand-300/86">{item.step}</p>
+            <h3 class="mt-16 font-heading text-3xl font-semibold leading-tight text-white">{item.title}</h3>
+            <p class="mt-4 text-sm leading-7 text-white/52">{item.description}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- CTA Banner -->
-  <CtaBanner text="Bereit für niedrigere Energiekosten?" ctaText="Jetzt kostenlos anfragen" ctaHref="/anfrage" />
+  <section class="bg-dark-900 border-y border-brand-400/20 py-16 sm:py-20">
+    <div class="container-wide flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
+      <div>
+        <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300">Nächster Schritt</p>
+        <p class="max-w-2xl font-heading text-4xl font-semibold leading-[1.04] text-white sm:text-5xl">
+          Bereit für niedrigere Energiekosten?
+        </p>
+      </div>
+      <a href="/anfrage" class="inline-flex shrink-0 items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 hover:bg-transparent hover:text-brand-300 transition-all duration-200">
+        Jetzt kostenlos anfragen
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
 
   <!-- Testimonials -->
   {enableReferenzen && (
-    <section class="section-padding">
+    <section class="bg-[#f7f3ea] py-20 sm:py-24 lg:py-32">
       <div class="container-wide">
-        <SectionHeading
-          title="Das sagen unsere Kunden"
-          subtitle="Überzeugen Sie sich von den Erfahrungen anderer Kunden."
-        />
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
-            <Testimonial {...t} />
+        <div class="mb-14 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+          <div>
+            <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-700">Das sagen unsere Kunden</p>
+            <h2 class="max-w-xl font-heading text-5xl font-semibold leading-[1.03] text-dark-900 sm:text-6xl">Geprüft in der Praxis.</h2>
+          </div>
+          <p class="max-w-2xl text-base leading-8 text-dark-700 lg:justify-self-end">
+            Überzeugen Sie sich von den Erfahrungen anderer Kunden.
+          </p>
+        </div>
+
+        <div class="grid border-y border-dark-900/12 md:grid-cols-3">
+          {testimonials.map((t, i) => (
+            <figure class={`py-10 md:px-8 ${i > 0 ? 'border-t border-dark-900/12 md:border-l md:border-t-0' : ''}`}>
+              <div class="mb-6 flex gap-1 text-brand-500" aria-label={`${t.rating ?? 5} von 5 Sternen`}>
+                {Array.from({ length: 5 }).map((_, star) => (
+                  <svg class={`h-3.5 w-3.5 ${star < (t.rating ?? 5) ? 'opacity-100' : 'opacity-20'}`} fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                ))}
+              </div>
+              <blockquote class="text-base leading-8 text-dark-700">&ldquo;{t.quote}&rdquo;</blockquote>
+              <figcaption class="mt-7 border-t border-dark-900/10 pt-5">
+                <p class="font-semibold text-dark-900">{t.name}</p>
+                {t.role && <p class="mt-1 text-xs uppercase tracking-[0.16em] text-dark-700">{t.role}</p>}
+              </figcaption>
+            </figure>
           ))}
         </div>
-        <div class="text-center mt-10">
-          <a href="/referenzen" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-500 transition-colors">
+
+        <div class="mt-10">
+          <a href="/referenzen" class="inline-flex items-center gap-2 border-b border-brand-500 pb-1 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:text-brand-700">
             Alle Bewertungen ansehen
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
     </section>
   )}
 
-
   <!-- FAQ -->
   {enableFaq && (
-    <section class="section-padding bg-gray-50">
+    <section class="bg-white py-20 sm:py-24 lg:py-32">
       <div class="container-narrow">
-        <SectionHeading
-          title="Häufig gestellte Fragen"
-          subtitle="Hier finden Sie Antworten auf die wichtigsten Fragen."
-        />
-        <FaqAccordion items={faqs} />
+        <div class="mb-12">
+          <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-700">Häufig gestellte Fragen</p>
+          <h2 class="font-heading text-5xl font-semibold leading-[1.03] text-dark-900 sm:text-6xl">Kurz geklärt.</h2>
+          <p class="mt-5 max-w-2xl text-base leading-8 text-dark-700">
+            Hier finden Sie Antworten auf die wichtigsten Fragen.
+          </p>
+        </div>
+
+        <div class="border-y border-dark-900/12">
+          {faqs.map((item, i) => (
+            <details class="group border-b border-dark-900/12 last:border-b-0" id={`faq-${i}`}>
+              <summary class="flex cursor-pointer items-center justify-between gap-8 py-7 text-left font-semibold text-dark-900 list-none [&::-webkit-details-marker]:hidden">
+                <span>{item.question}</span>
+                <span class="flex h-8 w-8 shrink-0 items-center justify-center border border-brand-500/60 text-brand-700 transition-transform duration-300 group-open:rotate-45">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                </span>
+              </summary>
+              <div class="pb-7 pr-12 text-dark-700 leading-8">
+                <p>{item.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
       </div>
     </section>
   )}
-
 
   <Footer slot="footer" />
   <ConsentBanner slot="consent" />
