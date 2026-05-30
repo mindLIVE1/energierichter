@@ -22,117 +22,187 @@ const benefitChecks = [
   'Zugang zu Sonderkonditionen',
   'Persönlicher Ansprechpartner',
 ];
+
+const heroBenefits = [
+  'Kostenlose Erstprüfung',
+  'Keine Anbieterbindung',
+  'Persönliche Wechselbegleitung',
+];
 ---
 
 <BaseLayout
   title="Energierichter – Unabhängige Energieberatung | Strom & Gas"
-  description="Ihr unabhängiger Energierichter: Wir finden den besten Strom- und Gastarif für Privat- und Geschäftskunden. Kostenlos, transparent, unverbindlich."
+  description="Ihr unabhängiger Energierichter: Wir prüfen Ihre Strom- und Gastarife persönlich, vergleichen passende Anbieter und begleiten den Wechsel – kostenlos, transparent, unverbindlich."
 >
   <Header slot="header" />
 
   <!-- Hero -->
-  <section class="relative overflow-hidden bg-dark-900 text-white">
-    <div class="absolute inset-0 opacity-[0.055] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
-    <div class="absolute inset-x-0 bottom-0 h-px bg-brand-400/30"></div>
+  <section class="relative overflow-hidden text-white" style="background: radial-gradient(circle at 70% 35%, rgba(230,180,60,0.07), transparent 28%), linear-gradient(180deg, #06090d 0%, #0b1117 70%, #101820 100%);">
+    <!-- Subtle grid texture -->
+    <div class="absolute inset-0 opacity-[0.045] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
+    <!-- Bottom edge soft fade -->
+    <div class="absolute inset-x-0 bottom-0 h-16 pointer-events-none" style="background: linear-gradient(to bottom, transparent, rgba(16,24,32,0.6));"></div>
 
-    <div class="container-wide relative grid grid-cols-1 lg:grid-cols-[1.02fr_0.98fr] gap-14 lg:gap-20 items-center py-20 sm:py-24 lg:py-28">
-      <div class="max-w-3xl">
-        <img
-          src="/assets/brand/er-logo-text.svg"
-          alt="Energierichter"
-          width="1684"
-          height="515"
-          class="mb-12 h-14 w-auto sm:h-16 lg:h-20"
-        />
+    <div class="container-wide relative" style="padding-top: clamp(3.5rem, 6vw, 5rem); padding-bottom: clamp(2rem, 4vw, 3rem);">
+      <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start" style="min-height: clamp(560px, 72vh, 720px);">
 
-        <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300/90">
-          Unabhängige Energieberatung
-        </p>
+        <!-- Left: Copy -->
+        <div class="max-w-3xl flex flex-col justify-center" style="padding-top: clamp(1rem, 3vw, 3rem);">
+          <img
+            src="/assets/brand/er-logo-text.svg"
+            alt="Energierichter"
+            width="1684"
+            height="515"
+            class="mb-10 h-12 w-auto sm:h-14 lg:h-16"
+          />
 
-        <h1 class="max-w-4xl font-heading text-5xl font-semibold leading-[1.02] text-white sm:text-6xl lg:text-7xl">
-          Energiekosten intelligent senken.
-        </h1>
+          <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300/90">
+            Unabhängige Energieberatung
+          </p>
 
-        <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-white/66">
-          Unabhängige Tarifoptimierung für Unternehmen, Immobilien und Haushalte. Wir vergleichen über 100 Anbieter und finden den optimalen Strom- &amp; Gastarif für Sie – kostenlos und unverbindlich.
-        </p>
+          <h1 class="max-w-4xl font-heading font-semibold leading-[1.04] text-white" style="font-size: clamp(2.4rem, 4.8vw, 3.75rem);">
+            Energiekosten senken,<br>ohne selbst Tarife zu vergleichen.
+          </h1>
 
-        <div class="mt-10 flex flex-col sm:flex-row gap-4">
-          <a href="/anfrage" class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 transition-all duration-200 hover:bg-transparent hover:text-brand-300">
-            Kostenlos anfragen
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="/termin" class="inline-flex items-center justify-center border border-white/16 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/74 transition-all duration-200 hover:border-brand-400/70 hover:text-brand-300">
-            Termin vereinbaren
-          </a>
+          <p class="mt-6 max-w-xl text-base sm:text-lg leading-8 text-white/62">
+            Wir prüfen Ihre Strom- und Gastarife persönlich, vergleichen passende Anbieter und begleiten den Wechsel — unabhängig, transparent und unverbindlich.
+          </p>
+
+          <!-- Trust signals inline -->
+          <div class="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+            {heroBenefits.map((b) => (
+              <span class="flex items-center gap-2 text-[0.72rem] font-medium text-white/52">
+                <span class="h-px w-4 bg-brand-400/70 shrink-0"></span>
+                {b}
+              </span>
+            ))}
+          </div>
+
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="/anfrage" id="hero-cta-primary" class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 transition-all duration-200 hover:bg-transparent hover:text-brand-300">
+              Kostenlose Tarifprüfung starten
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/termin" id="hero-cta-secondary" class="inline-flex items-center justify-center border border-white/16 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/70 transition-all duration-200 hover:border-brand-400/70 hover:text-brand-300">
+              Termin vereinbaren
+            </a>
+          </div>
+
+          <!-- Trust line below CTA -->
+          <p class="mt-4 text-[0.68rem] text-white/36 tracking-[0.08em]">
+            Unverbindlich &nbsp;·&nbsp; Persönliche Beratung &nbsp;·&nbsp; Keine Anbieterbindung
+          </p>
         </div>
+
+        <!-- Right: Tariff Result Card -->
+        <div class="relative flex items-start justify-center lg:justify-end lg:pt-8">
+          <div class="absolute -inset-6 bg-brand-400/4 blur-3xl pointer-events-none"></div>
+          <div class="relative w-full max-w-sm border border-white/10 bg-[#0e1720]/95 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.50)] sm:p-6">
+            <!-- Card header -->
+            <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
+              <div>
+                <p class="text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-brand-300/80">Analysebericht</p>
+                <p class="mt-1.5 text-xs text-white/46">Tarifprüfung Strom & Gas</p>
+              </div>
+              <span class="border border-brand-400/30 px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-brand-300 shrink-0">Unabhängig</span>
+            </div>
+
+            <!-- Savings number -->
+            <div class="py-6">
+              <p class="text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-white/34">Mögliches Einsparpotenzial pro Jahr (Beispiel)</p>
+              <p class="mt-2.5 font-heading text-5xl font-semibold leading-none text-brand-300 sm:text-6xl">420 €</p>
+            </div>
+
+            <!-- Row details -->
+            <div class="space-y-3 border-y border-white/10 py-4 text-sm">
+              <div class="flex items-center justify-between gap-4">
+                <span class="text-white/40 text-xs">Empfehlung</span>
+                <span class="font-semibold text-white text-xs">Wechsel prüfen</span>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <span class="text-white/40 text-xs">Status</span>
+                <span class="font-semibold text-brand-300 text-xs">Unabhängig geprüft</span>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <span class="text-white/40 text-xs">Servicekosten</span>
+                <span class="font-semibold text-white text-xs">0 €</span>
+              </div>
+            </div>
+
+            <!-- 3-stat mini grid -->
+            <div class="mt-4 grid grid-cols-3 gap-2">
+              <div class="border border-white/10 p-3">
+                <p class="font-heading text-2xl font-semibold text-white">100+</p>
+                <p class="mt-0.5 text-[0.58rem] uppercase tracking-[0.14em] text-white/32">Anbieter</p>
+              </div>
+              <div class="border border-white/10 p-3">
+                <p class="font-heading text-2xl font-semibold text-white">24h</p>
+                <p class="mt-0.5 text-[0.58rem] uppercase tracking-[0.14em] text-white/32">Prüfung</p>
+              </div>
+              <div class="border border-white/10 p-3">
+                <p class="font-heading text-2xl font-semibold text-white">0%</p>
+                <p class="mt-0.5 text-[0.58rem] uppercase tracking-[0.14em] text-white/32">Bindung</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="relative">
-        <div class="absolute -inset-8 bg-brand-400/5 blur-3xl"></div>
-        <div class="relative border border-white/12 bg-[#111820]/92 p-5 shadow-[0_32px_90px_rgba(0,0,0,0.42)] sm:p-7">
-          <div class="flex items-start justify-between gap-6 border-b border-white/10 pb-5">
-            <div>
-              <p class="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300/84">Analysebericht</p>
-              <p class="mt-2 text-sm text-white/52">Tarifprüfung Strom &amp; Gas</p>
-            </div>
-            <span class="border border-brand-400/35 px-3 py-1 text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-brand-300">ER-420</span>
-          </div>
-
-          <div class="py-8">
-            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white/38">Ersparnis pro Jahr</p>
-            <p class="mt-3 font-heading text-6xl font-semibold leading-none text-brand-300 sm:text-7xl">420 €</p>
-          </div>
-
-          <div class="space-y-4 border-y border-white/10 py-5 text-sm">
-            <div class="flex items-center justify-between gap-5">
-              <span class="text-white/44">Empfehlung</span>
-              <span class="font-semibold text-white">Wechsel prüfen</span>
-            </div>
-            <div class="flex items-center justify-between gap-5">
-              <span class="text-white/44">Status</span>
-              <span class="font-semibold text-brand-300">Unabhängig geprüft</span>
-            </div>
-            <div class="flex items-center justify-between gap-5">
-              <span class="text-white/44">Servicekosten</span>
-              <span class="font-semibold text-white">0 €</span>
-            </div>
-          </div>
-
-          <div class="mt-6 grid grid-cols-3 gap-3">
-            <div class="border border-white/10 p-4">
-              <p class="font-heading text-3xl font-semibold text-white">100+</p>
-              <p class="mt-1 text-[0.64rem] uppercase tracking-[0.16em] text-white/36">Anbieter</p>
-            </div>
-            <div class="border border-white/10 p-4">
-              <p class="font-heading text-3xl font-semibold text-white">24h</p>
-              <p class="mt-1 text-[0.64rem] uppercase tracking-[0.16em] text-white/36">Prüfung</p>
-            </div>
-            <div class="border border-white/10 p-4">
-              <p class="font-heading text-3xl font-semibold text-white">0%</p>
-              <p class="mt-1 text-[0.64rem] uppercase tracking-[0.16em] text-white/36">Bindung</p>
-            </div>
+      <!-- Scroll cue strip -->
+      <div class="mt-10 border-t border-white/10 pt-5">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0">
+          <span class="text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-white/36 sm:mr-8">So funktioniert's&nbsp;↓</span>
+          <div class="flex flex-wrap gap-x-0 gap-y-2 sm:gap-y-0 sm:divide-x sm:divide-white/12">
+            {['01\u2002Analyse', '02\u2002Vergleich', '03\u2002Wechselbegleitung'].map((step) => (
+              <span class="text-[0.68rem] font-medium uppercase tracking-[0.18em] text-white/46 sm:px-6 first:sm:pl-0">{step}</span>
+            ))}
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Soft transition bridge: dark → light -->
+  <div class="h-px bg-gradient-to-r from-transparent via-brand-400/20 to-transparent"></div>
+
   <!-- Trust Badges -->
   {enableStats && (
-    <section class="bg-[#111820] border-b border-white/10">
+    <section class="bg-[#0f1a24] border-b border-white/8">
       <div class="container-wide">
         <div class="grid grid-cols-2 lg:grid-cols-4 divide-x-0 divide-y divide-white/10 lg:divide-x lg:divide-y-0">
           {stats.trustBadges.map((badge, i) => (
             <div class="py-7 lg:px-7">
               <p class="font-heading text-4xl font-semibold leading-none text-brand-300">{String(i + 1).padStart(2, '0')}</p>
-              <p class="mt-3 text-[0.72rem] font-semibold uppercase tracking-[0.17em] text-white/62">{badge.label}</p>
+              <p class="mt-3 text-[0.72rem] font-semibold uppercase tracking-[0.17em] text-white/56">{badge.label}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
   )}
+
+  <!-- Positioning Bridge: Kein Anbieter -->
+  <section class="bg-[#f7f3ea] border-b border-dark-900/10 py-14 sm:py-16">
+    <div class="container-wide">
+      <div class="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+        <div>
+          <p class="mb-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-700">Was uns unterscheidet</p>
+          <h2 class="font-heading text-3xl font-semibold leading-[1.05] text-dark-900 sm:text-4xl">
+            Kein Anbieter. Kein Tarifdschungel. Persönliche Beratung.
+          </h2>
+          <p class="mt-4 max-w-2xl text-base leading-8 text-dark-700">
+            Vergleichsportale zeigen Tarife. Wir prüfen, welcher Tarif wirklich zu Ihrer Situation passt — und begleiten Sie persönlich durch den Wechsel.
+          </p>
+        </div>
+        <a href="/anfrage" id="bridge-cta" class="shrink-0 inline-flex items-center gap-2 border border-dark-900/20 px-7 py-3.5 text-[0.7rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:border-brand-600 hover:text-brand-700 transition-all duration-200">
+          Jetzt prüfen lassen
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- Services -->
   {enableLeistungen && (
@@ -144,7 +214,7 @@ const benefitChecks = [
             <h2 class="max-w-xl font-heading text-5xl font-semibold leading-[1.03] text-dark-900 sm:text-6xl">Tarifanalyse mit ruhiger Hand.</h2>
           </div>
           <p class="max-w-2xl text-base leading-8 text-dark-700 lg:justify-self-end">
-            Von der Tarifanalyse bis zum reibungslosen Wechsel – wir begleiten Sie durch den gesamten Prozess.
+            Von der persönlichen Tarifanalyse bis zum reibungslosen Wechsel – wir begleiten Sie durch den gesamten Prozess, ohne Aufwand für Sie.
           </p>
         </div>
 
@@ -159,7 +229,7 @@ const benefitChecks = [
         </div>
 
         <div class="mt-10">
-          <a href="/leistungen" class="inline-flex items-center gap-2 border-b border-brand-500 pb-1 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:text-brand-700">
+          <a href="/leistungen" id="services-cta" class="inline-flex items-center gap-2 border-b border-brand-500 pb-1 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:text-brand-700">
             Alle Leistungen ansehen
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -187,7 +257,7 @@ const benefitChecks = [
             <ul class="mt-8 space-y-4">
               {benefitChecks.map((item) => (
                 <li class="flex items-center gap-4 text-sm font-medium text-dark-700">
-                  <span class="h-px w-8 bg-brand-500"></span>
+                  <span class="h-px w-8 bg-brand-500 shrink-0"></span>
                   {item}
                 </li>
               ))}
@@ -228,9 +298,9 @@ const benefitChecks = [
 
         <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div class="order-2 border border-white/12 bg-dark-900 p-7 text-white shadow-[0_24px_70px_rgba(11,15,20,0.18)] sm:p-9 lg:order-1">
-            <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300">Einsparurteil</p>
+            <p class="mb-3 text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-brand-300">Ø Einsparpotenzial (Beispiel)</p>
             <p class="font-heading text-7xl font-semibold leading-none text-brand-300 sm:text-8xl">420 €</p>
-            <p class="mt-4 text-sm uppercase tracking-[0.16em] text-white/42">Ø Ersparnis pro Jahr</p>
+            <p class="mt-3 text-xs uppercase tracking-[0.16em] text-white/38">pro Jahr bei Tarifwechsel</p>
             <div class="mt-9 grid grid-cols-2 border-t border-white/10">
               <div class="py-6 pr-6">
                 <p class="font-heading text-4xl font-semibold text-white">100%</p>
@@ -247,7 +317,7 @@ const benefitChecks = [
             <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-dark-700">Echte Ersparnis</p>
             <h3 class="max-w-xl font-heading text-4xl font-semibold leading-[1.05] text-dark-900 sm:text-5xl">Weniger zahlen, ohne Kompromiss.</h3>
             <p class="mt-6 max-w-2xl text-base leading-8 text-dark-700">
-              Unsere Kunden sparen im Durchschnitt 420 € pro Jahr – ohne Kompromisse bei der Versorgungssicherheit. Und das Beste: Unser Service ist für Sie komplett kostenlos.
+              Viele Kunden sparen nach einer persönlichen Tarifprüfung spürbar — ohne Kompromisse bei der Versorgungssicherheit. Unser Service ist für Sie vollständig kostenlos.
             </p>
           </div>
         </div>
@@ -257,24 +327,24 @@ const benefitChecks = [
 
   <!-- How it works -->
   <section class="relative overflow-hidden bg-[#111820] py-20 text-white sm:py-24 lg:py-32">
-    <div class="absolute inset-0 opacity-[0.045] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px); background-size: 112px 112px;"></div>
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px); background-size: 112px 112px;"></div>
     <div class="container-wide relative">
       <div class="mb-14 grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
         <div>
           <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300">So einfach geht's</p>
           <h2 class="max-w-xl font-heading text-5xl font-semibold leading-[1.03] text-white sm:text-6xl">In drei Schritten zum besseren Tarif.</h2>
         </div>
-        <p class="max-w-2xl text-base leading-8 text-white/56 lg:justify-self-end">
-          In nur 3 Schritten zu Ihrem optimalen Energietarif.
+        <p class="max-w-2xl text-base leading-8 text-white/52 lg:justify-self-end">
+          Vom ersten Kontakt bis zur Bestätigung des neuen Anbieters — wir begleiten Sie durch jeden Schritt.
         </p>
       </div>
 
       <div class="grid border border-white/12 lg:grid-cols-3">
         {processSteps.homepage.map((item, i) => (
           <article class={`p-8 lg:min-h-80 ${i > 0 ? 'border-t border-white/12 lg:border-l lg:border-t-0' : ''}`}>
-            <p class="font-heading text-6xl font-semibold leading-none text-brand-300/86">{item.step}</p>
-            <h3 class="mt-16 font-heading text-3xl font-semibold leading-tight text-white">{item.title}</h3>
-            <p class="mt-4 text-sm leading-7 text-white/52">{item.description}</p>
+            <p class="font-heading text-6xl font-semibold leading-none text-brand-300/80">{item.step}</p>
+            <h3 class="mt-14 font-heading text-2xl font-semibold leading-tight text-white">{item.title}</h3>
+            <p class="mt-4 text-sm leading-7 text-white/54">{item.description}</p>
           </article>
         ))}
       </div>
@@ -283,17 +353,27 @@ const benefitChecks = [
 
   <!-- CTA Banner -->
   <section class="bg-dark-900 border-y border-brand-400/20 py-16 sm:py-20">
-    <div class="container-wide flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
-      <div>
-        <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300">Nächster Schritt</p>
-        <p class="max-w-2xl font-heading text-4xl font-semibold leading-[1.04] text-white sm:text-5xl">
-          Bereit für niedrigere Energiekosten?
-        </p>
+    <div class="container-wide">
+      <div class="flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300">Nächster Schritt</p>
+          <p class="max-w-2xl font-heading text-4xl font-semibold leading-[1.04] text-white sm:text-5xl">
+            Bereit, Ihre Energiekosten prüfen zu lassen?
+          </p>
+          <p class="mt-4 max-w-xl text-sm leading-7 text-white/50">
+            Starten Sie mit einer unverbindlichen Tarifprüfung und erfahren Sie, ob sich ein Wechsel für Sie lohnt.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3 shrink-0">
+          <a href="/anfrage" id="cta-banner-primary" class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 hover:bg-transparent hover:text-brand-300 transition-all duration-200">
+            Kostenlose Tarifprüfung starten
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/leistungen" id="cta-banner-secondary" class="text-center text-[0.68rem] font-medium uppercase tracking-[0.16em] text-white/38 hover:text-brand-300 transition-colors duration-200">
+            Ablauf ansehen →
+          </a>
+        </div>
       </div>
-      <a href="/anfrage" class="inline-flex shrink-0 items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 hover:bg-transparent hover:text-brand-300 transition-all duration-200">
-        Jetzt kostenlos anfragen
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
     </div>
   </section>
 
@@ -307,7 +387,7 @@ const benefitChecks = [
             <h2 class="max-w-xl font-heading text-5xl font-semibold leading-[1.03] text-dark-900 sm:text-6xl">Geprüft in der Praxis.</h2>
           </div>
           <p class="max-w-2xl text-base leading-8 text-dark-700 lg:justify-self-end">
-            Überzeugen Sie sich von den Erfahrungen anderer Kunden.
+            Kunden, die ihren Tarif prüfen ließen und auf persönliche Beratung statt auf Algorithmen gesetzt haben.
           </p>
         </div>
 
@@ -331,7 +411,7 @@ const benefitChecks = [
         </div>
 
         <div class="mt-10">
-          <a href="/referenzen" class="inline-flex items-center gap-2 border-b border-brand-500 pb-1 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:text-brand-700">
+          <a href="/referenzen" id="testimonials-more" class="inline-flex items-center gap-2 border-b border-brand-500 pb-1 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:text-brand-700">
             Alle Bewertungen ansehen
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -348,7 +428,7 @@ const benefitChecks = [
           <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-700">Häufig gestellte Fragen</p>
           <h2 class="font-heading text-5xl font-semibold leading-[1.03] text-dark-900 sm:text-6xl">Kurz geklärt.</h2>
           <p class="mt-5 max-w-2xl text-base leading-8 text-dark-700">
-            Hier finden Sie Antworten auf die wichtigsten Fragen.
+            Antworten auf die wichtigsten Fragen — bevor Sie sich entscheiden.
           </p>
         </div>
 
