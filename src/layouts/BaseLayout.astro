@@ -21,26 +21,30 @@ import '../styles/global.css';
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <!-- 1. Basic Foundation & SEO -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="generator" content={Astro.generator} />
-
-  <!-- SEO -->
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Open Graph -->
+  <!-- 2. Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- 3. Open Graph (Facebook, LinkedIn, WhatsApp, Slack, etc.) -->
   <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalUrl} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={`${siteUrl}${ogImage}`} />
-  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="Energierichter" />
   <meta property="og:locale" content="de_DE" />
 
-  <!-- Twitter -->
+  <!-- 4. Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@energierichter" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={`${siteUrl}${ogImage}`} />
