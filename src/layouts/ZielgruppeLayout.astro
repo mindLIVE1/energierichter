@@ -7,19 +7,17 @@ import Hero from '../components/ui/Hero.astro';
 import EditorialGridSection from '../components/sections/EditorialGridSection.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
-import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
 
 // Reusable landing page layout — each target group page uses this structure
 export interface Props {
   seo: { title: string; description: string };
-  hero: { badge: string; title: string; subtitle: string };
+  hero: { badge: string; title: string; subtitle: string; bgImage?: string; };
   painPoints: { icon: string; title: string; desc: string }[];
   benefits: { icon: string; title: string; desc: string }[];
   faqs: { question: string; answer: string }[];
-  heroImageText?: string;
 }
 
-const { seo, hero, painPoints, benefits, faqs, heroImageText } = Astro.props;
+const { seo, hero, painPoints, benefits, faqs } = Astro.props;
 ---
 
 <BaseLayout title={seo.title} description={seo.description}>
@@ -29,6 +27,7 @@ const { seo, hero, painPoints, benefits, faqs, heroImageText } = Astro.props;
     badge={hero.badge}
     title={hero.title}
     subtitle={hero.subtitle}
+    bgImage={hero.bgImage}
   />
 
   <EditorialGridSection
@@ -38,14 +37,6 @@ const { seo, hero, painPoints, benefits, faqs, heroImageText } = Astro.props;
     subtitle="Wir kennen die typischen Herausforderungen und haben die Lösung."
     items={painPoints.map((p, i) => ({ number: String(i + 1).padStart(2, '0'), title: p.title, description: p.desc }))}
   />
-
-  {heroImageText && (
-    <section class="bg-white py-0">
-      <div class="container-wide py-12">
-        <PlaceholderImage text={heroImageText} aspectRatio="aspect-[21/9]" />
-      </div>
-    </section>
-  )}
 
   <EditorialGridSection
     theme="dark"
