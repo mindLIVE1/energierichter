@@ -7,35 +7,22 @@ const { showUpload = false } = Astro.props;
 
 import FileUpload from './FileUpload.astro';
 import DoubleOptIn from './DoubleOptIn.astro';
+import FormInput from './forms/FormInput.astro';
+import FormTextarea from './forms/FormTextarea.astro';
 ---
 
 <div id="contact-form-wrapper">
   <form id="contact-form" class="space-y-6" novalidate>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <!-- Name -->
-      <div>
-        <label for="cf-name" class="block text-sm font-medium text-dark-900 mb-2">Name *</label>
-        <input type="text" id="cf-name" name="name" required
-          class="w-full px-4 py-3.5 border border-dark-900/16 bg-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm text-dark-900"
-          placeholder="Max Mustermann" />
-      </div>
+      <FormInput name="name" id="cf-name" label="Name" placeholder="Max Mustermann" required />
       <!-- Email -->
-      <div>
-        <label for="cf-email" class="block text-sm font-medium text-dark-900 mb-2">E-Mail *</label>
-        <input type="email" id="cf-email" name="email" required
-          class="w-full px-4 py-3.5 border border-dark-900/16 bg-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm text-dark-900"
-          placeholder="max@beispiel.de" />
-      </div>
+      <FormInput type="email" name="email" id="cf-email" label="E-Mail" placeholder="max@beispiel.de" required />
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <!-- Phone -->
-      <div>
-        <label for="cf-phone" class="block text-sm font-medium text-dark-900 mb-2">Telefon</label>
-        <input type="tel" id="cf-phone" name="phone"
-          class="w-full px-4 py-3.5 border border-dark-900/16 bg-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm text-dark-900"
-          placeholder="+49 123 456789" />
-      </div>
+      <FormInput type="tel" name="phone" id="cf-phone" label="Telefon" placeholder="+49 123 456789" />
       <!-- Customer Type -->
       <div>
         <label for="cf-type" class="block text-sm font-medium text-dark-900 mb-2">Kundentyp</label>
@@ -51,12 +38,7 @@ import DoubleOptIn from './DoubleOptIn.astro';
     </div>
 
     <!-- Message -->
-    <div>
-      <label for="cf-message" class="block text-sm font-medium text-dark-900 mb-2">Nachricht</label>
-      <textarea id="cf-message" name="message" rows={4}
-        class="w-full px-4 py-3.5 border border-dark-900/16 bg-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm text-dark-900 resize-y"
-        placeholder="Beschreiben Sie kurz Ihr Anliegen ..."></textarea>
-    </div>
+    <FormTextarea name="message" id="cf-message" label="Nachricht" placeholder="Beschreiben Sie kurz Ihr Anliegen ..." rows={4} />
 
     <!-- File Upload (optional) -->
     {showUpload && (

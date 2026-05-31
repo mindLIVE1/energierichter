@@ -1,0 +1,35 @@
+---
+export interface Props {
+  name: string;
+  id?: string;
+  label: string;
+  placeholder?: string;
+  required?: boolean;
+  rows?: number;
+  class?: string;
+}
+
+const {
+  name,
+  id = name,
+  label,
+  placeholder = '',
+  required = false,
+  rows = 4,
+  class: className = '',
+} = Astro.props;
+---
+
+<div class={`flex flex-col gap-2 ${className}`}>
+  <label for={id} class="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-dark-900/70">
+    {label} {required && <span class="text-brand-500" aria-label="Erforderlich">*</span>}
+  </label>
+  <textarea
+    id={id}
+    name={name}
+    required={required}
+    rows={rows}
+    placeholder={placeholder}
+    class="w-full resize-y border border-dark-900/20 bg-white px-5 py-4 text-sm text-dark-900 placeholder:text-dark-900/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 transition-colors"
+  ></textarea>
+</div>

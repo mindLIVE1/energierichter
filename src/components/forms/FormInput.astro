@@ -1,0 +1,35 @@
+---
+export interface Props {
+  type?: 'text' | 'email' | 'tel' | 'number' | 'password';
+  name: string;
+  id?: string;
+  label: string;
+  placeholder?: string;
+  required?: boolean;
+  class?: string;
+}
+
+const {
+  type = 'text',
+  name,
+  id = name,
+  label,
+  placeholder = '',
+  required = false,
+  class: className = '',
+} = Astro.props;
+---
+
+<div class={`flex flex-col gap-2 ${className}`}>
+  <label for={id} class="text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-dark-900/70">
+    {label} {required && <span class="text-brand-500" aria-label="Erforderlich">*</span>}
+  </label>
+  <input
+    type={type}
+    id={id}
+    name={name}
+    required={required}
+    placeholder={placeholder}
+    class="w-full border border-dark-900/20 bg-white px-5 py-4 text-sm text-dark-900 placeholder:text-dark-900/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 transition-colors"
+  />
+</div>

@@ -1,0 +1,27 @@
+---
+export interface Props {
+  text: string;
+  class?: string;
+  theme?: 'light' | 'dark' | 'brand';
+  as?: string;
+}
+
+const {
+  text,
+  class: className = '',
+  theme = 'brand',
+  as: Element = 'span',
+} = Astro.props;
+
+const themes = {
+  light: 'text-white/80',
+  dark: 'text-dark-900',
+  brand: 'text-brand-300',
+};
+
+const baseClass = 'text-[0.64rem] font-semibold uppercase tracking-[0.24em]';
+---
+
+<Element class={`${baseClass} ${themes[theme]} ${className}`}>
+  {text}
+</Element>

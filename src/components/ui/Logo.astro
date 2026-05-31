@@ -1,0 +1,26 @@
+---
+export interface Props {
+  variant?: 'default' | 'text';
+  class?: string;
+  width?: number | string;
+  height?: number | string;
+}
+
+const {
+  variant = 'default',
+  class: className = '',
+  width = variant === 'default' ? 1400 : 1684,
+  height = variant === 'default' ? 650 : 515,
+} = Astro.props;
+
+const src = variant === 'default' ? '/assets/brand/er-logo.svg' : '/assets/brand/er-logo-text.svg';
+const alt = "Energierichter";
+---
+
+<img
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+  class={className}
+/>

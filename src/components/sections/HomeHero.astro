@@ -1,5 +1,6 @@
 ---
 import TariffResultCard from '../ui/TariffResultCard.astro';
+import Button from '../ui/Button.astro';
 
 const heroBenefits = [
   'Kostenlose Erstprüfung',
@@ -64,13 +65,13 @@ const heroBenefits = [
 
         <!-- CTAs -->
         <div class="mt-8 flex flex-col sm:flex-row gap-4">
-          <a href="/anfrage" id="hero-cta-primary" class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 transition-all duration-200 hover:bg-transparent hover:text-brand-300">
+          <Button href="/anfrage" variant="primary" size="lg" id="hero-cta-primary">
             Kostenlose Tarifprüfung starten
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="/termin" id="hero-cta-secondary" class="inline-flex items-center justify-center border border-white/20 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/70 transition-all duration-200 hover:border-brand-400/70 hover:text-brand-300">
+          </Button>
+          <Button href="/termin" variant="secondary" size="lg" id="hero-cta-secondary">
             Termin vereinbaren
-          </a>
+          </Button>
         </div>
 
         <!-- Trust line below CTA -->

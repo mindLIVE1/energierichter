@@ -1,0 +1,31 @@
+---
+export interface Props {
+  icon?: string;
+  class?: string;
+  size?: 'sm' | 'md' | 'lg';
+  theme?: 'light' | 'dark' | 'brand';
+}
+
+const {
+  icon,
+  class: className = '',
+  size = 'md',
+  theme = 'brand',
+} = Astro.props;
+
+const sizes = {
+  sm: 'w-8 h-8 text-sm',
+  md: 'w-12 h-12 text-xl',
+  lg: 'w-16 h-16 text-3xl',
+};
+
+const themes = {
+  light: 'bg-white/10 text-white',
+  dark: 'bg-dark-900/5 text-dark-900',
+  brand: 'bg-brand-500/10 text-brand-500',
+};
+---
+
+<div class={`inline-flex items-center justify-center shrink-0 ${sizes[size]} ${themes[theme]} ${className}`}>
+  {icon ? <span set:html={icon} /> : <slot />}
+</div>
