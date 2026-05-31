@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div class="calendly-inline-widget" data-url="https://calendly.com/samuelstauss-ado" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+window.addEventListener('message', function(e) {
+  if (e.origin === "https://calendly.com") {
+    console.log("CALENDLY EVENT:", e.data);
+    fetch('http://localhost:3000/log', {method: 'POST', body: JSON.stringify(e.data)});
+  }
+});
+</script>
+</body>
+</html>

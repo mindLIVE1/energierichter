@@ -8,64 +8,90 @@
   <div class="absolute inset-x-0 bottom-0 h-px bg-brand-400/30"></div>
 
   <div class="container-wide relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
       
       <!-- Left Column: The Visual Process -->
-      <div class="max-w-xl">
+      <div class="max-w-xl transition-all duration-500">
         <p class="mb-5 label-editorial text-brand-300/90">
           Persönliche Beratung
         </p>
         <h1 class="font-heading text-4xl font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl mb-8">
           Termin vereinbaren.
         </h1>
-        <p class="text-base sm:text-lg leading-8 text-white/66 mb-16">
+        <p class="text-base sm:text-lg leading-8 text-white/66 mb-12">
           Wählen Sie einen passenden Termin für Ihre persönliche Energieberatung.
         </p>
 
-        <!-- The Timeline -->
-        <div class="relative ml-4 border-l border-dashed border-white/20 pb-4">
+        <!-- The Timeline (Ends at the placeholder dot) -->
+        <div class="relative ml-4 border-l border-dashed border-white/20">
           
           <!-- Step 1 -->
           <div id="booking-step-1" class="relative pl-10 pb-12 transition-opacity duration-500">
-            <div class="icon-ring absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-dark-900 border-2 border-brand-400 flex items-center justify-center text-brand-400 shadow-[0_0_15px_rgba(245,197,66,0.25)] transition-all duration-500">
+            <div class="icon-ring absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-dark-900 border-2 border-brand-400 flex items-center justify-center text-brand-400 shadow-[0_0_15px_rgba(245,197,66,0.25)] scale-125 transition-all duration-500">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             </div>
-            <h3 class="step-title text-xl font-semibold text-white mb-2 transition-colors duration-500">Termin wählen</h3>
-            <p class="step-desc text-white/60 text-sm leading-relaxed transition-colors duration-500">
+            <h3 class="step-title text-xl font-semibold text-white mb-2 translate-x-1 transition-all duration-500">Termin wählen</h3>
+            <p class="step-desc text-white/70 text-sm leading-relaxed transition-colors duration-500">
               Wählen Sie einen für Sie passenden Zeitpunkt in unserem Kalender aus.
             </p>
           </div>
 
           <!-- Step 2 -->
           <div id="booking-step-2" class="relative pl-10 pb-12 transition-opacity duration-500">
-            <div class="icon-ring absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-dark-900 border-2 border-white/20 flex items-center justify-center text-white/40 transition-all duration-500">
+            <div class="icon-ring absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-dark-900 border-2 border-white/20 flex items-center justify-center text-white/40 scale-100 transition-all duration-500">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
             </div>
-            <h3 class="step-title text-xl font-semibold text-white/80 mb-2 transition-colors duration-500">Daten bestätigen</h3>
+            <h3 class="step-title text-xl font-semibold text-white/80 mb-2 transition-all duration-500">Daten bestätigen</h3>
             <p class="step-desc text-white/50 text-sm leading-relaxed transition-colors duration-500">
               Tragen Sie Ihre Kontaktdaten ein, damit wir Sie optimal vorbereitet beraten können.
             </p>
           </div>
 
-          <!-- Step 3 -->
-          <div id="booking-step-3" class="relative pl-10 transition-opacity duration-500">
-            <div class="icon-ring absolute left-[-17px] top-0 w-8 h-8 rounded-full bg-dark-900 border-2 border-white/20 flex items-center justify-center text-white/40 transition-all duration-500">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          <!-- Step 3: Placeholder Icon (turns into checkmark) -->
+          <div id="booking-step-3-icon-container" class="relative h-4">
+            <div id="step-3-icon" class="absolute -left-[7px] top-0 w-3.5 h-3.5 rounded-full bg-dark-900 border-2 border-white/30 transition-all duration-500 flex items-center justify-center z-10">
+              <svg id="step-3-check" class="opacity-0 w-4 h-4 transition-opacity duration-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
             </div>
-            <h3 class="step-title text-xl font-semibold text-white/80 mb-2 transition-colors duration-500">Tarifprüfung starten</h3>
-            <p class="step-desc text-white/50 text-sm leading-relaxed transition-colors duration-500">
-              Im gemeinsamen Gespräch analysieren wir Ihre Situation und decken Einsparpotenziale auf.
+          </div>
+        </div>
+
+        <!-- Step 3: Success Content (Outside the border so line stops at icon) -->
+        <div id="step-3-content" class="ml-14 max-h-0 opacity-0 overflow-hidden translate-y-2 transition-all duration-500">
+          <div class="pt-1 pb-4">
+            <h3 class="text-xl font-semibold text-green-400 mb-2">Termin gebucht</h3>
+            <p class="text-white/60 text-sm leading-relaxed">
+              Wir haben Ihre Anfrage erhalten und freuen uns auf das Gespräch.
             </p>
           </div>
-
         </div>
+
+        <!-- Notification Pop-up: Tarifprüfung (Hidden initially) -->
+        <div id="notification-box" class="ml-4 mt-6 p-6 rounded-2xl bg-[#1e2329]/80 border border-white/5 relative hidden opacity-0 translate-y-6 transition-all duration-700 ease-out shadow-2xl backdrop-blur-md">
+          <!-- Yellow Corners Effect -->
+          <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-brand-400 rounded-tl-2xl"></div>
+          <div class="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-brand-400 rounded-tr-2xl"></div>
+          <div class="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-brand-400 rounded-bl-2xl"></div>
+          <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-brand-400 rounded-br-2xl"></div>
+          
+          <div class="text-center relative z-10">
+            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-400/10 text-brand-400 mb-3 shadow-[0_0_15px_rgba(245,197,66,0.15)]">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </div>
+            <p class="text-brand-400 font-bold uppercase tracking-widest text-[0.65rem] mb-1">Als Nächstes</p>
+            <h4 class="text-xl font-semibold text-white mb-2">Tarifprüfung starten</h4>
+            <p class="text-white/60 text-sm leading-relaxed max-w-sm mx-auto">
+              Im gemeinsamen Termin analysieren wir Ihre Situation und decken ungenutzte Einsparpotenziale auf.
+            </p>
+          </div>
+        </div>
+
       </div>
 
       <!-- Right Column: The Integrated Calendar -->
-      <div class="relative mt-8 lg:mt-0">
+      <div class="relative mt-8 lg:mt-0 transition-all duration-500">
         <div class="absolute -inset-4 bg-brand-400/5 blur-2xl rounded-[2rem] pointer-events-none"></div>
         
-        <div class="relative bg-[#1a1e24] rounded-2xl border border-white/5 shadow-[0_32px_90px_rgba(0,0,0,0.6)] overflow-hidden">
+        <div class="relative bg-[#1a1e24] rounded-2xl border border-white/5 shadow-[0_32px_90px_rgba(0,0,0,0.6)] overflow-hidden transition-all duration-500">
           
           <!-- Placeholder (visible until consent) -->
           <div data-consent-placeholder="embeds" class="min-h-[600px] flex items-center justify-center p-8 relative">
@@ -102,7 +128,7 @@
 
           <!-- Calendly inline widget (hidden until consent) -->
           <div class="bg-[#1a1e24]" data-consent-embed="embeds" style="display:none;">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/samuelstauss-ado?background_color=1a1e24&text_color=ffffff&primary_color=f5c542" style="min-width:320px;height:700px;"></div>
+            <div class="calendly-inline-widget transition-all duration-500" data-url="https://calendly.com/samuelstauss-ado?background_color=1a1e24&text_color=ffffff&primary_color=f5c542" data-resize="true" style="min-width:320px;height:700px;"></div>
             <script type="text/plain" data-consent="embeds" src="https://assets.calendly.com/assets/external/widget.js" async></script>
           </div>
 
@@ -124,24 +150,24 @@
     
     if (isActive) {
       // Activate
-      iconRing.classList.remove('border-white/20', 'text-white/40');
-      iconRing.classList.add('border-brand-400', 'text-brand-400', 'shadow-[0_0_15px_rgba(245,197,66,0.25)]');
+      iconRing.classList.remove('border-white/20', 'text-white/40', 'scale-100');
+      iconRing.classList.add('border-brand-400', 'text-brand-400', 'shadow-[0_0_15px_rgba(245,197,66,0.25)]', 'scale-125');
       
       title.classList.remove('text-white/80');
-      title.classList.add('text-white');
+      title.classList.add('text-white', 'translate-x-1');
       
       desc.classList.remove('text-white/50');
-      desc.classList.add('text-white/60');
+      desc.classList.add('text-white/70');
     } else {
       // Deactivate (dim)
-      iconRing.classList.add('border-white/20', 'text-white/40');
-      iconRing.classList.remove('border-brand-400', 'text-brand-400', 'shadow-[0_0_15px_rgba(245,197,66,0.25)]');
+      iconRing.classList.add('border-white/20', 'text-white/40', 'scale-100');
+      iconRing.classList.remove('border-brand-400', 'text-brand-400', 'shadow-[0_0_15px_rgba(245,197,66,0.25)]', 'scale-125');
       
       title.classList.add('text-white/80');
-      title.classList.remove('text-white');
+      title.classList.remove('text-white', 'translate-x-1');
       
       desc.classList.add('text-white/50');
-      desc.classList.remove('text-white/60');
+      desc.classList.remove('text-white/70');
     }
   }
 
@@ -151,20 +177,67 @@
     
     const eventName = e.data.event;
     
+    // Auto-resize the calendly widget wrapper dynamically with bounds
+    if (eventName === 'calendly.page_height') {
+      const reportedHeight = e.data.payload && e.data.payload.height;
+      if (reportedHeight) {
+        // Parse height (e.g. "602px" -> 602)
+        const numHeight = typeof reportedHeight === 'string' ? parseInt(reportedHeight.replace('px', ''), 10) : reportedHeight;
+        
+        if (!isNaN(numHeight)) {
+          // Constrain height between 500px and 750px
+          const finalHeight = Math.max(500, Math.min(numHeight, 750));
+          const widgetContainer = document.querySelector('.calendly-inline-widget');
+          if (widgetContainer) {
+            widgetContainer.style.height = finalHeight + 'px';
+          }
+        }
+      }
+    }
+    
     const step1 = document.getElementById('booking-step-1');
     const step2 = document.getElementById('booking-step-2');
-    const step3 = document.getElementById('booking-step-3');
+    const step3Icon = document.getElementById('step-3-icon');
+    const step3Check = document.getElementById('step-3-check');
+    const step3Content = document.getElementById('step-3-content');
+    const notificationBox = document.getElementById('notification-box');
 
-    if (eventName === 'calendly.date_and_time_selected') {
+    if (eventName === 'calendly.event_type_viewed' || eventName === 'calendly.profile_page_viewed') {
+      // User is on the calendar/time selection step (or navigated back to it)
+      setStepActive(step1, true);
+      setStepActive(step2, false);
+    } else if (eventName === 'calendly.date_and_time_selected') {
       // User selected a time, moved to "Confirm Data" step
       setStepActive(step1, false);
       setStepActive(step2, true);
-      setStepActive(step3, false);
     } else if (eventName === 'calendly.event_scheduled') {
       // User confirmed data, booking is complete
       setStepActive(step1, false);
       setStepActive(step2, false);
-      setStepActive(step3, true);
+      
+      // Reveal Step 3: Expand placeholder to Checkmark
+      if (step3Icon && step3Check && step3Content) {
+        // Expand circle
+        step3Icon.classList.remove('-left-[7px]', 'top-0', 'w-3.5', 'h-3.5', 'border-white/30');
+        step3Icon.classList.add('left-[-17px]', 'top-[-9px]', 'w-8', 'h-8', 'border-green-500', 'text-green-500', 'shadow-[0_0_15px_rgba(34,197,94,0.3)]');
+        
+        // Show check
+        step3Check.classList.remove('opacity-0');
+        step3Check.classList.add('opacity-100');
+        
+        // Show text content
+        step3Content.classList.remove('max-h-0', 'opacity-0', 'overflow-hidden', 'translate-y-2');
+        step3Content.classList.add('max-h-[200px]', 'opacity-100', 'translate-y-0');
+      }
+
+      // After a short delay, reveal Notification Box
+      setTimeout(() => {
+        if (notificationBox) {
+          notificationBox.classList.remove('hidden');
+          void notificationBox.offsetWidth; // Trigger reflow for transition
+          notificationBox.classList.remove('opacity-0', 'translate-y-6');
+        }
+      }, 1000); // 1 second delay
     }
   });
 </script>

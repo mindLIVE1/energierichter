@@ -8,6 +8,7 @@ import HomeHero from '../components/sections/HomeHero.astro';
 import StatsRow from '../components/sections/StatsRow.astro';
 import PositioningBridge from '../components/sections/PositioningBridge.astro';
 import EditorialGridSection from '../components/sections/EditorialGridSection.astro';
+import ProcessTimelineSection from '../components/sections/ProcessTimelineSection.astro';
 import WhyEnergierichter from '../components/sections/WhyEnergierichter.astro';
 import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
@@ -27,7 +28,7 @@ const enableFaq = import.meta.env.PUBLIC_ENABLE_FAQ === 'true';
 
 <BaseLayout
   title="Energierichter – Unabhängige Energieberatung | Strom & Gas"
-  description="Ihr unabhängiger Energierichter: Wir prüfen Ihre Strom- und Gastarife persönlich, vergleichen passende Anbieter und begleiten den Wechsel – kostenlos, transparent, unverbindlich."
+  description="Ihr Unabhängiger Energiemakler: Wir prüfen Ihre Strom- und Gastarife persönlich, vergleichen passende Anbieter und begleiten den Wechsel – kostenlos, transparent, unverbindlich."
 >
   <Header slot="header" />
 
@@ -55,8 +56,7 @@ const enableFaq = import.meta.env.PUBLIC_ENABLE_FAQ === 'true';
 
   <WhyEnergierichter />
 
-  <EditorialGridSection
-    theme="dark"
+  <ProcessTimelineSection
     label="So einfach geht's"
     title="In drei Schritten zum besseren Tarif."
     subtitle="Vom ersten Kontakt bis zur Bestätigung des neuen Anbieters — wir begleiten Sie durch jeden Schritt."
