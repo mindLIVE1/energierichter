@@ -4,7 +4,8 @@
     "navLabel": "Privatkunden",
     "seo": {
       "title": "Energieberatung für Privatkunden | Energierichter",
-      "description": "Sparen Sie als Privatkunde bares Geld bei Strom & Gas. Kostenloser Tarifvergleich von über 100 Anbietern – einfach, schnell und unverbindlich."
+      "description": "Sparen Sie als Privatkunde bares Geld bei Strom & Gas. Kostenloser Tarifvergleich von über 100 Anbietern – einfach, schnell und unverbindlich.",
+      "ogImage": "/og/preview-private-page.png"
     },
     "hero": {
       "badge": "Für Privatkunden",
@@ -33,7 +34,8 @@
     "navLabel": "KMU",
     "seo": {
       "title": "Energieberatung für KMU & Gewerbe | Energierichter",
-      "description": "Senken Sie die Energiekosten Ihres Unternehmens. Maßgeschneiderte Tarife für kleine und mittlere Unternehmen – kostenlos und unabhängig."
+      "description": "Senken Sie die Energiekosten Ihres Unternehmens. Maßgeschneiderte Tarife für kleine und mittlere Unternehmen – kostenlos und unabhängig.",
+      "ogImage": "/og/preview-kmu-page.png"
     },
     "hero": {
       "badge": "Für KMU & Gewerbe",
@@ -62,7 +64,8 @@
     "navLabel": "Industrie",
     "seo": {
       "title": "Energieberatung für Industrie | Energierichter",
-      "description": "Professionelle Energiebeschaffung für Industrieunternehmen. Strukturierte Beschaffung, Lastganganalyse und individuelle Vertragsgestaltung."
+      "description": "Professionelle Energiebeschaffung für Industrieunternehmen. Strukturierte Beschaffung, Lastganganalyse und individuelle Vertragsgestaltung.",
+      "ogImage": "/og/preview-industry-page.png"
     },
     "hero": {
       "badge": "Für Industrie",
@@ -91,7 +94,8 @@
     "navLabel": "Immobilienverwalter",
     "seo": {
       "title": "Energieberatung für Immobilienverwalter | Energierichter",
-      "description": "Optimieren Sie die Energiekosten Ihrer Liegenschaften. Zentraler Ansprechpartner für alle Objekte – transparent und effizient."
+      "description": "Optimieren Sie die Energiekosten Ihrer Liegenschaften. Zentraler Ansprechpartner für alle Objekte – transparent und effizient.",
+      "ogImage": "/og/preview-real-estate-page.png"
     },
     "hero": {
       "badge": "Für Immobilienverwalter",
