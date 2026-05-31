@@ -1,18 +1,34 @@
 [
   {
-    "question": "Was kostet die Beratung?",
-    "answer": "Unsere Beratung ist für Sie als Kunde komplett kostenlos. Wir werden von den Energieversorgern vergütet – transparent und fair."
+    "question": "Kostet die Beratung etwas?",
+    "answer": "Nein. Unsere Beratung ist für Sie als Kunde vollständig kostenlos. Wir werden von den Energieversorgern vergütet – transparent und ohne versteckte Kosten für Sie."
   },
   {
-    "question": "Wie lange dauert ein Anbieterwechsel?",
-    "answer": "Der Wechselprozess dauert in der Regel 2–4 Wochen. Wir kümmern uns um die gesamte Abwicklung, inklusive Kündigung beim alten Anbieter."
+    "question": "Wie unabhängig ist die Empfehlung?",
+    "answer": "Vollständig unabhängig. Wir sind an keinen Energieversorger gebunden und empfehlen ausschließlich den Tarif, der zu Ihrer individuellen Situation passt – nicht den mit der höchsten Provision."
   },
   {
-    "question": "Bin ich an einen Anbieter gebunden?",
-    "answer": "Nein. Wir sind unabhängig und vergleichen Tarife von über 100 Anbietern, um den besten für Sie zu finden."
+    "question": "Muss ich direkt den Anbieter wechseln?",
+    "answer": "Nein. Sie entscheiden selbst, ob und wann Sie wechseln. Unsere Empfehlung ist unverbindlich. Wir informieren Sie über Ihre Optionen – den letzten Schritt machen nur Sie."
   },
   {
-    "question": "Welche Dokumente benötige ich?",
-    "answer": "In der Regel genügen Ihre letzte Jahresabrechnung und Ihr aktueller Zählerstand. Diese können Sie bequem über unser Anfrageformular hochladen."
+    "question": "Welche Daten werden benötigt?",
+    "answer": "In der Regel genügt Ihre letzte Jahresabrechnung oder der aktuelle Zählerstand und Ihre Postleitzahl. Diese können Sie bequem über unser Anfrageformular hochladen."
+  },
+  {
+    "question": "Übernehmen Sie den Wechsel?",
+    "answer": "Ja. Wenn Sie sich für einen Wechsel entscheiden, übernehmen wir die gesamte Abwicklung: Kündigung beim alten Anbieter, Neuanmeldung und Kommunikation mit dem Versorger."
+  },
+  {
+    "question": "Für wen lohnt sich die Tarifprüfung?",
+    "answer": "Für Privathaushalte, Familien, Vermieter und kleine Unternehmen, die nicht regelmäßig selbst Tarife vergleichen. Besonders lohnend ist eine Prüfung, wenn Sie länger als 12 Monate beim selben Anbieter sind."
+  },
+  {
+    "question": "Wie lange dauert die Prüfung?",
+    "answer": "Die erste Einschätzung erhalten Sie in der Regel innerhalb von 24 Stunden. Die vollständige Analyse mit persönlicher Empfehlung folgt innerhalb von 1–2 Werktagen."
+  },
+  {
+    "question": "Gibt es Risiken beim Anbieterwechsel?",
+    "answer": "Nein. Die Energieversorgung wird zu keinem Zeitpunkt unterbrochen – das ist gesetzlich garantiert. Wir achten auf Fristen und Laufzeiten, damit der Wechsel reibungslos verläuft."
   }
 ]

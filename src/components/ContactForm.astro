@@ -14,16 +14,16 @@ import DoubleOptIn from './DoubleOptIn.astro';
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <!-- Name -->
       <div>
-        <label for="cf-name" class="block text-sm font-medium text-gray-700 mb-1.5">Name *</label>
+        <label for="cf-name" class="block text-sm font-medium text-dark-900 mb-2">Name *</label>
         <input type="text" id="cf-name" name="name" required
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm"
+          class="w-full px-4 py-3.5 border border-dark-900/16 bg-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm text-dark-900"
           placeholder="Max Mustermann" />
       </div>
       <!-- Email -->
       <div>
-        <label for="cf-email" class="block text-sm font-medium text-gray-700 mb-1.5">E-Mail *</label>
+        <label for="cf-email" class="block text-sm font-medium text-dark-900 mb-2">E-Mail *</label>
         <input type="email" id="cf-email" name="email" required
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm"
+          class="w-full px-4 py-3.5 border border-dark-900/16 bg-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm text-dark-900"
           placeholder="max@beispiel.de" />
       </div>
     </div>
@@ -31,16 +31,16 @@ import DoubleOptIn from './DoubleOptIn.astro';
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <!-- Phone -->
       <div>
-        <label for="cf-phone" class="block text-sm font-medium text-gray-700 mb-1.5">Telefon</label>
+        <label for="cf-phone" class="block text-sm font-medium text-dark-900 mb-2">Telefon</label>
         <input type="tel" id="cf-phone" name="phone"
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm"
+          class="w-full px-4 py-3.5 border border-dark-900/16 bg-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm text-dark-900"
           placeholder="+49 123 456789" />
       </div>
       <!-- Customer Type -->
       <div>
-        <label for="cf-type" class="block text-sm font-medium text-gray-700 mb-1.5">Kundentyp</label>
+        <label for="cf-type" class="block text-sm font-medium text-dark-900 mb-2">Kundentyp</label>
         <select id="cf-type" name="customerType"
-          class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm bg-white">
+          class="w-full px-4 py-3.5 border border-dark-900/16 bg-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm text-dark-900">
           <option value="">Bitte wählen</option>
           <option value="privat">Privatkunde</option>
           <option value="kmu">KMU / Gewerbe</option>
@@ -52,16 +52,16 @@ import DoubleOptIn from './DoubleOptIn.astro';
 
     <!-- Message -->
     <div>
-      <label for="cf-message" class="block text-sm font-medium text-gray-700 mb-1.5">Nachricht</label>
+      <label for="cf-message" class="block text-sm font-medium text-dark-900 mb-2">Nachricht</label>
       <textarea id="cf-message" name="message" rows={4}
-        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm resize-y"
+        class="w-full px-4 py-3.5 border border-dark-900/16 bg-white focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all outline-none text-sm text-dark-900 resize-y"
         placeholder="Beschreiben Sie kurz Ihr Anliegen ..."></textarea>
     </div>
 
     <!-- File Upload (optional) -->
     {showUpload && (
       <div>
-        <label class="block text-sm font-medium text-gray-700 mb-1.5">Dokumente (optional)</label>
+        <label class="block text-sm font-medium text-dark-900 mb-2">Dokumente (optional)</label>
         <FileUpload />
       </div>
     )}
@@ -69,8 +69,8 @@ import DoubleOptIn from './DoubleOptIn.astro';
     <!-- Privacy Checkbox -->
     <label class="flex items-start gap-3 cursor-pointer">
       <input type="checkbox" id="cf-privacy" name="privacy" required
-        class="mt-1 w-4 h-4 rounded text-brand-600 focus:ring-brand-500" />
-      <span class="text-sm text-gray-600 leading-relaxed">
+        class="mt-1 w-4 h-4 text-brand-600 border-dark-900/20 focus:ring-brand-500" />
+      <span class="text-sm text-dark-700 leading-relaxed">
         Ich stimme der Verarbeitung meiner Daten gemäß der
         <a href="/datenschutz" class="text-brand-600 hover:text-brand-500 underline">Datenschutzerklärung</a> zu. *
       </span>
@@ -78,7 +78,7 @@ import DoubleOptIn from './DoubleOptIn.astro';
 
     <!-- Submit -->
     <button type="submit" id="cf-submit"
-      class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-white gradient-brand rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
+      class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 hover:bg-transparent hover:text-brand-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
       Anfrage absenden
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </button>

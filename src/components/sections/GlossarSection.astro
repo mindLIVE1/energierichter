@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('glossar')).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title, 'de')
+);
+
+// Group by letter
+const grouped = entries.reduce<Record<string, typeof entries>>((acc, entry) => {
+  const letter = entry.data.letter.toUpperCase();
+  if (!acc[letter]) acc[letter] = [];
+  acc[letter].push(entry);
+  return acc;
+}, {});
+---
+
+<section class="relative bg-[#f7f3ea] py-20 sm:py-24 lg:py-32" data-section="GlossarSection">
+  <div class="container-narrow">
+    <!-- Letter navigation -->
+    <div class="flex flex-wrap gap-1 mb-14 justify-center">
+      {Object.keys(grouped).sort().map((letter) => (
+        <a href={`#letter-${letter}`} class="w-10 h-10 flex items-center justify-center border border-dark-900/12 text-dark-900 font-semibold text-sm hover:border-brand-500 hover:text-brand-700 transition-colors">
+          {letter}
+        </a>
+      ))}
+    </div>
+
+    <!-- Entries -->
+    <div class="space-y-14">
+      {Object.entries(grouped).sort(([a], [b]) => a.localeCompare(b)).map(([letter, items]) => (
+        <div id={`letter-${letter}`}>
+          <h2 class="text-4xl font-heading font-semibold text-brand-600 mb-6 border-b border-dark-900/12 pb-3">{letter}</h2>
+          <div class="border-y border-dark-900/12">
+            {items.map((entry, i) => (
+              <a href={`/glossar/${entry.slug}`} class={`block py-5 hover:bg-[#f0ece3] transition-colors group px-4 ${i > 0 ? 'border-t border-dark-900/12' : ''}`}>
+                <h3 class="font-semibold text-dark-900 group-hover:text-brand-700 transition-colors">{entry.data.title}</h3>
+                <p class="text-sm text-dark-700 mt-1">{entry.data.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

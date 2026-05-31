@@ -3,10 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
-import Card from '../components/ui/Card.astro';
+import Hero from '../components/ui/Hero.astro';
+import TransparenzCoreSection from '../components/sections/TransparenzCoreSection.astro';
+import EditorialGridSection from '../components/sections/EditorialGridSection.astro';
+import TrustQnaSection from '../components/sections/TrustQnaSection.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
-import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
 
 import transparenzData from '../data/transparenz.json';
 
@@ -19,56 +20,26 @@ if (import.meta.env.PUBLIC_ENABLE_TRANSPARENZ !== 'true') return Astro.redirect(
 >
   <Header slot="header" />
 
-  <section class="section-padding">
-    <div class="container-narrow">
-      <SectionHeading
-        title="Transparenz & Vergütung"
-        subtitle="Wir glauben an Offenheit. Hier erklären wir, wie unser Geschäftsmodell funktioniert."
-      />
+  <Hero
+    badge="Offenheit & Vertrauen"
+    title="Transparenz & Vergütung"
+    subtitle="Wir glauben an Offenheit. Hier erklären wir, wie unser Geschäftsmodell funktioniert."
+  />
 
-      <!-- Core Message -->
-      <div class="bg-brand-50 rounded-2xl border border-brand-100 p-8 sm:p-10 mb-12 text-center">
-        <div class="w-16 h-16 rounded-2xl gradient-brand flex items-center justify-center mx-auto mb-6">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h2 class="text-2xl font-heading font-bold text-dark-900 mb-4">
-          {transparenzData.coreMessage.title}
-        </h2>
-        <p class="text-gray-600 max-w-2xl mx-auto leading-relaxed" set:html={transparenzData.coreMessage.description} />
-      </div>
+  <TransparenzCoreSection />
 
-      <!-- How it Works -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        {transparenzData.cards.map((card) => (
-          <Card title={card.title} icon={card.icon}>
-            {card.description}
-          </Card>
-        ))}
-      </div>
+  <EditorialGridSection
+    theme="light"
+    container="narrow"
+    items={transparenzData.cards.map((card, i) => ({ number: String(i + 1).padStart(2, '0'), title: card.title, description: card.description }))}
+    sectionClass="py-8 bg-[#f7f3ea]"
+  />
 
-      <!-- Trust section with image -->
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-        <!-- Image column -->
-        <div class="lg:col-span-2 hidden lg:block">
-          <div class="sticky top-28">
-            <PlaceholderImage text="Handschlag zwischen Berater und Kunde" aspectRatio="aspect-[3/4]" class="shadow-lg" />
-          </div>
-        </div>
-        <!-- FAQ-style trust section -->
-        <div class="lg:col-span-3 space-y-8">
-          {transparenzData.questions.map((item) => (
-            <div>
-              <h3 class="text-xl font-heading font-bold text-dark-900 mb-3">{item.question}</h3>
-              <p class="text-gray-600 leading-relaxed">{item.answer}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
+  <TrustQnaSection />
 
-  <CtaBanner text="Transparente Beratung, echte Ersparnis." ctaText="Jetzt kostenlos anfragen" ctaHref="/anfrage" />
+  <CtaBanner text="Transparente Beratung, echte Ersparnis." ctaText="Jetzt kostenlos anfragen" ctaHref="/anfrage" label="Überzeugt?" />
 
   <Footer slot="footer" />
   <ConsentBanner slot="consent" />
 </BaseLayout>
+

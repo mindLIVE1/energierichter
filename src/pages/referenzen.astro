@@ -3,11 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
-import Testimonial from '../components/ui/Testimonial.astro';
+import Hero from '../components/ui/Hero.astro';
+import StatsRow from '../components/sections/StatsRow.astro';
+import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
 
-import testimonials from '../data/testimonials.json';
 import stats from '../data/stats.json';
 
 if (import.meta.env.PUBLIC_ENABLE_REFERENZEN !== 'true') return Astro.redirect('/');
@@ -19,34 +19,27 @@ if (import.meta.env.PUBLIC_ENABLE_REFERENZEN !== 'true') return Astro.redirect('
 >
   <Header slot="header" />
 
-  <section class="section-padding">
-    <div class="container-wide">
-      <SectionHeading
-        title="Referenzen & Bewertungen"
-        subtitle="Über 5.000 zufriedene Kunden vertrauen uns. Lesen Sie ihre Erfahrungen."
-      />
+  <Hero
+    badge="Kundenstimmen"
+    title="Geprüft in der Praxis."
+    subtitle="Über 5.000 zufriedene Kunden vertrauen uns. Lesen Sie ihre Erfahrungen."
+  />
 
-      <!-- Stats -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-        {stats.referenzenStats.map((stat) => (
-          <div class="bg-white rounded-2xl border border-gray-100 shadow-md p-6 text-center">
-            <div class="text-3xl font-heading font-bold text-brand-600 mb-1">{stat.value}</div>
-            <div class="text-sm text-gray-500">{stat.label}</div>
-          </div>
-        ))}
-      </div>
+  <StatsRow
+    items={stats.referenzenStats}
+    bgColor="bg-[#111820] border-b border-white/10"
+  />
 
-      <!-- Testimonials Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {testimonials.map((t) => (
-          <Testimonial {...t} />
-        ))}
-      </div>
-    </div>
-  </section>
+  <TestimonialsSection
+    showAll={true}
+    label="Das sagen unsere Kunden"
+    title="Echte Erfahrungen."
+    subtitle="Überzeugen Sie sich von den Ergebnissen unserer Beratung."
+  />
 
   <CtaBanner text="Überzeugt? Starten Sie jetzt." ctaText="Kostenlos anfragen" ctaHref="/anfrage" />
 
   <Footer slot="footer" />
   <ConsentBanner slot="consent" />
 </BaseLayout>
+

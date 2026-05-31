@@ -1,0 +1,105 @@
+---
+import TariffResultCard from '../ui/TariffResultCard.astro';
+
+const heroBenefits = [
+  'Kostenlose Erstprüfung',
+  'Keine Anbieterbindung',
+  'Persönliche Wechselbegleitung',
+];
+---
+
+<section class="relative overflow-hidden text-white" data-section="HomeHero">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img
+      src="/assets/images/hero-bg.jpg"
+      alt=""
+      role="presentation"
+      class="absolute inset-0 w-full h-full object-cover object-[center_30%]"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <!-- Dark overlay — heavier on the left for text readability, lighter on the right to reveal image -->
+    <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(6,9,13,0.92) 0%, rgba(6,9,13,0.85) 35%, rgba(6,9,13,0.6) 55%, rgba(6,9,13,0.35) 75%, rgba(6,9,13,0.25) 100%);"></div>
+    <!-- Top edge fade for seamless header blend -->
+    <div class="absolute inset-x-0 top-0 h-24 pointer-events-none" style="background: linear-gradient(to bottom, rgba(6,9,13,0.95), transparent);"></div>
+    <!-- Bottom edge fade -->
+    <div class="absolute inset-x-0 bottom-0 h-24 pointer-events-none" style="background: linear-gradient(to top, rgba(6,9,13,0.95), transparent);"></div>
+  </div>
+
+  <!-- Subtle grid texture -->
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
+
+  <div class="container-wide relative z-10" style="padding-top: clamp(3.5rem, 6vw, 5rem); padding-bottom: clamp(2rem, 4vw, 3rem);">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-start" style="min-height: clamp(560px, 72vh, 720px);">
+
+      <!-- Left: Copy -->
+      <div class="max-w-3xl flex flex-col justify-center" style="padding-top: clamp(1rem, 3vw, 3rem);">
+        <img
+          src="/assets/brand/er-logo-text.svg"
+          alt="Energierichter"
+          width="1684"
+          height="515"
+          class="mb-10 h-12 w-auto sm:h-14 lg:h-16"
+        />
+
+        <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-300/90">
+          Unabhängige Energieberatung
+        </p>
+
+        <h1 class="max-w-4xl font-heading font-semibold leading-[1.04] text-white" style="font-size: clamp(2.4rem, 4.8vw, 3.75rem);">
+          Energiekosten senken,<br>ohne selbst Tarife zu vergleichen.
+        </h1>
+
+        <p class="mt-6 max-w-xl text-base sm:text-lg leading-8 text-white/65">
+          Wir prüfen Ihre Strom- und Gastarife persönlich, vergleichen passende Anbieter und begleiten den Wechsel — unabhängig, transparent und unverbindlich.
+        </p>
+
+        <!-- Trust signals inline -->
+        <div class="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+          {heroBenefits.map((b) => (
+            <span class="flex items-center gap-2 text-[0.72rem] font-medium text-white/55">
+              <span class="h-px w-4 bg-brand-400/70 shrink-0"></span>
+              {b}
+            </span>
+          ))}
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-8 flex flex-col sm:flex-row gap-4">
+          <a href="/anfrage" id="hero-cta-primary" class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 transition-all duration-200 hover:bg-transparent hover:text-brand-300">
+            Kostenlose Tarifprüfung starten
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="/termin" id="hero-cta-secondary" class="inline-flex items-center justify-center border border-white/18 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/72 transition-all duration-200 hover:border-brand-400/70 hover:text-brand-300">
+            Termin vereinbaren
+          </a>
+        </div>
+
+        <!-- Trust line below CTA -->
+        <p class="mt-4 text-[0.68rem] text-white/36 tracking-[0.08em]">
+          Unverbindlich &nbsp;·&nbsp; Persönliche Beratung &nbsp;·&nbsp; Keine Anbieterbindung
+        </p>
+      </div>
+
+      <!-- Right: Tariff Result Card -->
+      <div class="relative flex items-start justify-center lg:justify-end lg:pt-8">
+        <div class="absolute -inset-6 bg-brand-400/5 blur-3xl pointer-events-none"></div>
+        <TariffResultCard />
+      </div>
+
+    </div>
+
+    <!-- Scroll cue strip -->
+    <div class="mt-10 border-t border-white/10 pt-5">
+      <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0">
+        <span class="text-[0.64rem] font-semibold uppercase tracking-[0.22em] text-white/36 sm:mr-8">So funktioniert's&nbsp;↓</span>
+        <div class="flex flex-wrap gap-x-0 gap-y-2 sm:gap-y-0 sm:divide-x sm:divide-white/12">
+          {['01\u2002Analyse', '02\u2002Vergleich', '03\u2002Wechselbegleitung'].map((step) => (
+            <span class="text-[0.68rem] font-medium uppercase tracking-[0.18em] text-white/46 sm:px-6 first:sm:pl-0">{step}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

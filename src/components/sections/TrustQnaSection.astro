@@ -1,0 +1,27 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import transparenzData from '../../data/transparenz.json';
+---
+
+<section class="relative bg-[#f7f3ea] pb-20 sm:pb-24 lg:pb-32 pt-8" data-section="TrustQnaSection">
+  <div class="container-narrow">
+    <div class="mt-8">
+      <SectionHeading
+        label="Ihre Fragen, ehrlich beantwortet"
+        title="Vertrauen durch Transparenz."
+        centered
+      />
+
+      <div class="border-y border-dark-900/12">
+        {transparenzData.questions.map((item, i) => (
+          <div class={`py-8 sm:py-10 ${i > 0 ? 'border-t border-dark-900/12' : ''}`}>
+            <div class="grid gap-4 lg:grid-cols-[0.4fr_0.6fr] lg:gap-12">
+              <h3 class="font-heading text-xl font-semibold text-dark-900">{item.question}</h3>
+              <p class="text-base leading-8 text-dark-700">{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

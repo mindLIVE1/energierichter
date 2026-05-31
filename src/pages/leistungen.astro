@@ -4,10 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
 import Hero from '../components/ui/Hero.astro';
-import Card from '../components/ui/Card.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
+import EditorialGridSection from '../components/sections/EditorialGridSection.astro';
+import FeatureImageSection from '../components/sections/FeatureImageSection.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
-import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
 
 import services from '../data/services.json';
 import processSteps from '../data/process-steps.json';
@@ -22,77 +21,42 @@ if (import.meta.env.PUBLIC_ENABLE_LEISTUNGEN !== 'true') return Astro.redirect('
   <Header slot="header" />
 
   <Hero
+    badge="Strom · Gas · Wärme"
     title="Unsere Leistungen"
     subtitle="Vom Tarifvergleich bis zur dauerhaften Betreuung – wir sind Ihr Partner für optimale Energiekosten."
-    badge="Strom · Gas · Wärme"
     ctaText="Jetzt anfragen"
     ctaHref="/anfrage"
   />
 
-  <!-- Service Grid -->
-  <section class="section-padding">
-    <div class="container-wide">
-      <SectionHeading
-        title="Was wir für Sie tun"
-        subtitle="Unser Leistungsportfolio – maßgeschneidert für jeden Bedarf."
-      />
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.all.map((s) => (
-          <Card title={s.title} icon={s.icon}>
-            {s.description}
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
+  <EditorialGridSection
+    theme="light"
+    label="Was wir für Sie tun"
+    title="Leistungsportfolio"
+    subtitle="Maßgeschneidert für jeden Bedarf – von der Analyse bis zur dauerhaften Betreuung."
+    items={services.all.map((s, i) => ({ number: String(i + 1).padStart(2, '0'), title: s.title, description: s.description }))}
+  />
 
-  <!-- Feature Image: Editorial break -->
-  <section class="py-0">
-    <div class="container-wide">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-12 lg:py-20">
-        <PlaceholderImage text="Energieberater im Gespräch mit Geschäftskunde im Büro" aspectRatio="aspect-[4/3]" class="shadow-xl" />
-        <div class="space-y-4">
-          <h2 class="text-2xl sm:text-3xl font-heading font-bold text-dark-900">Persönliche Beratung statt <span class="text-brand-600">anonymer Algorithmus</span></h2>
-          <p class="text-gray-600 leading-relaxed">Hinter jeder Empfehlung steht ein erfahrener Energieberater, der Ihren Verbrauch versteht und Ihre individuellen Anforderungen berücksichtigt. Kein Chatbot, kein Standardtarif – sondern echte Beratung.</p>
-          <a href="/anfrage" class="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-500 transition-colors">
-            Jetzt beraten lassen
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <FeatureImageSection
+    imageText="Energieberater im Gespräch mit Geschäftskunde"
+    aspectRatio="aspect-[4/3]"
+    label="Persönlich statt anonym"
+    title="Persönliche Beratung statt anonymer Algorithmus."
+    description="Hinter jeder Empfehlung steht ein erfahrener Energieberater, der Ihren Verbrauch versteht und Ihre individuellen Anforderungen berücksichtigt. Kein Chatbot, kein Standardtarif – sondern echte Beratung."
+    cta={{ href: '/anfrage', text: 'Jetzt beraten lassen' }}
+  />
 
-  <!-- Process -->
-  <section class="section-padding bg-gray-50">
-    <div class="container-wide">
-      <SectionHeading
-        title="Unser Prozess"
-        subtitle="Transparent, einfach und effizient – so funktioniert die Zusammenarbeit."
-      />
-      <div class="relative max-w-3xl mx-auto">
-        {processSteps.leistungen.map((item, i) => (
-          <div class="flex gap-6 mb-8 last:mb-0">
-            <div class="flex flex-col items-center">
-              <div class="w-12 h-12 rounded-full gradient-brand flex items-center justify-center text-white font-heading font-bold text-lg shadow-md shrink-0">
-                {item.step}
-              </div>
-              {i < processSteps.leistungen.length - 1 && (
-                <div class="w-0.5 flex-1 bg-brand-200 mt-2"></div>
-              )}
-            </div>
-            <div class="pb-8">
-              <h3 class="text-xl font-heading font-bold text-dark-900 mb-2">{item.title}</h3>
-              <p class="text-gray-600">{item.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <EditorialGridSection
+    theme="dark"
+    label="Unser Prozess"
+    title="Transparent und effizient."
+    subtitle="So funktioniert die Zusammenarbeit mit Energierichter."
+    items={processSteps.leistungen.map(item => ({ number: item.step, title: item.title, description: item.description }))}
+    sectionClass="py-20 sm:py-24 lg:py-32"
+  />
 
-  <CtaBanner text="Lassen Sie uns gemeinsam sparen!" ctaText="Kostenlose Beratung starten" ctaHref="/anfrage" />
+  <CtaBanner text="Lassen Sie uns gemeinsam sparen." ctaText="Kostenlose Beratung starten" ctaHref="/anfrage" label="Nächster Schritt" />
 
   <Footer slot="footer" />
   <ConsentBanner slot="consent" />
 </BaseLayout>
+

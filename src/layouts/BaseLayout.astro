@@ -75,6 +75,40 @@ import '../styles/global.css';
     "sameAs": [],
     "priceRange": "€€"
   })} />
+
+  <!-- Dev Mode Toggle script -->
+  <script is:inline define:vars={{ isDev: import.meta.env.DEV }}>
+    const urlParams = new URLSearchParams(window.location.search);
+    const devQuery = urlParams.get('dev');
+    const devStorage = localStorage.getItem('dev-mode');
+
+    // Enable dev mode if explicitly in URL, if stored in local storage, or if running in Astro's local dev server
+    const shouldEnable = devQuery === 'true' || (devQuery === null && (devStorage === 'true' || (devStorage === null && isDev)));
+
+    if (shouldEnable) {
+      document.documentElement.setAttribute('data-dev-mode', 'true');
+      if (devStorage === null) {
+        localStorage.setItem('dev-mode', 'true');
+      }
+    } else if (devQuery === 'false') {
+      document.documentElement.removeAttribute('data-dev-mode');
+      localStorage.setItem('dev-mode', 'false');
+    }
+
+    // Expose toggle function in global scope for manual console toggling
+    window.toggleDevMode = function() {
+      const isCurrentlyDev = document.documentElement.getAttribute('data-dev-mode') === 'true';
+      if (isCurrentlyDev) {
+        document.documentElement.removeAttribute('data-dev-mode');
+        localStorage.setItem('dev-mode', 'false');
+        console.log('Dev mode deactivated.');
+      } else {
+        document.documentElement.setAttribute('data-dev-mode', 'true');
+        localStorage.setItem('dev-mode', 'true');
+        console.log('Dev mode activated. Section names and outlines are now visible.');
+      }
+    };
+  </script>
 </head>
 <body class="min-h-screen flex flex-col">
   <slot name="header">

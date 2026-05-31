@@ -1,0 +1,37 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import FaqAccordion from '../ui/FaqAccordion.astro';
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  items: FaqItem[];
+  bgColor?: string;
+  title?: string;
+  subtitle?: string;
+  label?: string;
+}
+
+const {
+  items,
+  bgColor = 'bg-white',
+  title = 'Kurz geklärt.',
+  subtitle = 'Antworten auf die wichtigsten Fragen — bevor Sie sich entscheiden.',
+  label = 'Häufig gestellte Fragen',
+} = Astro.props;
+---
+
+<section class={`relative ${bgColor} py-20 sm:py-24 lg:py-32`} data-section="FaqSection">
+  <div class="container-narrow">
+    <SectionHeading
+      label={label}
+      title={title}
+      subtitle={subtitle}
+      centered
+    />
+    <FaqAccordion items={items} />
+  </div>
+</section>

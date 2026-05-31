@@ -1,0 +1,53 @@
+---
+import PlaceholderImage from '../ui/PlaceholderImage.astro';
+
+export interface Props {
+  imageText: string;
+  aspectRatio?: string;
+  label?: string;
+  title: string;
+  description: string;
+  cta?: {
+    href: string;
+    text: string;
+  };
+  reverse?: boolean;
+}
+
+const {
+  imageText,
+  aspectRatio = 'aspect-[4/3]',
+  label,
+  title,
+  description,
+  cta,
+  reverse = false,
+} = Astro.props;
+---
+
+<section class="relative bg-white py-20 sm:py-24 lg:py-32" data-section="FeatureImageSection">
+  <div class="container-wide">
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class={reverse ? 'lg:order-2' : ''}>
+        <PlaceholderImage text={imageText} aspectRatio={aspectRatio} />
+      </div>
+      <div class={reverse ? 'lg:order-1' : ''}>
+        {label && <p class="mb-5 label-editorial text-dark-700">{label}</p>}
+        <h2 class="max-w-xl font-heading text-3xl font-semibold leading-[1.05] text-dark-900 sm:text-4xl lg:text-5xl">
+          {title}
+        </h2>
+        <p class="mt-6 max-w-2xl text-base leading-8 text-dark-700">
+          {description}
+        </p>
+        {cta && (
+          <div class="mt-8">
+            <a href={cta.href} class="inline-flex items-center gap-2 border-b border-brand-500 pb-1 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:text-brand-700">
+              {cta.text}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

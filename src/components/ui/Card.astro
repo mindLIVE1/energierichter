@@ -3,29 +3,31 @@ export interface Props {
   title?: string;
   icon?: string;
   class?: string;
-  hoverable?: boolean;
+  index?: number;
 }
 
 const {
   title,
   icon,
   class: className = '',
-  hoverable = true,
+  index,
 } = Astro.props;
-
-const hoverClasses = hoverable ? 'hover:shadow-xl hover:-translate-y-1' : '';
 ---
 
-<div class={`bg-white rounded-2xl border border-gray-100 shadow-md p-6 sm:p-8 transition-all duration-300 ${hoverClasses} ${className}`}>
-  {icon && (
-    <div class="w-12 h-12 rounded-xl gradient-brand flex items-center justify-center mb-5 text-2xl shadow-sm">
-      <span>{icon}</span>
+<div class={`card-editorial p-7 sm:p-9 transition-colors duration-200 hover:bg-[#f7f3ea]/60 ${className}`}>
+  {(icon || typeof index === 'number') && (
+    <div class="mb-6">
+      {typeof index === 'number' ? (
+        <p class="font-heading text-5xl font-semibold leading-none text-brand-500/70">{String(index).padStart(2, '0')}</p>
+      ) : (
+        <span class="text-2xl">{icon}</span>
+      )}
     </div>
   )}
   {title && (
-    <h3 class="text-lg font-heading font-bold text-dark-900 mb-3">{title}</h3>
+    <h3 class="text-lg font-heading font-semibold text-dark-900 mb-3">{title}</h3>
   )}
-  <div class="text-gray-600 leading-relaxed">
+  <div class="text-sm leading-7 text-dark-700">
     <slot />
   </div>
 </div>

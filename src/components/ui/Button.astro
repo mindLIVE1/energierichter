@@ -17,23 +17,22 @@ const {
   fullWidth = false,
 } = Astro.props;
 
-const base = 'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500';
+const base = 'inline-flex items-center justify-center gap-2 font-bold uppercase tracking-[0.16em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500';
 
 const variants: Record<string, string> = {
-  primary: 'text-white gradient-brand shadow-md hover:shadow-lg',
-  secondary: 'text-brand-700 bg-brand-50 hover:bg-brand-100 border border-brand-200',
-  outline: 'text-gray-700 bg-white border-2 border-gray-200 hover:border-brand-300 hover:text-brand-700',
-  ghost: 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+  primary: 'border border-brand-400 bg-brand-400 text-dark-950 hover:bg-transparent hover:text-brand-300',
+  secondary: 'border border-white/16 text-white/74 hover:border-brand-400/70 hover:text-brand-300',
+  outline: 'border border-dark-900/20 text-dark-900 hover:border-brand-500 hover:text-brand-700',
+  ghost: 'text-dark-700 hover:text-brand-700',
 };
 
 const sizes: Record<string, string> = {
-  sm: 'px-4 py-2 text-sm',
-  md: 'px-6 py-3 text-sm',
-  lg: 'px-8 py-4 text-base',
+  sm: 'px-5 py-2.5 text-[0.68rem]',
+  md: 'px-6 py-3 text-[0.70rem]',
+  lg: 'px-8 py-4 text-[0.72rem]',
 };
 
 const classes = [base, variants[variant], sizes[size], fullWidth ? 'w-full' : '', className].join(' ');
-const Tag = href ? 'a' : 'button';
 ---
 
 {href ? (

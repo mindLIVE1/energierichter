@@ -1,0 +1,87 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import allTestimonials from '../../data/testimonials.json';
+
+export interface Props {
+  limit?: number;
+  showMoreLink?: boolean;
+  showAll?: boolean;
+  label?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  limit,
+  showMoreLink = false,
+  showAll = false,
+  label = 'Das sagen unsere Kunden',
+  title = 'Geprüft in der Praxis.',
+  subtitle = 'Kunden, die ihren Tarif prüfen ließen und auf persönliche Beratung statt auf Algorithmen gesetzt haben.',
+} = Astro.props;
+
+const testimonials = limit ? allTestimonials.slice(0, limit) : allTestimonials;
+const featured = testimonials.slice(0, 3);
+const remaining = showAll ? testimonials.slice(3) : [];
+---
+
+<section class="relative bg-[#f7f3ea] py-20 sm:py-24 lg:py-32" data-section="TestimonialsSection">
+  <div class="container-wide">
+    <SectionHeading
+      label={label}
+      title={title}
+      subtitle={subtitle}
+    />
+
+    <!-- Grid of testimonials in editorial border layout -->
+    <div class="grid border-y border-dark-900/12 md:grid-cols-3">
+      {featured.map((t, i) => (
+        <figure class={`py-10 md:px-8 ${i > 0 ? 'border-t border-dark-900/12 md:border-l md:border-t-0' : ''}`}>
+          <div class="mb-6 flex gap-1 text-brand-500" aria-label={`${t.rating ?? 5} von 5 Sternen`}>
+            {Array.from({ length: 5 }).map((_, star) => (
+              <svg class={`h-3.5 w-3.5 ${star < (t.rating ?? 5) ? 'opacity-100' : 'opacity-20'}`} fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
+          <blockquote class="text-base leading-8 text-dark-700">&ldquo;{t.quote}&rdquo;</blockquote>
+          <figcaption class="mt-7 border-t border-dark-900/10 pt-5">
+            <p class="font-semibold text-dark-900">{t.name}</p>
+            {t.role && <p class="mt-1 text-xs uppercase tracking-[0.16em] text-dark-700">{t.role}</p>}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <!-- Remaining testimonials in 2-col grid -->
+    {showAll && remaining.length > 0 && (
+      <div class="mt-12 grid gap-px bg-dark-900/12 border border-dark-900/12 md:grid-cols-2">
+        {remaining.map((t) => (
+          <figure class="bg-[#f7f3ea] p-7 sm:p-9">
+            <div class="mb-5 flex gap-1 text-brand-500" aria-label={`${t.rating ?? 5} von 5 Sternen`}>
+              {Array.from({ length: 5 }).map((_, star) => (
+                <svg class={`h-3.5 w-3.5 ${star < (t.rating ?? 5) ? 'opacity-100' : 'opacity-20'}`} fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              ))}
+            </div>
+            <blockquote class="text-base leading-8 text-dark-700">&ldquo;{t.quote}&rdquo;</blockquote>
+            <figcaption class="mt-6 border-t border-dark-900/10 pt-4">
+              <p class="font-semibold text-dark-900">{t.name}</p>
+              {t.role && <p class="mt-1 text-xs uppercase tracking-[0.16em] text-dark-700">{t.role}</p>}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    )}
+
+    {showMoreLink && (
+      <div class="mt-10">
+        <a href="/referenzen" id="testimonials-more" class="inline-flex items-center gap-2 border-b border-brand-500 pb-1 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:text-brand-700">
+          Alle Bewertungen ansehen
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    )}
+  </div>
+</section>

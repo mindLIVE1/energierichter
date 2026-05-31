@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,11 +12,12 @@
   }
 
   body {
-    @apply font-sans text-gray-800 bg-white leading-relaxed;
+    @apply font-sans text-dark-900 bg-[#f7f3ea] leading-relaxed;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold text-dark-900;
+    @apply font-heading font-semibold text-dark-900;
+    letter-spacing: -0.01em;
   }
 
   a {
@@ -24,7 +25,7 @@
   }
 
   ::selection {
-    @apply bg-brand-200 text-brand-950;
+    @apply bg-brand-400 text-dark-950;
   }
 }
 
@@ -38,26 +39,65 @@
   }
 
   .section-padding {
-    @apply py-16 sm:py-20 lg:py-28;
+    @apply py-20 sm:py-24 lg:py-32;
   }
 
   .gradient-brand {
-    @apply bg-gradient-to-br from-brand-600 via-brand-500 to-brand-400;
+    @apply bg-brand-400;
   }
 
   .gradient-dark {
-    @apply bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900;
+    @apply bg-dark-900;
   }
 
-  .glass {
-    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-lg;
+  /* Editorial label — small uppercase tracked text used for section labels */
+  .label-editorial {
+    @apply text-[0.68rem] font-semibold uppercase tracking-[0.24em];
+  }
+
+  /* Editorial card — sharp borders, no rounded corners */
+  .card-editorial {
+    background-color: #fff;
+    border: 1px solid rgba(11, 15, 20, 0.12);
+  }
+
+  .card-editorial-dark {
+    background-color: #111820;
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .prose-custom {
     @apply prose prose-lg max-w-none
       prose-headings:font-heading prose-headings:text-dark-900
       prose-a:text-brand-600 prose-a:no-underline hover:prose-a:text-brand-500
-      prose-strong:text-dark-900
-      prose-img:rounded-xl;
+      prose-strong:text-dark-900;
   }
 }
+
+/* Dev mode visualization styles */
+[data-dev-mode] [data-section] {
+  outline: 1.5px dashed rgba(230, 180, 60, 0.45) !important;
+  outline-offset: -1.5px;
+  position: relative !important;
+}
+
+[data-dev-mode] [data-section]::before {
+  content: attr(data-section);
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  background: #ffffff !important;
+  color: #0b1117 !important;
+  font-family: 'DM Sans', 'Manrope', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.14em !important;
+  padding: 6px 12px !important;
+  border-right: 1.5px solid rgba(230, 180, 60, 0.45) !important;
+  border-bottom: 1.5px solid rgba(230, 180, 60, 0.45) !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+

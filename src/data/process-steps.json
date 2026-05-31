@@ -3,17 +3,17 @@
     {
       "step": "01",
       "title": "Anfrage senden",
-      "description": "Füllen Sie unser kurzes Formular aus oder laden Sie Ihre letzte Rechnung hoch."
+      "description": "Sie übermitteln Ihre aktuelle Tarifsituation oder laden Ihre letzte Rechnung hoch – das dauert wenige Minuten."
     },
     {
       "step": "02",
       "title": "Wir vergleichen",
-      "description": "Wir analysieren Ihren Verbrauch und finden den besten Tarif aus über 100 Anbietern."
+      "description": "Wir prüfen passende Anbieter, Konditionen und Einsparpotenziale – unabhängig, persönlich und ohne Interessenkonflikt."
     },
     {
       "step": "03",
       "title": "Sie sparen",
-      "description": "Wir kümmern uns um den Wechsel – Sie lehnen sich zurück und genießen niedrigere Kosten."
+      "description": "Sie erhalten eine klare Empfehlung und werden beim Wechsel persönlich begleitet – von der Kündigung bis zur Bestätigung."
     }
   ],
   "leistungen": [

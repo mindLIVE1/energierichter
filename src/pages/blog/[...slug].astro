@@ -35,7 +35,7 @@ const { Content } = await post.render();
       </a>
 
       <!-- Meta -->
-      <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
+      <div class="flex items-center gap-3 text-sm text-dark-700/60 mb-4">
         <time datetime={post.data.pubDate.toISOString()}>
           {post.data.pubDate.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })}
         </time>
@@ -51,7 +51,7 @@ const { Content } = await post.render();
       {post.data.tags.length > 0 && (
         <div class="flex flex-wrap gap-2 mb-8">
           {post.data.tags.map((tag: string) => (
-            <span class="px-3 py-1 text-xs font-medium text-brand-700 bg-brand-50 rounded-full">{tag}</span>
+            <span class="px-2 py-0.5 text-[0.64rem] font-semibold uppercase tracking-[0.14em] text-brand-700 border border-brand-500/30">{tag}</span>
           ))}
         </div>
       )}
