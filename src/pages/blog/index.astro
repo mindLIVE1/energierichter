@@ -6,7 +6,7 @@ import ConsentBanner from '../../components/ConsentBanner.astro';
 import Hero from '../../components/ui/Hero.astro';
 import BlogGridSection from '../../components/sections/BlogGridSection.astro';
 
-if (import.meta.env.PUBLIC_ENABLE_BLOG !== 'true') return Astro.redirect('/');
+if (import.meta.env.PUBLIC_DISABLE_BLOG === 'true') return Astro.redirect('/');
 ---
 
 <BaseLayout

@@ -20,10 +20,10 @@ import services from '../data/services.json';
 import processSteps from '../data/process-steps.json';
 import stats from '../data/stats.json';
 
-const enableStats = import.meta.env.PUBLIC_ENABLE_STATS === 'true';
-const enableLeistungen = import.meta.env.PUBLIC_ENABLE_LEISTUNGEN === 'true';
-const enableReferenzen = import.meta.env.PUBLIC_ENABLE_REFERENZEN === 'true';
-const enableFaq = import.meta.env.PUBLIC_ENABLE_FAQ === 'true';
+const disableStats = import.meta.env.PUBLIC_DISABLE_STATS === 'true';
+const disableLeistungen = import.meta.env.PUBLIC_DISABLE_LEISTUNGEN === 'true';
+const disableReferenzen = import.meta.env.PUBLIC_DISABLE_REFERENZEN === 'true';
+const disableFaq = import.meta.env.PUBLIC_DISABLE_FAQ === 'true';
 ---
 
 <BaseLayout
@@ -34,7 +34,7 @@ const enableFaq = import.meta.env.PUBLIC_ENABLE_FAQ === 'true';
 
   <HomeHero />
 
-  {enableStats && (
+  {!disableStats && (
     <StatsRow items={stats.trustBadges} />
   )}
 
@@ -42,7 +42,7 @@ const enableFaq = import.meta.env.PUBLIC_ENABLE_FAQ === 'true';
 
   <StromGasCompare />
 
-  {enableLeistungen && (
+  {!disableLeistungen && (
     <EditorialGridSection
       theme="light"
       label="Unsere Leistungen"
@@ -74,14 +74,14 @@ const enableFaq = import.meta.env.PUBLIC_ENABLE_FAQ === 'true';
     secondaryCtaHref="/leistungen"
   />
 
-  {enableReferenzen && (
+  {!disableReferenzen && (
     <TestimonialsSection
       limit={3}
       showMoreLink={true}
     />
   )}
 
-  {enableFaq && (
+  {!disableFaq && (
     <FaqSection items={faqs} />
   )}
 

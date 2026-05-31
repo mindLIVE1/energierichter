@@ -12,7 +12,7 @@ import CtaBanner from '../components/ui/CtaBanner.astro';
 import services from '../data/services.json';
 import processSteps from '../data/process-steps.json';
 
-if (import.meta.env.PUBLIC_ENABLE_LEISTUNGEN !== 'true') return Astro.redirect('/');
+if (import.meta.env.PUBLIC_DISABLE_LEISTUNGEN === 'true') return Astro.redirect('/');
 ---
 
 <BaseLayout

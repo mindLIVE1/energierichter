@@ -9,25 +9,25 @@ interface Props {
 
 const { isTerminPage = false } = Astro.props;
 
-const enableBlog = import.meta.env.PUBLIC_ENABLE_BLOG === 'true';
-const enableReferenzen = import.meta.env.PUBLIC_ENABLE_REFERENZEN === 'true';
-const enableZielgruppen = import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN === 'true';
-const enableLeistungen = import.meta.env.PUBLIC_ENABLE_LEISTUNGEN === 'true';
-const enableTransparenz = import.meta.env.PUBLIC_ENABLE_TRANSPARENZ === 'true';
-const enableGlossar = import.meta.env.PUBLIC_ENABLE_GLOSSAR === 'true';
+const disableBlog = import.meta.env.PUBLIC_DISABLE_BLOG === 'true';
+const disableReferenzen = import.meta.env.PUBLIC_DISABLE_REFERENZEN === 'true';
+const disableZielgruppen = import.meta.env.PUBLIC_DISABLE_ZIELGRUPPEN === 'true';
+const disableLeistungen = import.meta.env.PUBLIC_DISABLE_LEISTUNGEN === 'true';
+const disableTransparenz = import.meta.env.PUBLIC_DISABLE_TRANSPARENZ === 'true';
+const disableGlossar = import.meta.env.PUBLIC_DISABLE_GLOSSAR === 'true';
 
 const currentYear = new Date().getFullYear();
 
 const links = {
   leistungen: [
-    enableLeistungen && { label: 'Strom & Gas', href: '/leistungen' },
-    ...(enableZielgruppen ? zielgruppen.map((z) => ({ label: z.navLabel, href: `/zielgruppen/${z.slug}` })) : []),
+    !disableLeistungen && { label: 'Strom & Gas', href: '/leistungen' },
+    ...(!disableZielgruppen ? zielgruppen.map((z) => ({ label: z.navLabel, href: `/zielgruppen/${z.slug}` })) : []),
   ].filter(Boolean),
   unternehmen: [
-    enableTransparenz && { label: 'Über uns', href: '/transparenz' },
-    enableReferenzen && { label: 'Referenzen', href: '/referenzen' },
-    enableBlog && { label: 'Blog', href: '/blog' },
-    enableGlossar && { label: 'Glossar', href: '/glossar' },
+    !disableTransparenz && { label: 'Über uns', href: '/transparenz' },
+    !disableReferenzen && { label: 'Referenzen', href: '/referenzen' },
+    !disableBlog && { label: 'Blog', href: '/blog' },
+    !disableGlossar && { label: 'Glossar', href: '/glossar' },
     { label: 'Kontakt', href: '/kontakt' },
   ].filter(Boolean),
   rechtliches: [

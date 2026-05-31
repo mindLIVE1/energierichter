@@ -2,7 +2,7 @@
 import ZielgruppeLayout from '../../layouts/ZielgruppeLayout.astro';
 import zielgruppen from '../../data/zielgruppen.json';
 
-if (import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN !== 'true') return Astro.redirect('/');
+if (import.meta.env.PUBLIC_DISABLE_ZIELGRUPPEN === 'true') return Astro.redirect('/');
 
 export function getStaticPaths() {
   // We need to import inside getStaticPaths for static builds

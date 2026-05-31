@@ -6,7 +6,7 @@ import ConsentBanner from '../../components/ConsentBanner.astro';
 import Hero from '../../components/ui/Hero.astro';
 import GlossarSection from '../../components/sections/GlossarSection.astro';
 
-if (import.meta.env.PUBLIC_ENABLE_GLOSSAR !== 'true') return Astro.redirect('/');
+if (import.meta.env.PUBLIC_DISABLE_GLOSSAR === 'true') return Astro.redirect('/');
 ---
 
 <BaseLayout
