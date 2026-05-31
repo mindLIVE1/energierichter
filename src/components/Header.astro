@@ -24,7 +24,7 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="fixed top-0 inset-x-0 z-50 bg-dark-900/95 border-b border-white/10 transition-all duration-300" id="site-header">
+<header class="fixed top-0 inset-x-0 z-50 bg-dark-900/97 border-b border-white/8 backdrop-blur-sm transition-all duration-300" id="site-header">
   <div class="container-wide">
     <div class="flex items-center justify-between h-16 lg:h-[76px]">
       <!-- Logo -->
@@ -34,23 +34,25 @@ const currentPath = Astro.url.pathname;
           alt="Energierichter"
           width="1400"
           height="650"
-          class="h-8 lg:h-9 w-auto opacity-95 transition-all duration-200 group-hover:opacity-75"
+          class="h-8 lg:h-9 w-auto opacity-95 transition-all duration-200 group-hover:opacity-80"
         />
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-7" aria-label="Hauptnavigation">
+      <nav class="hidden lg:flex items-center gap-8" aria-label="Hauptnavigation">
         {navLinks.map((link) => (
           link.children ? (
             <div class="relative group">
-              <button class={`py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-brand-300 ${currentPath.startsWith('/zielgruppen') ? 'text-brand-300' : 'text-white/58'}`}>
+              <button class={`relative py-2 text-[0.72rem] font-semibold uppercase tracking-[0.15em] transition-colors duration-200 hover:text-brand-400 ${currentPath.startsWith('/zielgruppen') ? 'text-brand-400' : 'text-white/80'}`}>
                 {link.label}
-                <svg class="inline-block ml-1 w-3 h-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg class="inline-block ml-1.5 w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                {currentPath.startsWith('/zielgruppen') && <span class="absolute left-0 -bottom-[1px] h-[2px] w-full bg-brand-400" />}
               </button>
-              <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div class="bg-dark-800 shadow-2xl border border-white/10 py-2 min-w-[230px]">
+              <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div class="bg-dark-950 shadow-[0_16px_48px_rgba(0,0,0,0.5)] border border-white/10 rounded py-2 min-w-[240px]">
                   {link.children.map((child) => (
-                    <a href={child.href} class={`block px-4 py-2.5 text-sm hover:text-brand-300 transition-colors ${currentPath === child.href ? 'text-brand-300 font-medium' : 'text-white/62'}`}>
+                    <a href={child.href} class={`group/item flex items-center gap-3 px-5 py-3 text-[0.82rem] tracking-wide transition-all duration-150 hover:bg-white/[0.04] ${currentPath === child.href ? 'text-brand-400 font-medium' : 'text-white/75 hover:text-white'}`}>
+                      <span class={`inline-block w-[3px] h-4 rounded-full transition-all duration-150 ${currentPath === child.href ? 'bg-brand-400' : 'bg-transparent group-hover/item:bg-brand-400/50'}`}></span>
                       {child.label}
                     </a>
                   ))}
@@ -58,21 +60,22 @@ const currentPath = Astro.url.pathname;
               </div>
             </div>
           ) : (
-            <a href={link.href} class={`py-2 text-[0.68rem] font-semibold uppercase tracking-[0.18em] transition-colors hover:text-brand-300 ${currentPath === link.href ? 'text-brand-300' : 'text-white/58'}`}>
+            <a href={link.href} class={`relative py-2 text-[0.72rem] font-semibold uppercase tracking-[0.15em] transition-colors duration-200 hover:text-brand-400 ${currentPath === link.href ? 'text-brand-400' : 'text-white/80'}`}>
               {link.label}
+              {currentPath === link.href && <span class="absolute left-0 -bottom-[1px] h-[2px] w-full bg-brand-400" />}
             </a>
           )
         ))}
       </nav>
 
       <!-- CTA + Mobile Toggle -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-4">
         <a href="/anfrage"
-           class="hidden sm:inline-flex items-center gap-2 border border-brand-400/70 px-5 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.17em] text-brand-300 hover:bg-brand-400 hover:text-dark-950 transition-all duration-200">
+           class="hidden sm:inline-flex items-center gap-2 border border-brand-400/60 px-5 py-2.5 text-[0.7rem] font-bold uppercase tracking-[0.15em] text-brand-400 hover:bg-brand-400 hover:text-dark-950 transition-all duration-200">
           Jetzt anfragen
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <button id="mobile-toggle" class="lg:hidden p-2 border border-white/15 text-white hover:border-brand-400/70 transition-colors" aria-label="Menü öffnen" aria-expanded="false">
+        <button id="mobile-toggle" class="lg:hidden p-2 border border-white/15 text-white/90 hover:border-brand-400/60 hover:text-brand-400 transition-colors duration-200" aria-label="Menü öffnen" aria-expanded="false">
           <svg id="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <path d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -85,28 +88,29 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="lg:hidden fixed inset-0 top-16 bg-dark-900 z-40 translate-x-full transition-transform duration-300 ease-in-out">
-    <nav class="container-wide py-6 space-y-1" aria-label="Mobile Navigation">
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 top-16 bg-dark-900/98 backdrop-blur-sm z-40 translate-x-full transition-transform duration-300 ease-in-out">
+    <nav class="container-wide py-8 space-y-1" aria-label="Mobile Navigation">
       {navLinks.map((link) => (
         link.children ? (
-          <div>
-            <p class="px-4 py-2 text-[0.68rem] font-semibold text-brand-300 uppercase tracking-[0.18em]">{link.label}</p>
+          <div class="mb-2">
+            <p class="px-4 py-2.5 text-[0.7rem] font-semibold text-brand-400 uppercase tracking-[0.16em]">{link.label}</p>
             {link.children.map((child) => (
-              <a href={child.href} class="block px-4 py-3 text-base font-medium text-white/72 hover:text-brand-300 transition-colors">
+              <a href={child.href} class={`flex items-center gap-3 px-4 py-3.5 text-[0.95rem] font-medium transition-colors duration-150 ${currentPath === child.href ? 'text-brand-400' : 'text-white/80 hover:text-brand-400'}`}>
+                <span class={`inline-block w-[3px] h-4 rounded-full ${currentPath === child.href ? 'bg-brand-400' : 'bg-transparent'}`}></span>
                 {child.label}
               </a>
             ))}
           </div>
         ) : (
-          <a href={link.href} class="block px-4 py-3 text-base font-medium text-white/72 hover:text-brand-300 transition-colors">
+          <a href={link.href} class={`block px-4 py-3.5 text-[0.95rem] font-medium transition-colors duration-150 ${currentPath === link.href ? 'text-brand-400' : 'text-white/80 hover:text-brand-400'}`}>
             {link.label}
           </a>
         )
       ))}
-      <div class="pt-4 px-4">
-        <a href="/anfrage" class="flex items-center justify-center gap-2 w-full border border-brand-400/70 px-6 py-3.5 text-[0.72rem] font-bold uppercase tracking-[0.17em] text-brand-300">
+      <div class="pt-6 px-4">
+        <a href="/anfrage" class="flex items-center justify-center gap-2 w-full border border-brand-400/60 px-6 py-3.5 text-[0.72rem] font-bold uppercase tracking-[0.15em] text-brand-400 hover:bg-brand-400 hover:text-dark-950 transition-all duration-200">
           Jetzt anfragen
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </nav>

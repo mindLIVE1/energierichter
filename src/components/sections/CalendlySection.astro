@@ -1,0 +1,46 @@
+---
+// Calendly appointment booking section (consent-gated)
+---
+
+<section class="relative bg-[#f7f3ea] py-20 sm:py-24 lg:py-32" data-section="CalendlySection">
+  <div class="container-narrow">
+    <div class="border border-dark-900/12 bg-white overflow-hidden">
+
+      <!-- Placeholder (visible until consent) -->
+      <div data-consent-placeholder="embeds" class="min-h-[600px] flex items-center justify-center p-8">
+        <div class="text-center max-w-md">
+          <div class="w-14 h-14 border border-dark-900/12 flex items-center justify-center mx-auto mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="text-brand-600">
+              <rect x="3" y="4" width="18" height="18" rx="0"/>
+              <path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-heading font-semibold text-dark-900 mb-3">Online-Terminbuchung</h3>
+          <p class="text-dark-700 text-sm leading-7 mb-6">
+            Um den Kalender anzuzeigen, müssen externe Inhalte geladen werden.
+            Dabei werden Daten an Calendly übermittelt.
+          </p>
+          <button data-consent-accept="embeds"
+            class="inline-flex items-center gap-2 border border-brand-400 bg-brand-400 px-6 py-3 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-dark-950 hover:bg-transparent hover:text-brand-700 transition-all duration-200 mb-6">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg>
+            Externe Inhalte laden
+          </button>
+          <p class="text-xs text-dark-700/60 mb-4">
+            Alternativ erreichen Sie uns telefonisch:
+          </p>
+          <a href="tel:+49123456789" class="inline-flex items-center gap-2 border border-dark-900/16 px-6 py-3 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-dark-700 hover:border-brand-500 hover:text-brand-700 transition-all">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.09 5.18 2 2 0 015.11 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 11.91a16 16 0 006 6l2.27-2.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            +49 123 456789
+          </a>
+        </div>
+      </div>
+
+      <!-- Calendly inline widget (hidden until consent) -->
+      <div class="bg-white" data-consent-embed="embeds" style="display:none;">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/samuelstauss-ado?primary_color=20ab65" style="min-width:320px;height:700px;"></div>
+        <script type="text/plain" data-consent="embeds" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div>
+
+    </div>
+  </div>
+</section>

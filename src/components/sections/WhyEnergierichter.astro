@@ -1,0 +1,93 @@
+---
+const benefitChecks = [
+  'Über 100 Anbieter im Vergleich',
+  'Zugang zu Sonderkonditionen',
+  'Persönlicher Ansprechpartner',
+];
+---
+
+<section class="relative bg-white py-20 sm:py-24 lg:py-32" data-section="WhyEnergierichter">
+  <div class="container-wide">
+    <div class="mb-16 max-w-3xl">
+      <p class="mb-4 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-700">Warum Energierichter?</p>
+      <h2 class="font-heading text-5xl font-semibold leading-[1.03] text-dark-900 sm:text-6xl">Persönlich, unabhängig und immer auf Ihrer Seite.</h2>
+    </div>
+
+    <div class="grid gap-20 lg:gap-24">
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-dark-700">100% unabhängig</p>
+          <h3 class="max-w-xl font-heading text-4xl font-semibold leading-[1.05] text-dark-900 sm:text-5xl">Kein Anbieter, sondern Ihr Berater.</h3>
+          <p class="mt-6 max-w-2xl text-base leading-8 text-dark-700">
+            Anders als Vergleichsportale sind wir nicht an bestimmte Energieversorger gebunden. Wir beraten Sie persönlich, analysieren Ihren individuellen Verbrauch und finden den Tarif, der wirklich zu Ihnen passt.
+          </p>
+          <ul class="mt-8 space-y-4">
+            {benefitChecks.map((item) => (
+              <li class="flex items-center gap-4 text-sm font-medium text-dark-700">
+                <span class="h-px w-8 bg-brand-500 shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="border border-dark-900/12 bg-[#f7f3ea] p-7 shadow-[0_24px_70px_rgba(11,15,20,0.08)] sm:p-9">
+          <div class="flex items-center justify-between border-b border-dark-900/10 pb-5">
+            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-dark-700">Prüfprotokoll</p>
+            <p class="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-brand-700">neutral</p>
+          </div>
+          <div class="grid grid-cols-2 border-b border-dark-900/10">
+            <div class="py-9 pr-7">
+              <p class="font-heading text-6xl font-semibold leading-none text-dark-900">0</p>
+              <p class="mt-3 text-xs uppercase tracking-[0.16em] text-dark-700">Anbieterbindung</p>
+            </div>
+            <div class="border-l border-dark-900/10 py-9 pl-7">
+              <p class="font-heading text-6xl font-semibold leading-none text-brand-600">100+</p>
+              <p class="mt-3 text-xs uppercase tracking-[0.16em] text-dark-700">Tarife im Blick</p>
+            </div>
+          </div>
+          <div class="grid gap-4 pt-6 text-sm">
+            <div class="grid grid-cols-[9rem_1fr] gap-4">
+              <span class="text-dark-700">Verbrauch</span>
+              <span class="font-semibold text-dark-900">individuell analysiert</span>
+            </div>
+            <div class="grid grid-cols-[9rem_1fr] gap-4">
+              <span class="text-dark-700">Konditionen</span>
+              <span class="font-semibold text-dark-900">Sondertarife berücksichtigt</span>
+            </div>
+            <div class="grid grid-cols-[9rem_1fr] gap-4">
+              <span class="text-dark-700">Betreuung</span>
+              <span class="font-semibold text-dark-900">persönlicher Ansprechpartner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div class="order-2 border border-white/12 bg-dark-900 p-7 text-white shadow-[0_24px_70px_rgba(11,15,20,0.18)] sm:p-9 lg:order-1">
+          <p class="mb-3 text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-brand-300">Ø Einsparpotenzial (Beispiel)</p>
+          <p class="font-heading text-7xl font-semibold leading-none text-brand-300 sm:text-8xl">420 €</p>
+          <p class="mt-3 text-xs uppercase tracking-[0.16em] text-white/38">pro Jahr bei Tarifwechsel</p>
+          <div class="mt-9 grid grid-cols-2 border-t border-white/10">
+            <div class="py-6 pr-6">
+              <p class="font-heading text-4xl font-semibold text-white">100%</p>
+              <p class="mt-2 text-xs uppercase tracking-[0.16em] text-white/40">Kostenlos für Sie</p>
+            </div>
+            <div class="border-l border-white/10 py-6 pl-6">
+              <p class="font-heading text-4xl font-semibold text-white">sicher</p>
+              <p class="mt-2 text-xs uppercase tracking-[0.16em] text-white/40">Versorgung bleibt</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-dark-700">Echte Ersparnis</p>
+          <h3 class="max-w-xl font-heading text-4xl font-semibold leading-[1.05] text-dark-900 sm:text-5xl">Weniger zahlen, ohne Kompromiss.</h3>
+          <p class="mt-6 max-w-2xl text-base leading-8 text-dark-700">
+            Viele Kunden sparen nach einer persönlichen Tarifprüfung spürbar — ohne Kompromisse bei der Versorgungssicherheit. Unser Service ist für Sie vollständig kostenlos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

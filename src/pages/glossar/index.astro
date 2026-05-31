@@ -3,22 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ConsentBanner from '../../components/ConsentBanner.astro';
-import { getCollection } from 'astro:content';
+import Hero from '../../components/ui/Hero.astro';
+import GlossarSection from '../../components/sections/GlossarSection.astro';
 
 if (import.meta.env.PUBLIC_ENABLE_GLOSSAR !== 'true') return Astro.redirect('/');
-
-
-const entries = (await getCollection('glossar')).sort((a, b) =>
-  a.data.title.localeCompare(b.data.title, 'de')
-);
-
-// Group by letter
-const grouped = entries.reduce<Record<string, typeof entries>>((acc, entry) => {
-  const letter = entry.data.letter.toUpperCase();
-  if (!acc[letter]) acc[letter] = [];
-  acc[letter].push(entry);
-  return acc;
-}, {});
 ---
 
 <BaseLayout
@@ -27,52 +15,15 @@ const grouped = entries.reduce<Record<string, typeof entries>>((acc, entry) => {
 >
   <Header slot="header" />
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden bg-dark-900 text-white">
-    <div class="absolute inset-0 opacity-[0.055] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
-    <div class="absolute inset-x-0 bottom-0 h-px bg-brand-400/30"></div>
+  <Hero
+    badge="Nachschlagewerk"
+    title="Energie-Glossar"
+    subtitle="Die wichtigsten Begriffe rund um Energie – verständlich erklärt."
+  />
 
-    <div class="relative container-wide py-20 sm:py-24 lg:py-28 max-w-3xl">
-      <p class="mb-5 label-editorial text-brand-300/90">Nachschlagewerk</p>
-      <h1 class="max-w-4xl font-heading text-4xl font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-        Energie-Glossar
-      </h1>
-      <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-white/66">
-        Die wichtigsten Begriffe rund um Energie – verständlich erklärt.
-      </p>
-    </div>
-  </section>
-
-  <section class="bg-[#f7f3ea] py-20 sm:py-24 lg:py-32">
-    <div class="container-narrow">
-      <!-- Letter navigation -->
-      <div class="flex flex-wrap gap-1 mb-14 justify-center">
-        {Object.keys(grouped).sort().map((letter) => (
-          <a href={`#letter-${letter}`} class="w-10 h-10 flex items-center justify-center border border-dark-900/12 text-dark-900 font-semibold text-sm hover:border-brand-500 hover:text-brand-700 transition-colors">
-            {letter}
-          </a>
-        ))}
-      </div>
-
-      <!-- Entries -->
-      <div class="space-y-14">
-        {Object.entries(grouped).sort(([a], [b]) => a.localeCompare(b)).map(([letter, items]) => (
-          <div id={`letter-${letter}`}>
-            <h2 class="text-4xl font-heading font-semibold text-brand-600 mb-6 border-b border-dark-900/12 pb-3">{letter}</h2>
-            <div class="border-y border-dark-900/12">
-              {items.map((entry, i) => (
-                <a href={`/glossar/${entry.slug}`} class={`block py-5 hover:bg-[#f0ece3] transition-colors group px-4 ${i > 0 ? 'border-t border-dark-900/12' : ''}`}>
-                  <h3 class="font-semibold text-dark-900 group-hover:text-brand-700 transition-colors">{entry.data.title}</h3>
-                  <p class="text-sm text-dark-700 mt-1">{entry.data.description}</p>
-                </a>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <GlossarSection />
 
   <Footer slot="footer" />
   <ConsentBanner slot="consent" />
 </BaseLayout>
+

@@ -7,16 +7,18 @@ export interface Props {
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
   badge?: string;
+  showCta?: boolean;
 }
 
 const {
   title,
   subtitle,
-  ctaText = 'Jetzt anfragen',
+  ctaText,
   ctaHref = '/anfrage',
   secondaryCtaText,
   secondaryCtaHref,
   badge,
+  showCta = ctaText !== undefined,
 } = Astro.props;
 
 const hasHeroImage = Astro.slots.has('hero-image');
@@ -45,19 +47,21 @@ const hasHeroImage = Astro.slots.has('hero-image');
         </p>
       )}
 
-      <div class="mt-10 flex flex-col sm:flex-row gap-4">
-        <a href={ctaHref}
-           class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 transition-all duration-200 hover:bg-transparent hover:text-brand-300">
-          {ctaText}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        {secondaryCtaText && secondaryCtaHref && (
-          <a href={secondaryCtaHref}
-             class="inline-flex items-center justify-center border border-white/16 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/74 transition-all duration-200 hover:border-brand-400/70 hover:text-brand-300">
-            {secondaryCtaText}
+      {showCta && (
+        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+          <a href={ctaHref}
+             class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 transition-all duration-200 hover:bg-transparent hover:text-brand-300">
+            {ctaText || 'Jetzt anfragen'}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-        )}
-      </div>
+          {secondaryCtaText && secondaryCtaHref && (
+            <a href={secondaryCtaHref}
+               class="inline-flex items-center justify-center border border-white/16 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/74 transition-all duration-200 hover:border-brand-400/70 hover:text-brand-300">
+              {secondaryCtaText}
+            </a>
+          )}
+        </div>
+      )}
     </div>
 
     {hasHeroImage && (

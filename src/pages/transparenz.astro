@@ -3,7 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
+import Hero from '../components/ui/Hero.astro';
+import TransparenzCoreSection from '../components/sections/TransparenzCoreSection.astro';
+import EditorialGridSection from '../components/sections/EditorialGridSection.astro';
+import TrustQnaSection from '../components/sections/TrustQnaSection.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
 
 import transparenzData from '../data/transparenz.json';
@@ -17,74 +20,26 @@ if (import.meta.env.PUBLIC_ENABLE_TRANSPARENZ !== 'true') return Astro.redirect(
 >
   <Header slot="header" />
 
-  <!-- Hero -->
-  <section class="relative overflow-hidden bg-dark-900 text-white">
-    <div class="absolute inset-0 opacity-[0.055] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
-    <div class="absolute inset-x-0 bottom-0 h-px bg-brand-400/30"></div>
+  <Hero
+    badge="Offenheit & Vertrauen"
+    title="Transparenz & Vergütung"
+    subtitle="Wir glauben an Offenheit. Hier erklären wir, wie unser Geschäftsmodell funktioniert."
+  />
 
-    <div class="relative container-wide py-20 sm:py-24 lg:py-28 max-w-3xl">
-      <p class="mb-5 label-editorial text-brand-300/90">Offenheit & Vertrauen</p>
-      <h1 class="max-w-4xl font-heading text-4xl font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-        Transparenz & Vergütung
-      </h1>
-      <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-white/66">
-        Wir glauben an Offenheit. Hier erklären wir, wie unser Geschäftsmodell funktioniert.
-      </p>
-    </div>
-  </section>
+  <TransparenzCoreSection />
 
-  <!-- Core Message -->
-  <section class="bg-[#f7f3ea] py-20 sm:py-24 lg:py-32">
-    <div class="container-narrow">
-      <div class="card-editorial-dark p-8 sm:p-12 text-white mb-16">
-        <div class="flex items-start gap-6">
-          <div class="hidden sm:flex shrink-0 h-12 w-12 items-center justify-center border border-brand-400/35 text-brand-300">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div>
-            <h2 class="text-2xl sm:text-3xl font-heading font-semibold text-white mb-4">
-              {transparenzData.coreMessage.title}
-            </h2>
-            <div class="text-base leading-8 text-white/66" set:html={transparenzData.coreMessage.description} />
-          </div>
-        </div>
-      </div>
+  <EditorialGridSection
+    theme="light"
+    container="narrow"
+    items={transparenzData.cards.map((card, i) => ({ number: String(i + 1).padStart(2, '0'), title: card.title, description: card.description }))}
+    sectionClass="py-8 bg-[#f7f3ea]"
+  />
 
-      <!-- How it Works (editorial numbered) -->
-      <div class="grid border-y border-dark-900/12 md:grid-cols-3">
-        {transparenzData.cards.map((card, i) => (
-          <article class={`py-10 md:px-8 ${i > 0 ? 'border-t border-dark-900/12 md:border-l md:border-t-0' : ''}`}>
-            <p class="font-heading text-5xl font-semibold leading-none text-brand-500/70">{String(i + 1).padStart(2, '0')}</p>
-            <h3 class="mt-12 font-heading text-2xl font-semibold leading-tight text-dark-900">{card.title}</h3>
-            <p class="mt-5 text-sm leading-7 text-dark-700">{card.description}</p>
-          </article>
-        ))}
-      </div>
-
-      <!-- Trust Q&A section -->
-      <div class="mt-20 sm:mt-24">
-        <SectionHeading
-          label="Ihre Fragen, ehrlich beantwortet"
-          title="Vertrauen durch Transparenz."
-          centered
-        />
-
-        <div class="border-y border-dark-900/12">
-          {transparenzData.questions.map((item, i) => (
-            <div class={`py-8 sm:py-10 ${i > 0 ? 'border-t border-dark-900/12' : ''}`}>
-              <div class="grid gap-4 lg:grid-cols-[0.4fr_0.6fr] lg:gap-12">
-                <h3 class="font-heading text-xl font-semibold text-dark-900">{item.question}</h3>
-                <p class="text-base leading-8 text-dark-700">{item.answer}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
+  <TrustQnaSection />
 
   <CtaBanner text="Transparente Beratung, echte Ersparnis." ctaText="Jetzt kostenlos anfragen" ctaHref="/anfrage" label="Überzeugt?" />
 
   <Footer slot="footer" />
   <ConsentBanner slot="consent" />
 </BaseLayout>
+

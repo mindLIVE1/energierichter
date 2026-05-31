@@ -1,0 +1,89 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+
+export interface GridItem {
+  number?: string;
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  theme?: 'light' | 'dark';
+  label?: string;
+  title?: string;
+  subtitle?: string;
+  items: GridItem[];
+  cols?: number;
+  sectionClass?: string;
+  ctaLink?: {
+    href: string;
+    text: string;
+  };
+  titleSize?: '2xl' | '3xl';
+  container?: 'wide' | 'narrow';
+}
+
+const {
+  theme = 'light',
+  label,
+  title,
+  subtitle,
+  items,
+  cols,
+  sectionClass,
+  ctaLink,
+  titleSize = '2xl',
+  container = 'wide',
+} = Astro.props;
+
+const isDark = theme === 'dark';
+const gridCols = cols || (items.length === 4 ? 4 : 3);
+---
+
+<section class={`relative overflow-hidden ${isDark ? 'bg-[#111820] text-white' : 'bg-[#f7f3ea]'} ${sectionClass || 'py-20 sm:py-24 lg:py-32'}`} data-section="EditorialGridSection">
+  {isDark && (
+    <div class="absolute inset-0 opacity-[0.045] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px); background-size: 112px 112px;"></div>
+  )}
+  <div class={`${container === 'narrow' ? 'container-narrow' : 'container-wide'} relative`}>
+    {(label || title || subtitle) && (
+      <SectionHeading
+        label={label}
+        title={title || ''}
+        subtitle={subtitle}
+        light={isDark}
+      />
+    )}
+
+    <div class={`grid ${
+      isDark
+        ? `border border-white/12 ${gridCols === 4 ? 'lg:grid-cols-4' : 'md:grid-cols-3'}`
+        : `border-y border-dark-900/12 ${gridCols === 4 ? 'md:grid-cols-4' : 'md:grid-cols-3'}`
+    }`}>
+      {items.map((item, i) => {
+        const itemNumber = item.number || String(i + 1).padStart(2, '0');
+        return isDark ? (
+          <article class={`p-8 lg:min-h-72 ${i > 0 ? 'border-t border-white/12 lg:border-l lg:border-t-0' : ''}`}>
+            <p class="font-heading text-5xl sm:text-6xl font-semibold leading-none text-brand-300/80">{itemNumber}</p>
+            <h3 class="mt-14 font-heading text-2xl font-semibold leading-tight text-white">{item.title}</h3>
+            <p class="mt-4 text-sm leading-7 text-white/54">{item.description}</p>
+          </article>
+        ) : (
+          <article class={`group py-10 md:min-h-80 md:px-8 ${i > 0 ? 'border-t border-dark-900/12 md:border-l md:border-t-0' : ''}`}>
+            <p class="font-heading text-5xl font-semibold leading-none text-brand-500/70">{itemNumber}</p>
+            <h3 class={`mt-12 font-heading ${titleSize === '3xl' ? 'text-3xl' : 'text-2xl'} font-semibold leading-tight text-dark-900`}>{item.title}</h3>
+            <p class="mt-5 text-sm leading-7 text-dark-700">{item.description}</p>
+          </article>
+        );
+      })}
+    </div>
+
+    {ctaLink && (
+      <div class="mt-10">
+        <a href={ctaLink.href} class="inline-flex items-center gap-2 border-b border-brand-500 pb-1 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-900 hover:text-brand-700">
+          {ctaLink.text}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    )}
+  </div>
+</section>

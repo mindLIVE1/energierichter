@@ -3,9 +3,10 @@ import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
+import Hero from '../components/ui/Hero.astro';
+import EditorialGridSection from '../components/sections/EditorialGridSection.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
-import FaqAccordion from '../components/ui/FaqAccordion.astro';
+import FaqSection from '../components/sections/FaqSection.astro';
 import PlaceholderImage from '../components/ui/PlaceholderImage.astro';
 
 // Reusable landing page layout — each target group page uses this structure
@@ -24,52 +25,20 @@ const { seo, hero, painPoints, benefits, faqs, heroImageText } = Astro.props;
 <BaseLayout title={seo.title} description={seo.description}>
   <Header slot="header" />
 
-  <!-- Hero (editorial dark) -->
-  <section class="relative overflow-hidden bg-dark-900 text-white">
-    <div class="absolute inset-0 opacity-[0.055] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px), linear-gradient(#ffffff 1px, transparent 1px); background-size: 96px 96px;"></div>
-    <div class="absolute inset-x-0 bottom-0 h-px bg-brand-400/30"></div>
+  <Hero
+    badge={hero.badge}
+    title={hero.title}
+    subtitle={hero.subtitle}
+  />
 
-    <div class="relative container-wide py-20 sm:py-24 lg:py-28 max-w-3xl">
-      <p class="mb-5 label-editorial text-brand-300/90">{hero.badge}</p>
-      <h1 class="max-w-4xl font-heading text-4xl font-semibold leading-[1.05] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-        <Fragment set:html={hero.title} />
-      </h1>
-      <p class="mt-7 max-w-2xl text-base sm:text-lg leading-8 text-white/66">
-        {hero.subtitle}
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-4">
-        <a href="/anfrage" class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 transition-all duration-200 hover:bg-transparent hover:text-brand-300">
-          Jetzt kostenlos anfragen
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="/termin" class="inline-flex items-center justify-center border border-white/16 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/74 transition-all duration-200 hover:border-brand-400/70 hover:text-brand-300">
-          Termin vereinbaren
-        </a>
-      </div>
-    </div>
-  </section>
+  <EditorialGridSection
+    theme="light"
+    label="Ihre Herausforderungen"
+    title="Probleme, die wir kennen."
+    subtitle="Wir kennen die typischen Herausforderungen und haben die Lösung."
+    items={painPoints.map((p, i) => ({ number: String(i + 1).padStart(2, '0'), title: p.title, description: p.desc }))}
+  />
 
-  <!-- Pain Points (editorial numbered) -->
-  <section class="bg-[#f7f3ea] py-20 sm:py-24 lg:py-32">
-    <div class="container-wide">
-      <SectionHeading
-        label="Ihre Herausforderungen"
-        title="Probleme, die wir kennen."
-        subtitle="Wir kennen die typischen Herausforderungen und haben die Lösung."
-      />
-      <div class="grid border-y border-dark-900/12 md:grid-cols-3">
-        {painPoints.map((p, i) => (
-          <article class={`py-10 md:px-8 ${i > 0 ? 'border-t border-dark-900/12 md:border-l md:border-t-0' : ''}`}>
-            <p class="font-heading text-5xl font-semibold leading-none text-brand-500/70">{String(i + 1).padStart(2, '0')}</p>
-            <h3 class="mt-12 font-heading text-2xl font-semibold leading-tight text-dark-900">{p.title}</h3>
-            <p class="mt-5 text-sm leading-7 text-dark-700">{p.desc}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Visual break with image -->
   {heroImageText && (
     <section class="bg-white py-0">
       <div class="container-wide py-12">
@@ -78,44 +47,27 @@ const { seo, hero, painPoints, benefits, faqs, heroImageText } = Astro.props;
     </section>
   )}
 
-  <!-- Benefits (editorial) -->
-  <section class="relative overflow-hidden bg-[#111820] py-20 text-white sm:py-24 lg:py-32">
-    <div class="absolute inset-0 opacity-[0.045] pointer-events-none" style="background-image: linear-gradient(90deg, #ffffff 1px, transparent 1px); background-size: 112px 112px;"></div>
-    <div class="container-wide relative">
-      <SectionHeading
-        label="So profitieren Sie"
-        title="Ihre Vorteile."
-        subtitle="Unsere Lösungen sind auf Ihre Bedürfnisse zugeschnitten."
-        light
-      />
-      <div class="grid border border-white/12 md:grid-cols-3">
-        {benefits.map((b, i) => (
-          <article class={`p-8 md:min-h-72 ${i > 0 ? 'border-t border-white/12 md:border-l md:border-t-0' : ''}`}>
-            <p class="font-heading text-5xl font-semibold leading-none text-brand-300/86">{String(i + 1).padStart(2, '0')}</p>
-            <h3 class="mt-14 font-heading text-2xl font-semibold leading-tight text-white">{b.title}</h3>
-            <p class="mt-4 text-sm leading-7 text-white/52">{b.desc}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <EditorialGridSection
+    theme="dark"
+    label="So profitieren Sie"
+    title="Ihre Vorteile."
+    subtitle="Unsere Lösungen sind auf Ihre Bedürfnisse zugeschnitten."
+    items={benefits.map((b, i) => ({ number: String(i + 1).padStart(2, '0'), title: b.title, description: b.desc }))}
+  />
 
   <CtaBanner text="Bereit, Ihre Energiekosten zu optimieren?" />
 
-  <!-- FAQ -->
   {faqs.length > 0 && (
-    <section class="bg-[#f7f3ea] py-20 sm:py-24 lg:py-32">
-      <div class="container-narrow">
-        <SectionHeading
-          label="Häufige Fragen"
-          title="Kurz geklärt."
-          centered
-        />
-        <FaqAccordion items={faqs} />
-      </div>
-    </section>
+    <FaqSection
+      items={faqs}
+      title="Kurz geklärt."
+      label="Häufige Fragen"
+      bgColor="bg-[#f7f3ea]"
+      subtitle=""
+    />
   )}
 
   <Footer slot="footer" />
   <ConsentBanner slot="consent" />
 </BaseLayout>
+
