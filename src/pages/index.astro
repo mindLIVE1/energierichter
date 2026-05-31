@@ -11,6 +11,7 @@ import EditorialGridSection from '../components/sections/EditorialGridSection.as
 import WhyEnergierichter from '../components/sections/WhyEnergierichter.astro';
 import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
 import FaqSection from '../components/sections/FaqSection.astro';
+import StromGasCompare from '../components/sections/StromGasCompare.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
 
 import faqs from '../data/faqs.json';
@@ -37,6 +38,8 @@ const enableFaq = import.meta.env.PUBLIC_ENABLE_FAQ === 'true';
   )}
 
   <PositioningBridge />
+
+  <StromGasCompare />
 
   {enableLeistungen && (
     <EditorialGridSection
