@@ -9,9 +9,9 @@
     "hero": {
       "badge": "Für Privatkunden",
       "title": "Weniger zahlen, <span class=\"text-brand-400\">mehr sparen</span>",
-      "subtitle": "Durchschnittlich 420 € Ersparnis pro Jahr – mit unserem kostenlosen Tarifvergleich für Ihren Haushalt."
+      "subtitle": "Durchschnittlich 420 € Ersparnis pro Jahr – mit unserem kostenlosen Tarifvergleich für Ihren Haushalt.",
+      "bgImage": "/assets/images/hero-section-bg-private.png"
     },
-    "heroImageText": "Junge Familie beim gemeinsamen Kochen in moderner Küche",
     "painPoints": [
       { "icon": "💸", "title": "Zu hohe Energiekosten", "description": "Viele Haushalte zahlen mehr als nötig, weil sie nie den Anbieter gewechselt haben." },
       { "icon": "😤", "title": "Unübersichtlicher Markt", "description": "Hunderte Anbieter, komplizierte Tarife – wer blickt da noch durch?" },
@@ -38,9 +38,9 @@
     "hero": {
       "badge": "Für KMU & Gewerbe",
       "title": "Energiekosten <span class=\"text-brand-400\">senken</span>, Wettbewerbsfähigkeit steigern",
-      "subtitle": "Maßgeschneiderte Energielösungen für kleine und mittlere Unternehmen – mit durchschnittlich 15% Einsparpotenzial."
+      "subtitle": "Maßgeschneiderte Energielösungen für kleine und mittlere Unternehmen – mit durchschnittlich 15% Einsparpotenzial.",
+      "bgImage": "/assets/images/hero-section-bg-kmu.png"
     },
-    "heroImageText": "Modernes Büro mit Mitarbeitern am Arbeitsplatz",
     "painPoints": [
       { "icon": "📈", "title": "Steigende Energiepreise", "description": "Energiekosten sind für KMU ein erheblicher Kostenfaktor, der die Marge drückt." },
       { "icon": "📋", "title": "Komplexe Verträge", "description": "Gewerbetarife sind oft undurchsichtig – Leistungspreis, Arbeitspreis, Netzentgelte." },
@@ -67,9 +67,9 @@
     "hero": {
       "badge": "Für Industrie",
       "title": "Professionelle <span class=\"text-brand-400\">Energiebeschaffung</span> für die Industrie",
-      "subtitle": "Strukturierte Beschaffungsstrategien, börsenorientierte Einkaufsmodelle und individuelle Vertragsgestaltung für Großverbraucher."
+      "subtitle": "Strukturierte Beschaffungsstrategien, börsenorientierte Einkaufsmodelle und individuelle Vertragsgestaltung für Großverbraucher.",
+      "bgImage": "/assets/images/hero-section-bg-industry.png"
     },
-    "heroImageText": "Industrieanlage mit Hochspannungsleitungen bei Sonnenuntergang",
     "painPoints": [
       { "icon": "⚙️", "title": "Komplexe Beschaffung", "description": "Industrielle Energiebeschaffung erfordert Expertise in Tranchenmodellen und Börsenstrategien." },
       { "icon": "📉", "title": "Volatile Märkte", "description": "Schwankende Energiepreise machen die Budgetplanung zur Herausforderung." },
@@ -96,9 +96,9 @@
     "hero": {
       "badge": "Für Immobilienverwalter",
       "title": "Energiekosten Ihrer <span class=\"text-brand-400\">Liegenschaften</span> optimieren",
-      "subtitle": "Ein Ansprechpartner für alle Objekte – wir optimieren Strom & Gas für Ihre gesamte Verwaltung."
+      "subtitle": "Ein Ansprechpartner für alle Objekte – wir optimieren Strom & Gas für Ihre gesamte Verwaltung.",
+      "bgImage": "/assets/images/hero-section-bg-realestate.png"
     },
-    "heroImageText": "Moderne Mehrfamilienhaus-Fassade mit Balkonen",
     "painPoints": [
       { "icon": "🏢", "title": "Viele Objekte, viele Verträge", "description": "Jedes Objekt hat eigene Verträge, Laufzeiten und Versorger – der Überblick geht schnell verloren." },
       { "icon": "📬", "title": "Abrechnungsaufwand", "description": "Die korrekte Umlage der Energiekosten auf Mieter ist zeitaufwendig." },

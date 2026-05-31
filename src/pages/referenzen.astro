@@ -10,7 +10,7 @@ import CtaBanner from '../components/ui/CtaBanner.astro';
 
 import stats from '../data/stats.json';
 
-if (import.meta.env.PUBLIC_ENABLE_REFERENZEN !== 'true') return Astro.redirect('/');
+if (import.meta.env.PUBLIC_DISABLE_REFERENZEN === 'true') return Astro.redirect('/');
 ---
 
 <BaseLayout

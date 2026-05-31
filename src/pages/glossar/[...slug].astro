@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ConsentBanner from '../../components/ConsentBanner.astro';
 import { getCollection } from 'astro:content';
 
-if (import.meta.env.PUBLIC_ENABLE_GLOSSAR !== 'true') return Astro.redirect('/');
+if (import.meta.env.PUBLIC_DISABLE_GLOSSAR === 'true') return Astro.redirect('/');
 
 export async function getStaticPaths() {
   const entries = await getCollection('glossar');

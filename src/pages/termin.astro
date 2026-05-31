@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
-import Hero from '../components/ui/Hero.astro';
 import CalendlySection from '../components/sections/CalendlySection.astro';
 ---
 
@@ -13,15 +12,15 @@ import CalendlySection from '../components/sections/CalendlySection.astro';
 >
   <Header slot="header" />
 
-  <Hero
-    badge="Persönliche Beratung"
-    title="Termin vereinbaren."
-    subtitle="Wählen Sie einen passenden Termin für Ihre persönliche Energieberatung."
-  />
+  <div class="bg-dark-800 border-b border-white/5 py-3 text-center">
+    <div class="container-wide flex flex-col sm:flex-row items-center justify-center gap-2 text-brand-300 text-[0.8rem] sm:text-sm font-medium">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 hidden sm:block"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      <span>Die Terminbuchung, die Beratung und der Tarifvergleich sind <strong class="font-bold text-white">komplett kostenlos</strong> und <strong class="font-bold text-white">ohne weitere Verpflichtungen</strong>.</span>
+    </div>
+  </div>
 
   <CalendlySection />
 
-  <Footer slot="footer" />
+  <Footer slot="footer" isTerminPage={true} />
   <ConsentBanner slot="consent" />
 </BaseLayout>
-

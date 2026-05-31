@@ -6,12 +6,13 @@ import ConsentBanner from '../components/ConsentBanner.astro';
 import Hero from '../components/ui/Hero.astro';
 import EditorialGridSection from '../components/sections/EditorialGridSection.astro';
 import FeatureImageSection from '../components/sections/FeatureImageSection.astro';
+import ProcessTimelineSection from '../components/sections/ProcessTimelineSection.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
 
 import services from '../data/services.json';
 import processSteps from '../data/process-steps.json';
 
-if (import.meta.env.PUBLIC_ENABLE_LEISTUNGEN !== 'true') return Astro.redirect('/');
+if (import.meta.env.PUBLIC_DISABLE_LEISTUNGEN === 'true') return Astro.redirect('/');
 ---
 
 <BaseLayout
@@ -45,8 +46,7 @@ if (import.meta.env.PUBLIC_ENABLE_LEISTUNGEN !== 'true') return Astro.redirect('
     cta={{ href: '/anfrage', text: 'Jetzt beraten lassen' }}
   />
 
-  <EditorialGridSection
-    theme="dark"
+  <ProcessTimelineSection
     label="Unser Prozess"
     title="Transparent und effizient."
     subtitle="So funktioniert die Zusammenarbeit mit Energierichter."

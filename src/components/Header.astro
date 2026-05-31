@@ -1,22 +1,22 @@
 ---
 import zielgruppen from '../data/zielgruppen.json';
 
-const enableBlog = import.meta.env.PUBLIC_ENABLE_BLOG === 'true';
-const enableReferenzen = import.meta.env.PUBLIC_ENABLE_REFERENZEN === 'true';
-const enableZielgruppen = import.meta.env.PUBLIC_ENABLE_ZIELGRUPPEN === 'true';
-const enableLeistungen = import.meta.env.PUBLIC_ENABLE_LEISTUNGEN === 'true';
-const enableTransparenz = import.meta.env.PUBLIC_ENABLE_TRANSPARENZ === 'true';
+const disableBlog = import.meta.env.PUBLIC_DISABLE_BLOG === 'true';
+const disableReferenzen = import.meta.env.PUBLIC_DISABLE_REFERENZEN === 'true';
+const disableZielgruppen = import.meta.env.PUBLIC_DISABLE_ZIELGRUPPEN === 'true';
+const disableLeistungen = import.meta.env.PUBLIC_DISABLE_LEISTUNGEN === 'true';
+const disableTransparenz = import.meta.env.PUBLIC_DISABLE_TRANSPARENZ === 'true';
 
 const navLinks = [
   { label: 'Startseite', href: '/' },
-  enableLeistungen && { label: 'Leistungen', href: '/leistungen' },
-  enableZielgruppen && { label: 'Zielgruppen', href: '#', children: zielgruppen.map((z) => ({
+  !disableLeistungen && { label: 'Leistungen', href: '/leistungen' },
+  !disableZielgruppen && { label: 'Zielgruppen', href: '#', children: zielgruppen.map((z) => ({
     label: z.navLabel,
     href: `/zielgruppen/${z.slug}`,
   }))},
-  enableTransparenz && { label: 'Transparenz', href: '/transparenz' },
-  enableReferenzen && { label: 'Referenzen', href: '/referenzen' },
-  enableBlog && { label: 'Blog', href: '/blog' },
+  !disableTransparenz && { label: 'Transparenz', href: '/transparenz' },
+  !disableReferenzen && { label: 'Referenzen', href: '/referenzen' },
+  !disableBlog && { label: 'Blog', href: '/blog' },
   { label: 'Kontakt', href: '/kontakt' },
 ].filter(Boolean) as { label: string; href: string; children?: { label: string; href: string }[] }[];
 
