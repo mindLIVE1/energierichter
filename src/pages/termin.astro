@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ConsentBanner from '../components/ConsentBanner.astro';
-import Hero from '../components/ui/Hero.astro';
 import CalendlySection from '../components/sections/CalendlySection.astro';
 ---
 
@@ -12,12 +11,6 @@ import CalendlySection from '../components/sections/CalendlySection.astro';
   description="Buchen Sie einen kostenlosen Beratungstermin mit unseren Energieexperten – online oder telefonisch."
 >
   <Header slot="header" />
-
-  <Hero
-    badge="Persönliche Beratung"
-    title="Termin vereinbaren."
-    subtitle="Wählen Sie einen passenden Termin für Ihre persönliche Energieberatung."
-  />
 
   <CalendlySection />
 
