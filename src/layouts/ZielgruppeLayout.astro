@@ -10,7 +10,7 @@ import FaqSection from '../components/sections/FaqSection.astro';
 
 // Reusable landing page layout — each target group page uses this structure
 export interface Props {
-  seo: { title: string; description: string };
+  seo: { title: string; description: string; ogImage?: string };
   hero: { badge: string; title: string; subtitle: string; bgImage?: string; };
   painPoints: { icon: string; title: string; desc: string }[];
   benefits: { icon: string; title: string; desc: string }[];
@@ -20,7 +20,7 @@ export interface Props {
 const { seo, hero, painPoints, benefits, faqs } = Astro.props;
 ---
 
-<BaseLayout title={seo.title} description={seo.description} ogImage={hero.bgImage}>
+<BaseLayout title={seo.title} description={seo.description} ogImage={seo.ogImage}>
   <Header slot="header" />
 
   <Hero
