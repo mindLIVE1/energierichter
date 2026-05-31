@@ -1,4 +1,5 @@
 ---
+import PreFooterCta from './sections/PreFooterCta.astro';
 import zielgruppen from '../data/zielgruppen.json';
 import company from '../data/company.json';
 
@@ -35,59 +36,12 @@ const links = {
     { label: 'Cookie-Richtlinie', href: '/cookie-richtlinie' },
   ],
 };
-
 ---
 
 <!-- Pre-footer CTA -->
-<section class="bg-dark-900 border-y border-brand-400/25 text-white">
-  <div class="container-wide py-20 sm:py-24 text-center">
-    {isTerminPage ? (
-      <Fragment>
-        <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-brand-300">Schnell & Einfach</p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-semibold text-white mb-5 leading-[1.02]">
-          Keinen passenden Termin gefunden?
-        </h2>
-        <p class="text-white/60 mb-10 max-w-xl mx-auto text-sm sm:text-base leading-7">
-          Übermitteln Sie uns Ihre Daten bequem über unser Formular. Wir prüfen Ihren Tarif und melden uns bei Ihnen.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/anfrage"
-             class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 hover:bg-transparent hover:text-brand-300 transition-all duration-200">
-            Zur 2-Minuten-Anfrage
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="/kontakt"
-             class="inline-flex items-center justify-center gap-2 border border-white/20 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/80 hover:border-brand-400/70 hover:text-brand-300 transition-all duration-200">
-            Kontakt aufnehmen
-          </a>
-        </div>
-      </Fragment>
-    ) : (
-      <Fragment>
-        <p class="mb-5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-brand-300">Kostenloser Tarifcheck</p>
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-semibold text-white mb-5 leading-[1.02]">
-          Bereit, Energiekosten zu senken?
-        </h2>
-        <p class="text-white/60 mb-10 max-w-xl mx-auto text-sm sm:text-base leading-7">
-          Unverbindliche Anfrage in 2&nbsp;Minuten – wir finden den besten Tarif für Sie.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/anfrage"
-             class="inline-flex items-center justify-center gap-2 border border-brand-400 bg-brand-400 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-dark-950 hover:bg-transparent hover:text-brand-300 transition-all duration-200">
-            Kostenlos anfragen
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <a href="/termin"
-             class="inline-flex items-center justify-center gap-2 border border-white/20 px-8 py-4 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white/80 hover:border-brand-400/70 hover:text-brand-300 transition-all duration-200">
-            Termin vereinbaren
-          </a>
-        </div>
-      </Fragment>
-    )}
-  </div>
-</section>
+<PreFooterCta isTerminPage={isTerminPage} />
 
-<footer class="relative overflow-hidden bg-[#080b0f] text-gray-300">
+<footer class="relative overflow-hidden bg-[#080b0f] text-gray-300" data-section="Footer">
   <div class="absolute inset-0 opacity-[0.045] pointer-events-none" style="background-image: repeating-linear-gradient(135deg, transparent 0 56px, #f5c542 56px 57px);"></div>
   <div class="container-wide py-12 lg:py-16">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
